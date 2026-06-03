@@ -1,40 +1,17 @@
 """
-סקריפט לאיסוף מחירים מטיב טעם וקשת טעמים — סניף כרמיאל
+scrape.py עם אבחון מובנה — שומר diagnose_output.txt לתוך output/
 """
-
-import os
-import json
-import gzip
+import os, json, gzip, io, ftplib
 import xml.etree.ElementTree as ET
-import ftplib
-import io
-import re
 from datetime import datetime
 
-# ─────────────────────────────────────────
-# הגדרות
-# ─────────────────────────────────────────
-
 CHAINS = {
-    "tivtaam": {
-        "name": "טיב טעם",
-        "ftp_host": "url.retail.publishedprices.co.il",
-        "ftp_user": "TivTaam",
-        "ftp_pass": "",
-        "chain_id": "7290873255550",
-        "store_id": "3152",  # סניף כרמיאל
-    },
-    "keshet": {
-        "name": "קשת טעמים",
-        "ftp_host": "url.retail.publishedprices.co.il",
-        "ftp_user": "Keshet",
-        "ftp_pass": "",
-        "chain_id": "7290785400000",
-        "store_id": "1500",  # סניף כרמיאל
-    },
+    "tivtaam": {"name": "טיב טעם", "ftp_host": "url.retail.publishedprices.co.il",
+                "ftp_user": "TivTaam", "ftp_pass": "", "chain_id": "7290873255550", "store_id": "3152"},
+    "keshet":  {"name": "קשת טעמים", "ftp_host": "url.retail.publishedprices.co.il",
+                "ftp_user": "Keshet", "ftp_pass": "", "chain_id": "7290785400000", "store_id": "1500"},
 }
 
-# קטגוריות שרוצים לשמור (לפי ItemName contains)
 CATEGORIES = {
     "עוף": ["עוף", "פרגית", "שניצל", "כרעיים", "שוקיים", "כנפיים", "כבד עוף", "לב עוף"],
     "הודו": ["הודו"],
@@ -46,188 +23,105 @@ CATEGORIES = {
     "גבינות": ["גבינ", "מוצרלה", "פרמזן", "גאודה", "בולגרית", "ריקוטה"],
 }
 
-OUTPUT_FILE = "output/prices.json"
+LOG = []
+def log(s):
+    LOG.append(str(s))
+    print(s)
 
-# ─────────────────────────────────────────
-# גישה ל-FTP וקריאת קבצי XML
-# ─────────────────────────────────────────
-
-def connect_ftp(chain_config):
-    """מתחבר ל-FTP ומחזיר session"""
-    ftp = ftplib.FTP(chain_config["ftp_host"])
-    ftp.login(chain_config["ftp_user"], chain_config["ftp_pass"])
-    return ftp
-
-def list_price_files(ftp, chain_id):
-    """מחזיר רשימת קבצי PriceFull מה-FTP"""
-    files = []
-    try:
-        ftp.cwd("/")
-        entries = []
-        ftp.dir(entries.append)
-
-        for entry in entries:
-            parts = entry.split()
-            if not parts:
-                continue
-            filename = parts[-1]
-            if "PriceFull" in filename and chain_id in filename:
-                files.append(filename)
-    except Exception as e:
-        print(f"Error listing files: {e}")
-
-    return files
-
-def download_and_parse(ftp, filename):
-    """מוריד קובץ XML גזיפ ומנתח אותו"""
-    buf = io.BytesIO()
-    try:
-        ftp.retrbinary(f"RETR {filename}", buf.write)
-    except Exception as e:
-        print(f"Error downloading {filename}: {e}")
-        return []
-
-    buf.seek(0)
-
-    try:
-        # נסה לפתוח כגזיפ
-        with gzip.open(buf, 'rb') as f:
-            content = f.read()
-    except Exception:
-        buf.seek(0)
-        content = buf.read()
-
-    try:
-        root = ET.fromstring(content)
-    except Exception as e:
-        print(f"XML parse error for {filename}: {e}")
-        return []
-
-    items = []
-    for item in root.iter("Item"):
-        name = (item.findtext("ItemName") or "").strip()
-        price = item.findtext("ItemPrice") or ""
-        unit_price = item.findtext("UnitOfMeasurePrice") or ""
-        unit = item.findtext("UnitOfMeasure") or ""
-        is_weighted = item.findtext("bIsWeighted") or "0"
-        manufacturer = item.findtext("ManufacturerName") or ""
-        item_code = item.findtext("ItemCode") or ""
-        qty = item.findtext("Quantity") or ""
-        store_id = item.findtext("StoreID") or ""
-
-        if name and price:
-            items.append({
-                "name": name,
-                "manufacturer": manufacturer,
-                "item_code": item_code,
-                "price": price,
-                "unit_price": unit_price,
-                "unit": unit,
-                "is_weighted": is_weighted == "1",
-                "qty": qty,
-                "store_id": store_id,
-            })
-
-    return items
-
-# ─────────────────────────────────────────
-# סינון לפי קטגוריות וסניף
-# ─────────────────────────────────────────
-
-def categorize_item(item):
-    """מחזיר קטגוריה למוצר או None"""
-    name = item["name"].lower()
-    for category, keywords in CATEGORIES.items():
-        for kw in keywords:
-            if kw.lower() in name:
-                return category
+def categorize(name):
+    n = name.lower()
+    for cat, kws in CATEGORIES.items():
+        for kw in kws:
+            if kw.lower() in n:
+                return cat
     return None
-
-def filter_items(items, target_store_id=None):
-    """מסנן ומחלק מוצרים לקטגוריות
-    אם target_store_id נתון, יוצר מוצרים רק מהסניף הספציפי
-    """
-    categorized = {cat: [] for cat in CATEGORIES}
-
-    for item in items:
-        # אם צריך סניף ספציפי, בדוק שהמוצר מהסניף הזה
-        if target_store_id and item.get("store_id") != target_store_id:
-            continue
-        
-        cat = categorize_item(item)
-        if cat:
-            categorized[cat].append(item)
-
-    return categorized
-
-# ─────────────────────────────────────────
-# הרצה ראשית
-# ─────────────────────────────────────────
-
-def scrape_chain(chain_key, chain_config):
-    """גורד רשת אחת ומחזיר מוצרים מסווגים"""
-    print(f"\n{'='*60}")
-    print(f"Scraping {chain_config['name']} — סניף {chain_config.get('store_id', 'לא מוגדר')}")
-
-    try:
-        ftp = connect_ftp(chain_config)
-        print(f"✓ Connected to FTP")
-    except Exception as e:
-        print(f"✗ FTP connection failed: {e}")
-        return {}
-
-    files = list_price_files(ftp, chain_config["chain_id"])
-    print(f"✓ Found {len(files)} PriceFull files")
-
-    if not files:
-        ftp.quit()
-        return {}
-
-    # קח את הקובץ הראשון (או היחיד בדרך כלל)
-    filename = files[0]
-    print(f"✓ Downloading: {filename}")
-
-    items = download_and_parse(ftp, filename)
-    ftp.quit()
-
-    print(f"✓ Parsed {len(items)} total items")
-
-    # סנן לפי סניף כרמיאל
-    target_store = chain_config.get("store_id")
-    categorized = filter_items(items, target_store_id=target_store)
-    total = sum(len(v) for v in categorized.values())
-    print(f"✓ Categorized {total} items from store {target_store}")
-
-    return categorized
 
 def main():
     os.makedirs("output", exist_ok=True)
+    result = {"updated": datetime.now().strftime("%d.%m.%Y %H:%M"),
+              "note": "נתונים מסניף כרמיאל בלבד",
+              "stores": {"tivtaam": "3152", "keshet": "1500"}, "chains": {}}
 
-    result = {
-        "updated": datetime.now().strftime("%d.%m.%Y %H:%M"),
-        "note": "נתונים מסניף כרמיאל בלבד",
-        "stores": {
-            "tivtaam": "3152",
-            "keshet": "1500",
-        },
-        "chains": {}
-    }
+    for key, cfg in CHAINS.items():
+        log(f"\n{'='*60}\n{cfg['name']} ({cfg['ftp_user']}) target store={cfg['store_id']}")
+        categorized = {c: [] for c in CATEGORIES}
+        try:
+            ftp = ftplib.FTP(cfg["ftp_host"]); ftp.login(cfg["ftp_user"], cfg["ftp_pass"])
+        except Exception as e:
+            log(f"  FTP login failed: {e}")
+            result["chains"][key] = {"name": cfg["name"], "store_id": cfg["store_id"], "categories": categorized}
+            continue
 
-    for chain_key, chain_config in CHAINS.items():
-        categorized = scrape_chain(chain_key, chain_config)
-        result["chains"][chain_key] = {
-            "name": chain_config["name"],
-            "store_id": chain_config.get("store_id"),
-            "categories": categorized
-        }
+        ftp.cwd("/"); entries = []; ftp.dir(entries.append)
+        pf = [e.split()[-1] for e in entries if "PriceFull" in e.split()[-1] and cfg["chain_id"] in e.split()[-1]]
+        log(f"  PriceFull files: {len(pf)}")
+        for f in pf[:6]:
+            log(f"    {f}")
+        if not pf:
+            ftp.quit()
+            result["chains"][key] = {"name": cfg["name"], "store_id": cfg["store_id"], "categories": categorized}
+            continue
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        # מצא קובץ ששמו מכיל את מספר הסניף, אחרת קח ראשון
+        target = None
+        for f in pf:
+            if cfg["store_id"] in f:
+                target = f; break
+        if not target:
+            target = pf[0]
+            log(f"  ⚠ no file matched store {cfg['store_id']} in filename, using first")
+        log(f"  Using file: {target}")
+
+        buf = io.BytesIO(); ftp.retrbinary(f"RETR {target}", buf.write); ftp.quit(); buf.seek(0)
+        try:
+            content = gzip.open(buf, 'rb').read()
+        except Exception:
+            buf.seek(0); content = buf.read()
+        root = ET.fromstring(content)
+
+        # אבחון מבנה
+        log(f"  Root tag: {root.tag}")
+        root_store = None
+        for ch in list(root):
+            t = (ch.text or "").strip()
+            if ch.tag in ("StoreId","StoreID","Store_Id") and t:
+                root_store = t
+                log(f"    root <{ch.tag}> = {t}")
+        first = root.find(".//Item")
+        if first is not None:
+            log(f"  First Item fields: {[c.tag for c in first]}")
+
+        items = root.findall(".//Item")
+        log(f"  Total items in file: {len(items)}")
+
+        # קטלג הכל (הקובץ כבר של סניף בודד, אין צורך לסנן לפי store id בתוך item)
+        cnt = 0
+        for item in items:
+            name = (item.findtext("ItemName") or "").strip()
+            price = item.findtext("ItemPrice") or ""
+            if not (name and price):
+                continue
+            cat = categorize(name)
+            if cat:
+                categorized[cat].append({
+                    "name": name,
+                    "manufacturer": item.findtext("ManufacturerName") or "",
+                    "item_code": item.findtext("ItemCode") or "",
+                    "price": price,
+                    "unit_price": item.findtext("UnitOfMeasurePrice") or "",
+                    "unit": item.findtext("UnitOfMeasure") or "",
+                    "is_weighted": (item.findtext("bIsWeighted") or "0") == "1",
+                    "qty": item.findtext("Quantity") or "",
+                })
+                cnt += 1
+        log(f"  Categorized: {cnt}")
+        result["chains"][key] = {"name": cfg["name"], "store_id": root_store or cfg["store_id"], "categories": categorized}
+
+    with open("output/prices.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-
-    print(f"\n✅ Saved to {OUTPUT_FILE}")
-    print(f"   עודכן: {result['updated']}")
-    print(f"   טיב טעם סניף {result['stores']['tivtaam']}")
-    print(f"   קשת סניף {result['stores']['keshet']}")
+    with open("output/diagnose_output.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(LOG))
+    log("\n✅ Saved output/prices.json + diagnose_output.txt")
 
 if __name__ == "__main__":
     main()
