@@ -1,12 +1,19 @@
 {
-  "updated": "03.06.2026 19:22",
+  "updated": "03.06.2026 20:19",
+  "note": "נתונים מסניף כרמיאל בלבד",
+  "stores": {
+    "tivtaam": "3152",
+    "keshet": "1500"
+  },
   "chains": {
     "tivtaam": {
       "name": "טיב טעם",
+      "store_id": "3152",
       "categories": {}
     },
     "keshet": {
       "name": "קשת טעמים",
+      "store_id": "1500",
       "categories": {}
     }
   }
