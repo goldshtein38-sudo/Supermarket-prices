@@ -1,0 +1,51 @@
+
+============================================================
+טיב טעם (TivTaam)
+  FTP connected
+  ERROR: timed out
+Traceback (most recent call last):
+  File "/home/runner/work/Supermarket-prices/Supermarket-prices/scrapers/scrape.py", line 54, in process_chain
+    ftp.cwd("/"); entries = []; ftp.dir(entries.append)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 569, in dir
+    self.retrlines(cmd, func)
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 462, in retrlines
+    with self.transfercmd(cmd) as conn, \
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 393, in transfercmd
+    return self.ntransfercmd(cmd, rest)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 354, in ntransfercmd
+    conn = socket.create_connection((host, port), self.timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/socket.py", line 863, in create_connection
+    raise exceptions[0]
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/socket.py", line 848, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+
+============================================================
+קשת טעמים (Keshet)
+  FTP connected
+  ERROR: timed out
+Traceback (most recent call last):
+  File "/home/runner/work/Supermarket-prices/Supermarket-prices/scrapers/scrape.py", line 54, in process_chain
+    ftp.cwd("/"); entries = []; ftp.dir(entries.append)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 569, in dir
+    self.retrlines(cmd, func)
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 462, in retrlines
+    with self.transfercmd(cmd) as conn, \
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 393, in transfercmd
+    return self.ntransfercmd(cmd, rest)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/ftplib.py", line 354, in ntransfercmd
+    conn = socket.create_connection((host, port), self.timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/socket.py", line 863, in create_connection
+    raise exceptions[0]
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/socket.py", line 848, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
