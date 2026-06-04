@@ -1,78 +1,174 @@
-"""אבחון: מוצרי בשר לבן + מוצרים שקילים שלא סווגו כלל"""
-import os, gzip, re
+"""
+scrape.py — סניף כרמיאל (טיב 010, קשת 015), קטגוריזציה מדויקת
+גישה: HTTPS portal. סינון לפי whitelist מוקפד + blacklist רעש.
+"""
+import os, json, gzip, re, traceback
 import requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
-BASE="https://url.publishedprices.co.il"
-def ftok(h):
-    m=re.search(r'name=["\']csrftoken["\']\s+value=["\']([^"\']+)',h,re.I)
-    return m.group(1) if m else None
-def login(s,u):
-    r=s.get(f"{BASE}/login",timeout=30);t=ftok(r.text)
-    pl={"username":u,"password":"","Submit":"Sign in"}
-    if t: pl["csrftoken"]=t
-    s.post(f"{BASE}/login/user",data=pl,timeout=30,headers={"Referer":f"{BASE}/login"})
-    return ftok(s.get(f"{BASE}/file",timeout=30).text) or t
-def lst(s,t):
-    d={"sEcho":"1","iColumns":"5","sColumns":",,,,","iDisplayLength":"100000","mDataProp_0":"fname","cd":"/"}
-    if t: d["csrftoken"]=t
-    r=s.post(f"{BASE}/file/json/dir",timeout=60,data=d,headers={"Referer":f"{BASE}/file","X-CSRFToken":t or "","X-Requested-With":"XMLHttpRequest"})
-    return [x.get("fname","") for x in r.json().get("aaData",[])]
-
-# whitelist הנוכחי
-CATEGORIES = {
-    "עוף":["עוף טרי","עוף שלם","חזה עוף","שוקיים","ירכיים","כרעיים","כנפיים עוף","כנף עוף","פרגית","שניצל עוף","טחון עוף","כבד עוף טרי","לבבות עוף","גב עוף","שווארמה עוף","נתחי עוף"],
-    "הודו":["הודו טרי","חזה הודו","שניצל הודו","טחון הודו","שוקי הודו","כנפי הודו","נקניק הודו","שווארמה הודו"],
-    "בקר":["בקר טרי","אנטריקוט","אסאדו","צלעות בקר","סטייק","שייטל","פילה בקר","סינטה","אונטריב","טחון בקר","בשר טחון","צלי בקר","כתף בקר","חזה בקר","לשון בקר","אוסבוקו","פילה מדומה","שריר בקר","ריב איי"],
-    "בשר לבן":["נתח חזיר","חזיר טרי","פילה חזיר","צוואר חזיר","שניצל חזיר","קוטלט"],
-    "פסטרמות":["פסטרמה","פסטירמה","קורנביף","רוסטביף","בייקון","שינקן","שינקה","קסטיצה","קוסטיצה","בריסקט"],
-    "נקניקים":["נקניק","סלמי","קבנוס","מורטדלה","סרוולד","אודסקיה","פפרוני","צ'וריזו","פריזר","דבריצ'ין","פלמידה"],
-    "נקניקיות":["נקניקיות","נקניקיית","וינר","פרנקפורטר","הוט דוג","מרגז"],
-    "גבינות":["גבינה","גבינת","קממבר","קממברט","מוצרלה","פרמזן","גאודה","בולגרית","ריקוטה","ברי ","רוקפור","צ'דר","אמנטל","פטה","חלומי","מסקרפונה","טבורוג","קוטג","שמנת לבישול","גבינו"],
+BASE = "https://url.publishedprices.co.il"
+CHAINS = {
+    "tivtaam": {"name":"טיב טעם","user":"TivTaam","password":"","chain_id":"7290873255550","store":"010"},
+    "keshet":  {"name":"קשת טעמים","user":"Keshet","password":"","chain_id":"7290785400000","store":"015"},
 }
-BLACKLIST=["לכלב","לחתול","לגור","חתול","כלב","מזון יבש","מזון לח","פריסקיז","פנסי","פיין קט","סימבה","פרמיו","נייטיב","ציפס","שבבי","חטיף","מרק","אטריות","ראמן","נודלס","אבקת","ציר ","קוביות ציר","תבלין","תיבול","רוטב","קטשופ","מיונז","ממרח","פסטה ","אורז ","קמח","שמן","חומץ","לזניה","תבשיל","קציצות","לביבות","סלט","תסלט","פיצה","בורקס","פאי","מאפה","קפוא","להכנה","מוכן","משקה","סוכר","דבש","ריבה","שוקולד","ופל","עוגי","עוגה","גלידה","יוגורט","מעדן"]
 
-def cat_of(name):
-    low=name.lower()
+# blacklist - אם מופיע, המוצר נפסל לחלוטין (מזון לחיות, חטיפים, תבלינים, מרקים, אוכל מוכן ארוז)
+BLACKLIST = [
+    "לכלב","לחתול","לגור","לגורים","חתול","כלב","גורי","מזון יבש","מזון לח","פריסקיז","פנסי","פיין קט",
+    "סימבה","פרמיו","נייטיב","דוג","קט ","ציפס","צ'יפס","שבבי","חטיף","קליק","במבה","ביסלי",
+    "מרק","אטריות","ראמן","נודלס","אבקת","ציר ","קוביות ציר","תבלין","תיבול","תערובת תיבול",
+    "רוטב","קטשופ","מיונז","ממרח","ממורח","פסטה ","אורז ","קמח","שמן","חומץ",
+    "לזניה","תבשיל","קציצות","לביבות","סלט","תסלט","פיצה","בורקס","פאי","מאפה","סנדוויץ",
+    "קפוא","קפואה","להכנה","מוכן","משקה","תה ","קפה","סוכר","דבש","ריבה","שוקולד","ופל","עוגי","עוגה",
+    "גלידה","שלגון","יוגורט","מעדן","פודינג","שמנת חמוצה","חלב ","משקאות",
+]
+
+# קטגוריות - whitelist הדוק. המוצר חייב להכיל לפחות מילה אחת
+CATEGORIES = {
+    "עוף":      ["עוף טרי","עוף שלם","חזה עוף","שוקיים","ירכיים","כרעיים","כנפיים עוף","כנף עוף",
+                 "פרגית","שניצל עוף","טחון עוף","כבד עוף טרי","לבבות עוף","גב עוף","שווארמה עוף","נתחי עוף"],
+    "הודו":     ["הודו טרי","חזה הודו","שניצל הודו","טחון הודו","שוקי הודו","כנפי הודו","נקניק הודו","שווארמה הודו"],
+    "בקר":      ["בקר טרי","אנטריקוט","אסאדו","צלעות בקר","סטייק","שייטל","פילה בקר","סינטה","אונטריב",
+                 "טחון בקר","בשר טחון","צלי בקר","כתף בקר","חזה בקר","לשון בקר","אוסבוקו","פילה מדומה","שריר בקר","ריב איי"],
+    "בשר לבן":  ["נתח חזיר","חזיר טרי","פילה חזיר","צוואר חזיר","שניצל חזיר","קוטלט"],
+    "פסטרמות":  ["פסטרמה","פסטירמה","קורנביף","רוסטביף","בייקון","שינקן","שינקה","קסטיצה","קוסטיצה","בריסקט"],
+    "נקניקים":  ["נקניק","סלמי","קבנוס","מורטדלה","סרוולד","אודסקיה","פפרוני","צ'וריזו","פריזר","דבריצ'ין","פלמידה"],
+    "נקניקיות": ["נקניקיות","נקניקיית","וינר","פרנקפורטר","הוט דוג","מרגז"],
+    "גבינות":   ["גבינה","גבינת","קממבר","קממברט","מוצרלה","פרמזן","גאודה","בולגרית","ריקוטה","ברי ","רוקפור",
+                 "צ'דר","אמנטל","פטה","חלומי","מסקרפונה","טבורוג","קוטג","שמנת לבישול","גבינו"],
+}
+LOG=[]
+DIAG=[]
+def log(s): LOG.append(str(s)); print(s)
+
+def categorize(name):
+    n = name.strip()
+    low = n.lower()
+    # פסילה
     for b in BLACKLIST:
-        if b in low: return "BLACKLIST"
-    for c,kws in CATEGORIES.items():
+        if b in low:
+            return None
+    # שיוך - בדיקה לפי סדר הקטגוריות
+    for cat, kws in CATEGORIES.items():
         for kw in kws:
-            if kw in name: return c
+            if kw in n:
+                return cat
     return None
 
-OUT=[]
-for user,chain,store in [("TivTaam","7290873255550","010"),("Keshet","7290785400000","015")]:
-    s=requests.Session();s.verify=False;s.headers.update({"User-Agent":"Mozilla/5.0"})
-    t=login(s,user)
-    files=lst(s,t)
-    tgt=sorted([f for f in files if "PriceFull" in f and chain in f and any(seg==store for seg in f.replace(".gz","").split("-")[1:])])[-1]
-    raw=s.get(f"{BASE}/file/d/{tgt}",timeout=120).content
-    root=ET.fromstring(gzip.decompress(raw))
-    s.close()
-    OUT.append(f"\n{'='*55}\n{user} (סניף {store})")
+def find_token(html):
+    for p in [r'name=["\']csrftoken["\']\s+value=["\']([^"\']+)',
+              r'<meta\s+name=["\']csrftoken["\']\s+content=["\']([^"\']+)']:
+        m=re.search(p,html,re.I)
+        if m: return m.group(1)
+    return None
 
-    white=[]; unclassified=[]
-    for it in root.findall(".//Item"):
-        if (it.findtext("bIsWeighted") or "0")!="1": continue
-        nm=(it.findtext("ItemName") or "").strip()
-        if not nm: continue
-        c=cat_of(nm)
-        if c=="בשר לבן": white.append(nm)
-        elif c is None: unclassified.append(nm)
+def login(s,u,p):
+    r=s.get(f"{BASE}/login",timeout=30); t=find_token(r.text)
+    pl={"username":u,"password":p,"Submit":"Sign in"}
+    if t: pl["csrftoken"]=t
+    s.post(f"{BASE}/login/user",data=pl,timeout=30,headers={"Referer":f"{BASE}/login"})
+    chk=s.get(f"{BASE}/file",timeout=30); return find_token(chk.text) or t
 
-    OUT.append(f"\n[בשר לבן - מסווג כרגע: {len(white)}]")
-    for n in sorted(set(white)): OUT.append(f"  ✓ {n}")
+def list_files(s,t):
+    d={"sEcho":"1","iColumns":"5","sColumns":",,,,","iDisplayStart":"0","iDisplayLength":"100000","mDataProp_0":"fname","sSearch":"","cd":"/"}
+    if t: d["csrftoken"]=t
+    r=s.post(f"{BASE}/file/json/dir",timeout=60,data=d,headers={"Referer":f"{BASE}/file","X-CSRFToken":t or "","X-Requested-With":"XMLHttpRequest"})
+    return [row.get("fname","") for row in r.json().get("aaData",[])]
 
-    # חפש שקילים לא מסווגים שאולי הם בשר לבן/חזיר
-    pork_hints=["חזיר","קסלר","פטיט","אמסטר","שפונדרה","פרושוטו","פנצ'טה","וירשט","פורק","חזה חזיר","קותלי","קרעקוב","סלו","שפק","בקון"]
-    OUT.append(f"\n[שקילים לא-מסווגים עם רמז לבשר לבן/חזיר: ]")
-    hits=[n for n in set(unclassified) if any(h in n for h in pork_hints)]
-    for n in sorted(hits): OUT.append(f"  ? {n}")
-    OUT.append(f"  (מתוך {len(set(unclassified))} שקילים לא-מסווגים בסך הכל)")
+def pick(files,chain,store):
+    c=[f for f in files if "PriceFull" in f and chain in f and any(seg==store or seg.lstrip("0")==store.lstrip("0") for seg in f.replace(".gz","").split("-")[1:])]
+    return sorted(c)[-1] if c else None
 
-import os
-os.makedirs("output",exist_ok=True)
-open("output/diagnose_output.txt","w",encoding="utf-8").write("\n".join(OUT))
-print("done")
+def process_chain(key,cfg):
+    categorized={c:[] for c in CATEGORIES}
+    store_label=cfg["store"]
+    log(f"\n{'='*60}\n{cfg['name']} store={cfg['store']}")
+    s=requests.Session(); s.verify=False; s.headers.update({"User-Agent":"Mozilla/5.0"})
+    try:
+        t=login(s,cfg["user"],cfg["password"])
+        files=list_files(s,t)
+        tgt=pick(files,cfg["chain_id"],cfg["store"])
+        if not tgt:
+            log("  no file"); return categorized,store_label
+        log(f"  Using: {tgt}")
+        raw=s.get(f"{BASE}/file/d/{tgt}",timeout=120).content
+        try: content=gzip.decompress(raw)
+        except: content=raw
+        try: root=ET.fromstring(content)
+        except: root=ET.fromstring(content.decode("utf-8-sig",errors="ignore"))
+        sid=root.find(".//StoreID")
+        if sid is not None and (sid.text or "").strip(): store_label=sid.text.strip()
+        items=root.findall(".//Item")
+        cnt=0
+        for it in items:
+            name=(it.findtext("ItemName") or "").strip()
+            price=it.findtext("ItemPrice") or ""
+            status=it.findtext("ItemStatus") or "1"
+            if not (name and price) or status=="0": continue
+            try:
+                if float(price)<=0: continue
+            except: continue
+            # רק מוצרים שקילים = מעדנייה/קצבייה (לא ארוז/מקפיא)
+            is_weighted = (it.findtext("bIsWeighted") or "0") == "1"
+            if not is_weighted:
+                continue
+            cat=categorize(name)
+            if cat:
+                categorized[cat].append({
+                    "name":name,
+                    "manufacturer":it.findtext("ManufactureName") or "",
+                    "item_code":it.findtext("ItemCode") or "",
+                    "price":price,
+                    "unit_price":it.findtext("UnitOfMeasurePrice") or "",
+                    "unit":it.findtext("UnitOfMeasure") or it.findtext("UnitQty") or "",
+                    "is_weighted": True,
+                    "qty":it.findtext("Quantity") or "",
+                })
+                cnt+=1
+        log(f"  Total: {len(items)} | Categorized: {cnt}")
+        # --- אבחון בשר לבן ---
+        try:
+            pork_hints=["חזיר","קסלר","פטיט","אמסטר","שפונדרה","פרושוטו","פנצ'טה","וירשט","פורק","קותלי","קרעקוב","סלו","שפק","בקון","קרקוב"]
+            DIAG.append(f"\n=== {cfg['name']} ===")
+            white=[]; pork_unclass=[]
+            for it2 in items:
+                if (it2.findtext("bIsWeighted") or "0")!="1": continue
+                nm2=(it2.findtext("ItemName") or "").strip()
+                if not nm2: continue
+                c2=categorize(nm2)
+                if c2=="בשר לבן": white.append(nm2)
+                elif c2 is None and any(h in nm2 for h in pork_hints):
+                    pork_unclass.append(nm2)
+            DIAG.append(f"[מסווג כבשר לבן: {len(set(white))}]")
+            for n in sorted(set(white)): DIAG.append(f"  V {n}")
+            DIAG.append(f"[שקילים לא-מסווגים עם רמז חזיר: {len(set(pork_unclass))}]")
+            for n in sorted(set(pork_unclass)): DIAG.append(f"  ? {n}")
+        except Exception as ed:
+            DIAG.append(f"diag err: {ed}")
+
+        for c,lst in categorized.items():
+            if lst: log(f"      {c}: {len(lst)}")
+    except Exception as e:
+        log(f"  ERROR: {e}\n{traceback.format_exc()}")
+    finally:
+        s.close()
+    return categorized,store_label
+
+def main():
+    os.makedirs("output",exist_ok=True)
+    result={"updated":datetime.now().strftime("%d.%m.%Y %H:%M"),"note":"נתונים מסניף כרמיאל",
+            "stores":{"tivtaam":"010","keshet":"015"},"chains":{}}
+    try:
+        for key,cfg in CHAINS.items():
+            cats,store=process_chain(key,cfg)
+            result["chains"][key]={"name":cfg["name"],"store_id":store,"categories":cats}
+    finally:
+        with open("output/prices.json","w",encoding="utf-8") as f:
+            json.dump(result,f,ensure_ascii=False,indent=2)
+        with open("output/diagnose_output.txt","w",encoding="utf-8") as f:
+            f.write("\n".join(LOG)+"\n\n"+"\n".join(DIAG))
+        print("✅ done")
+
+if __name__=="__main__": main()
