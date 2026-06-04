@@ -1,11 +1,26 @@
-בדיקת רוסמן בפורטל:
 
-  Rosman               -> login url: login?r=%2Ffile  ✗
-  rosman               -> login url: login?r=%2Ffile  ✗
-  RosmanMarket         -> login url: login?r=%2Ffile  ✗
-  Rosman-Market        -> login url: login?r=%2Ffile  ✗
-  RosmanMarketing      -> login url: login?r=%2Ffile  ✗
-  maadaney-rosman      -> login url: login?r=%2Ffile  ✗
-  MaadaneyRosman       -> login url: login?r=%2Ffile  ✗
-  rosman-market        -> login url: login?r=%2Ffile  ✗
-  RosmanLogistics      -> login url: login?r=%2Ffile  ✗
+============================================================
+טיב טעם store=010
+  Using: PriceFull7290873255550-000-010-20260604-004004.gz
+  Total: 10517 | Categorized: 773
+      עוף: 24
+      הודו: 11
+      בקר: 43
+      בשר לבן: 2
+      פסטרמות: 59
+      נקניקים: 167
+      נקניקיות: 1
+      גבינות: 466
+
+============================================================
+קשת טעמים store=015
+  Using: PriceFull7290785400000-015-202606040010.gz
+  Total: 12691 | Categorized: 1096
+      עוף: 29
+      הודו: 13
+      בקר: 69
+      בשר לבן: 5
+      פסטרמות: 72
+      נקניקים: 234
+      נקניקיות: 3
+      גבינות: 671
