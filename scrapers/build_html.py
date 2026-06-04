@@ -16,29 +16,74 @@ def load_data():
     with open("output/prices.json", encoding="utf-8") as f:
         return json.load(f)
 
-def format_price(item):
-    """מחזיר מחיר מפורמט"""
-    if item.get("is_weighted") and item.get("unit_price"):
-        return float(item['unit_price'])
-    elif item.get("price"):
-        return float(item["price"])
+def _to_float(v):
+    try:
+        return float(v)
+    except (ValueError, TypeError):
+        return None
+
+def _unit_kind(item):
+    """מזהה את בסיס היחידה: 'kg' למוצרי משקל, 'l' לנוזלים, None אחרת"""
+    unit = (item.get("unit") or "").lower()
+    if "ק" in unit and "ג" in unit:   # קילוגרם / ק"ג
+        return "kg"
+    if "100" in unit and "גר" in unit:  # 100 גרם
+        return "100g"
+    if "גרם" in unit or "גר" in unit:
+        return "g"
+    if "ליטר" in unit or 'ל"ל' in unit or "מ\"ל" in unit or "מל" in unit:
+        return "l"
     return None
 
+def price_per_kg(item):
+    """
+    מחזיר מחיר מנורמל לק"ג (או None אם אי אפשר לחשב הוגן).
+    - מוצר שקיל: unit_price כבר ₪/ק"ג ברוב המקרים.
+    - מוצר ארוז: price / (qty בק"ג).
+    מחזיר (value, basis) כאשר basis הוא 'kg' או None.
+    """
+    price = _to_float(item.get("price"))
+    up = _to_float(item.get("unit_price"))
+    qty = _to_float(item.get("qty"))
+    kind = _unit_kind(item)
+
+    # מוצר שקיל - unit_price הוא המחיר ליחידת המידה
+    if item.get("is_weighted") and up and up > 0:
+        if kind == "kg":
+            return (up, "kg")
+        if kind == "100g":
+            return (up * 10, "kg")     # ₪/100גרם -> ₪/ק"ג
+        # ברירת מחדל לשקיל: ההנחה היא ק"ג
+        return (up, "kg")
+
+    # מוצר ארוז - חשב מהמחיר והכמות
+    if price and price > 0 and qty and qty > 0:
+        if kind in ("g", "100g"):      # qty בגרמים
+            return (price / qty * 1000, "kg")
+        if kind == "kg":               # qty בק"ג
+            return (price / qty, "kg")
+        if kind == "l":                # qty בליטר -> נשווה ל"ליטר" בנפרד
+            return (price / qty, "l")
+    # אם יש unit_price ארוז (מחושב ל-100 גרם בד"כ)
+    if up and up > 0 and kind == "100g":
+        return (up * 10, "kg")
+    return (None, None)
+
 def format_price_display(item):
-    """מחזיר מחיר מפורמט לתצוגה"""
-    try:
-        if item.get("is_weighted") and item.get("unit_price"):
-            up = float(item["unit_price"])
-            return f"₪{up:.2f}/100 גרם"
-        elif item.get("price"):
-            price = float(item["price"])
-            unit = item.get("unit", "") or ""
-            if "ק" in unit and "ג" in unit:
-                return f"₪{price:.2f}/ק\"ג"
-            return f"₪{price:.2f}"
-    except (ValueError, TypeError):
-        pass
-    return "—"
+    """תצוגת מחיר: מחיר מנורמל לק"ג + המחיר המקורי לאריזה"""
+    pk, basis = price_per_kg(item)
+    price = _to_float(item.get("price"))
+    parts = []
+    if pk and basis == "kg":
+        parts.append(f"₪{pk:.1f}/ק\"ג")
+    elif pk and basis == "l":
+        parts.append(f"₪{pk:.1f}/ליטר")
+    # מחיר אריזה מקורי (אם שונה ממחיר לק"ג ולא שקיל)
+    if price and not item.get("is_weighted"):
+        parts.append(f"<small style='color:#888'>(₪{price:.2f} לאריזה)</small>")
+    elif price and item.get("is_weighted") and not pk:
+        parts.append(f"₪{price:.2f}")
+    return " ".join(parts) if parts else "—"
 
 import re as _re
 
@@ -109,20 +154,19 @@ def fuzzy_match(tiv_items, kes_items, threshold=0.5):
         "unmatched_kes": unmatched_kes,
     }
 
-def compare_prices(tiv_price, kes_price):
+def compare_prices(tiv_item, kes_item):
     """
-    מחזיר: (cheaper_chain, price_diff_percent, tiv_price, kes_price)
-    cheaper_chain: 'tiv' / 'kes' / None (אם אחד מהם ללא מחיר)
+    משווה על בסיס מחיר מנורמל לק"ג (או ליטר).
+    מחזיר: (cheaper, diff_percent, tiv_pk, kes_pk, comparable)
+    comparable=False כשאי אפשר להשוות הוגן (בסיס שונה / חסר נתון).
     """
-    if tiv_price is None or kes_price is None:
-        return (None, None, tiv_price, kes_price)
-    
-    diff_percent = abs(tiv_price - kes_price) / max(tiv_price, kes_price) * 100
-    
-    if tiv_price < kes_price:
-        return ("tiv", diff_percent, tiv_price, kes_price)
-    else:
-        return ("kes", diff_percent, tiv_price, kes_price)
+    tpk, tb = price_per_kg(tiv_item)
+    kpk, kb = price_per_kg(kes_item)
+    if tpk is None or kpk is None or tb != kb:
+        return (None, None, tpk, kpk, False)
+    diff = abs(tpk - kpk) / max(tpk, kpk) * 100
+    cheaper = "tiv" if tpk < kpk else "kes"
+    return (cheaper, diff, tpk, kpk, True)
 
 def _brand(item):
     m = (item.get("manufacturer") or "").strip()
@@ -144,41 +188,39 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
     # 1. מוצרים תואמים (ממוינים לפי הפרש מחיר)
     matched_with_diff = []
     for tiv, kes in matched:
-        tiv_price = format_price(tiv)
-        kes_price = format_price(kes)
-        cheaper, diff, tp, kp = compare_prices(tiv_price, kes_price)
+        cheaper, diff, tp, kp, comparable = compare_prices(tiv, kes)
         matched_with_diff.append({
-            "tiv": tiv,
-            "kes": kes,
-            "cheaper": cheaper,
-            "diff": diff,
-            "tiv_price": tp,
-            "kes_price": kp,
+            "tiv": tiv, "kes": kes, "cheaper": cheaper,
+            "diff": diff, "comparable": comparable,
         })
-    
-    # מיין לפי הפרש (הגדול ביותר ראשון)
-    matched_with_diff.sort(key=lambda x: x["diff"] if x["diff"] else 0, reverse=True)
-    
+
+    # מיין: קודם ברי-השוואה לפי הפרש גדול, אחר כך הלא-ברי-השוואה
+    matched_with_diff.sort(key=lambda x: (x["comparable"], x["diff"] or 0), reverse=True)
+
     for pair in matched_with_diff:
         tiv, kes = pair["tiv"], pair["kes"]
         cheaper = pair["cheaper"]
         diff = pair["diff"]
-        
+        comparable = pair["comparable"]
+
         tiv_display = format_price_display(tiv)
         kes_display = format_price_display(kes)
-        
-        # סגנון הדגשה לפי מי הזול יותר
-        if cheaper == "tiv":
+
+        # הדגשה רק כשההשוואה הוגנת
+        if comparable and cheaper == "tiv":
             tiv_style = 'style="background: #d5f0e3; font-weight: 700;"'
             kes_style = ''
-        elif cheaper == "kes":
+        elif comparable and cheaper == "kes":
             kes_style = 'style="background: #dbeafe; font-weight: 700;"'
             tiv_style = ''
         else:
             tiv_style = kes_style = ''
-        
-        diff_text = f"<small style='color: #888;'>({diff:.1f}%)</small>" if diff else ""
-        
+
+        if comparable and diff is not None:
+            diff_text = f"<small style='color:#1a6b3c;font-weight:700'>({diff:.0f}% הפרש)</small>"
+        else:
+            diff_text = "<small style='color:#999'>(בסיס שונה — אין השוואה)</small>"
+
         rows += f"""
 <tr class="matched-row">
     <td class="col-name">
