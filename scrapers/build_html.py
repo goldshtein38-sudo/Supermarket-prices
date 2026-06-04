@@ -197,27 +197,59 @@ def core_words_match(a, b):
         return False
     return True
 
-def fuzzy_match(tiv_items, kes_items, threshold=0.5):
+# התאמות ידניות שקבע המשתמש - גוברות על האלגוריתם. (שם בטיב, שם בקשת)
+MANUAL_MATCHES = {
+    "הודו": [
+        ("חזה הודו מעושן במשקל", "חזה הודו מעושן"),
+        ("שווארמה הודו נקבה טרי", "שווארמה הודו"),
+        ("חזה הודו נקבה טרי", "חזה הודו"),
+        ("גרון הודו נקבה", "גרון הודו"),
+        ("כנף הודו נקבה טרי", "כנפיים הודו"),
+        ("נתחי חזה הודו טרי", "נתחי חזה הודו"),
+        ("שוק הודו זכר טרי", "שוק הודו טרי"),
+        ("ירך הודו זכר", "ירך הודו טרי"),
+        ("זנב הודו טרי", "זנבות הודו"),
+    ],
+}
+
+def fuzzy_match(tiv_items, kes_items, threshold=0.5, cat=None):
     """
-    יוצר זוגות של מוצרים דומים בין שתי רשתות.
-    מתאים רק מוצרים עם אותם מאפייני עיבוד (טרי/מעושן/מטוגן/פרוס/שלם וכו').
+    יוצר זוגות. קודם משבץ התאמות ידניות (אם הוגדרו לקטגוריה), אחר כך אלגוריתם קפדני.
     """
     matched_pairs = []
     used_kes_indices = set()
+    used_tiv_ids = set()
     unmatched_tiv = []
 
-    for tiv in tiv_items:
+    # שלב 0: התאמות ידניות גוברות
+    manual = MANUAL_MATCHES.get(cat, [])
+    if manual:
+        tiv_by_name = {}
+        for i, t in enumerate(tiv_items):
+            tiv_by_name.setdefault(t["name"], i)
+        kes_by_name = {}
+        for i, k in enumerate(kes_items):
+            kes_by_name.setdefault(k["name"], i)
+        for tn, kn in manual:
+            ti = tiv_by_name.get(tn)
+            ki = kes_by_name.get(kn)
+            if ti is not None and ki is not None and ti not in used_tiv_ids and ki not in used_kes_indices:
+                matched_pairs.append((tiv_items[ti], kes_items[ki]))
+                used_tiv_ids.add(ti)
+                used_kes_indices.add(ki)
+
+    # שלב 1: אלגוריתם קפדני לשאר
+    for ti, tiv in enumerate(tiv_items):
+        if ti in used_tiv_ids:
+            continue
         best_match = None
         best_score = threshold
         best_idx = -1
-
         for idx, kes in enumerate(kes_items):
             if idx in used_kes_indices:
                 continue
-            # שער ראשון: מאפייני עיבוד חייבים להיות זהים
             if not attributes_compatible(tiv["name"], kes["name"]):
                 continue
-            # שער שני: מילות הליבה (נתח/סוג) חייבות להתאים
             if not core_words_match(tiv["name"], kes["name"]):
                 continue
             score = similarity(tiv["name"], kes["name"])
@@ -225,7 +257,6 @@ def fuzzy_match(tiv_items, kes_items, threshold=0.5):
                 best_score = score
                 best_match = kes
                 best_idx = idx
-
         if best_match:
             matched_pairs.append((tiv, best_match))
             used_kes_indices.add(best_idx)
@@ -396,8 +427,8 @@ def build_html(data):
         if not tiv_items and not kes_items:
             continue
         
-        # עשה fuzzy match
-        match_data = fuzzy_match(tiv_items, kes_items, threshold=0.5)
+        # עשה fuzzy match (עם התאמות ידניות לקטגוריה אם יש)
+        match_data = fuzzy_match(tiv_items, kes_items, threshold=0.5, cat=cat_key)
         
         section = build_matched_section(cat_key, cat_name, emoji, match_data)
         if section:
