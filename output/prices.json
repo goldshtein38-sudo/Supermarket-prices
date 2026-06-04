@@ -1,5 +1,5 @@
 {
-  "updated": "04.06.2026 19:05",
+  "updated": "04.06.2026 19:39",
   "note": "נתונים מסניף כרמיאל",
   "stores": {
     "tivtaam": "010",
@@ -619,6 +619,16 @@
             "item_code": "7290112826466",
             "price": "65.90",
             "unit_price": "65.90",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "שפונדרה ללא עצם טרי",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290112827425",
+            "price": "73.90",
+            "unit_price": "73.90",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -2047,16 +2057,6 @@
             "item_code": "7290008940146",
             "price": "145.00",
             "unit_price": "145.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "שפונדרה ללא עצם טרי",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290112827425",
-            "price": "73.90",
-            "unit_price": "73.90",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -6694,16 +6694,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה אולד אמסטרדם ע",
-            "manufacturer": "",
-            "item_code": "2239",
-            "price": "189.00",
-            "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פולקה שלם עם עצם",
             "manufacturer": "",
             "item_code": "17313",
@@ -6734,16 +6724,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה אולד אמסטרדם ג",
-            "manufacturer": "",
-            "item_code": "2236",
-            "price": "149.00",
-            "unit_price": "149.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פרושוטו רוסי",
             "manufacturer": "",
             "item_code": "7290000000248",
@@ -6759,16 +6739,6 @@
             "item_code": "7290000000654",
             "price": "99.00",
             "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה אמסטרדם אגוזים",
-            "manufacturer": "",
-            "item_code": "7290000007416",
-            "price": "169.00",
-            "unit_price": "169.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6904,16 +6874,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה אולד אמסטרדם ע",
-            "manufacturer": "",
-            "item_code": "2973",
-            "price": "189.00",
-            "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "בוזנינה",
             "manufacturer": "",
             "item_code": "920",
@@ -6959,26 +6919,6 @@
             "item_code": "903",
             "price": "125.00",
             "unit_price": "125.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה אמסטרדם כמהין",
-            "manufacturer": "",
-            "item_code": "7418",
-            "price": "149.00",
-            "unit_price": "149.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה אולד אמסטרדם ר",
-            "manufacturer": "",
-            "item_code": "7442",
-            "price": "219.00",
-            "unit_price": "219.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7458,6 +7398,16 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינה אולד אמסטרדם ע",
+            "manufacturer": "",
+            "item_code": "2239",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גבינה שוויצרית",
             "manufacturer": "",
             "item_code": "2091",
@@ -7473,6 +7423,16 @@
             "item_code": "2156",
             "price": "55.00",
             "unit_price": "55.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אולד אמסטרדם ג",
+            "manufacturer": "",
+            "item_code": "2236",
+            "price": "149.00",
+            "unit_price": "149.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7593,6 +7553,16 @@
             "item_code": "6379",
             "price": "69.00",
             "unit_price": "69.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אמסטרדם אגוזים",
+            "manufacturer": "",
+            "item_code": "7290000007416",
+            "price": "169.00",
+            "unit_price": "169.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -8213,6 +8183,16 @@
             "item_code": "3414",
             "price": "49.00",
             "unit_price": "49.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אולד אמסטרדם ע",
+            "manufacturer": "",
+            "item_code": "2973",
+            "price": "189.00",
+            "unit_price": "189.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9248,11 +9228,31 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינה אמסטרדם כמהין",
+            "manufacturer": "",
+            "item_code": "7418",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גבינה ברי איל דה פרנ",
             "manufacturer": "",
             "item_code": "3157",
             "price": "165.00",
             "unit_price": "165.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אולד אמסטרדם ר",
+            "manufacturer": "",
+            "item_code": "7442",
+            "price": "219.00",
+            "unit_price": "219.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
