@@ -1,19 +1,60 @@
 """
-אבחון: מה מבחין מוצרי בשר/מעדנייה טריים מהרעש?
-בודק ItemType, prefix של ItemCode, bIsWeighted, ודוגמאות
+scrape.py — סניף כרמיאל (טיב 010, קשת 015), קטגוריזציה מדויקת
+גישה: HTTPS portal. סינון לפי whitelist מוקפד + blacklist רעש.
 """
 import os, json, gzip, re, traceback
 import requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 BASE = "https://url.publishedprices.co.il"
 CHAINS = {
-    "tivtaam": {"user":"TivTaam","password":"","chain_id":"7290873255550","store":"010"},
-    "keshet":  {"user":"Keshet","password":"","chain_id":"7290785400000","store":"015"},
+    "tivtaam": {"name":"טיב טעם","user":"TivTaam","password":"","chain_id":"7290873255550","store":"010"},
+    "keshet":  {"name":"קשת טעמים","user":"Keshet","password":"","chain_id":"7290785400000","store":"015"},
+}
+
+# blacklist - אם מופיע, המוצר נפסל לחלוטין (מזון לחיות, חטיפים, תבלינים, מרקים, אוכל מוכן ארוז)
+BLACKLIST = [
+    "לכלב","לחתול","לגור","לגורים","חתול","כלב","גורי","מזון יבש","מזון לח","פריסקיז","פנסי","פיין קט",
+    "סימבה","פרמיו","נייטיב","דוג","קט ","ציפס","צ'יפס","שבבי","חטיף","קליק","במבה","ביסלי",
+    "מרק","אטריות","ראמן","נודלס","אבקת","ציר ","קוביות ציר","תבלין","תיבול","תערובת תיבול",
+    "רוטב","קטשופ","מיונז","ממרח","ממורח","פסטה ","אורז ","קמח","שמן","חומץ",
+    "לזניה","תבשיל","קציצות","לביבות","סלט","תסלט","פיצה","בורקס","פאי","מאפה","סנדוויץ",
+    "קפוא","קפואה","להכנה","מוכן","משקה","תה ","קפה","סוכר","דבש","ריבה","שוקולד","ופל","עוגי","עוגה",
+    "גלידה","שלגון","יוגורט","מעדן","פודינג","שמנת חמוצה","חלב ","משקאות",
+]
+
+# קטגוריות - whitelist הדוק. המוצר חייב להכיל לפחות מילה אחת
+CATEGORIES = {
+    "עוף":      ["עוף טרי","עוף שלם","חזה עוף","שוקיים","ירכיים","כרעיים","כנפיים עוף","כנף עוף",
+                 "פרגית","שניצל עוף","טחון עוף","כבד עוף טרי","לבבות עוף","גב עוף","שווארמה עוף","נתחי עוף"],
+    "הודו":     ["הודו טרי","חזה הודו","שניצל הודו","טחון הודו","שוקי הודו","כנפי הודו","נקניק הודו","שווארמה הודו"],
+    "בקר":      ["בקר טרי","אנטריקוט","אסאדו","צלעות בקר","סטייק","שייטל","פילה בקר","סינטה","אונטריב",
+                 "טחון בקר","בשר טחון","צלי בקר","כתף בקר","חזה בקר","לשון בקר","אוסבוקו","פילה מדומה","שריר בקר","ריב איי"],
+    "בשר לבן":  ["נתח חזיר","חזיר טרי","פילה חזיר","צוואר חזיר","שניצל חזיר","קוטלט"],
+    "פסטרמות":  ["פסטרמה","פסטירמה","קורנביף","רוסטביף","בייקון","שינקן","שינקה","קסטיצה","קוסטיצה","בריסקט"],
+    "נקניקים":  ["נקניק","סלמי","קבנוס","מורטדלה","סרוולד","אודסקיה","פפרוני","צ'וריזו","פריזר","דבריצ'ין","פלמידה"],
+    "נקניקיות": ["נקניקיות","נקניקיית","וינר","פרנקפורטר","הוט דוג","מרגז"],
+    "גבינות":   ["גבינה","גבינת","קממבר","קממברט","מוצרלה","פרמזן","גאודה","בולגרית","ריקוטה","ברי ","רוקפור",
+                 "צ'דר","אמנטל","פטה","חלומי","מסקרפונה","טבורוג","קוטג","שמנת לבישול","גבינו"],
 }
 LOG=[]
 def log(s): LOG.append(str(s)); print(s)
+
+def categorize(name):
+    n = name.strip()
+    low = n.lower()
+    # פסילה
+    for b in BLACKLIST:
+        if b in low:
+            return None
+    # שיוך - בדיקה לפי סדר הקטגוריות
+    for cat, kws in CATEGORIES.items():
+        for kw in kws:
+            if kw in n:
+                return cat
+    return None
 
 def find_token(html):
     for p in [r'name=["\']csrftoken["\']\s+value=["\']([^"\']+)',
@@ -39,68 +80,70 @@ def pick(files,chain,store):
     c=[f for f in files if "PriceFull" in f and chain in f and any(seg==store or seg.lstrip("0")==store.lstrip("0") for seg in f.replace(".gz","").split("-")[1:])]
     return sorted(c)[-1] if c else None
 
-# מילות מפתח לבשר/מעדנייה טרי אמיתי
-FRESH_HINTS = ["עוף","פרגית","שניצל","כרעיים","שוקיים","כנפיים","בקר","עגל","אנטריקוט",
-               "אסאדו","טחון","סטייק","צלעות","כבד","פסטרמה","נקניק","סלמי","קבנוס",
-               "גבינה","קממבר","מוצרלה","פטה","ברי","שינקן","הודו"]
-NOISE = ["לכלב","לחתול","לגור","חתול","כלב","מזון","ציפס","צ'יפס","שבבי","מרק","אטריות",
-         "תבלין","תיבול","ראמן","קוביות ציר","ציר ","אבקת","רוטב","ממרח","חטיף"]
-
-def run():
-    for key,cfg in CHAINS.items():
-        log(f"\n{'='*60}\n{key} store {cfg['store']}")
-        s=requests.Session(); s.verify=False
-        s.headers.update({"User-Agent":"Mozilla/5.0"})
+def process_chain(key,cfg):
+    categorized={c:[] for c in CATEGORIES}
+    store_label=cfg["store"]
+    log(f"\n{'='*60}\n{cfg['name']} store={cfg['store']}")
+    s=requests.Session(); s.verify=False; s.headers.update({"User-Agent":"Mozilla/5.0"})
+    try:
         t=login(s,cfg["user"],cfg["password"])
         files=list_files(s,t)
         tgt=pick(files,cfg["chain_id"],cfg["store"])
-        log(f"file: {tgt}")
+        if not tgt:
+            log("  no file"); return categorized,store_label
+        log(f"  Using: {tgt}")
         raw=s.get(f"{BASE}/file/d/{tgt}",timeout=120).content
         try: content=gzip.decompress(raw)
         except: content=raw
         try: root=ET.fromstring(content)
         except: root=ET.fromstring(content.decode("utf-8-sig",errors="ignore"))
+        sid=root.find(".//StoreID")
+        if sid is not None and (sid.text or "").strip(): store_label=sid.text.strip()
         items=root.findall(".//Item")
-        log(f"total items: {len(items)}")
-
-        # התפלגות ItemType
-        from collections import Counter
-        types=Counter(); code_prefix=Counter()
-        weighted_fresh=0
-        for it in items:
-            itype=(it.findtext("ItemType") or "?").strip()
-            types[itype]+=1
-            code=(it.findtext("ItemCode") or "").strip()
-            if code: code_prefix[code[:1]]+=1
-
-        log(f"ItemType distribution: {dict(types)}")
-        log(f"ItemCode first-digit distribution: {dict(code_prefix)}")
-
-        # בדוק: בין המוצרים השקילים (bIsWeighted=1) - כמה הם בשר טרי?
-        log("\n--- דוגמאות מוצרים שקילים (bIsWeighted=1) ---")
         cnt=0
         for it in items:
-            if (it.findtext("bIsWeighted") or "0")=="1":
-                name=(it.findtext("ItemName") or "").strip()
-                code=(it.findtext("ItemCode") or "").strip()
-                itype=(it.findtext("ItemType") or "").strip()
-                log(f"  [{itype}] {code[:5]}.. {name[:40]}")
+            name=(it.findtext("ItemName") or "").strip()
+            price=it.findtext("ItemPrice") or ""
+            status=it.findtext("ItemStatus") or "1"
+            if not (name and price) or status=="0": continue
+            try:
+                if float(price)<=0: continue
+            except: continue
+            cat=categorize(name)
+            if cat:
+                categorized[cat].append({
+                    "name":name,
+                    "manufacturer":it.findtext("ManufactureName") or "",
+                    "item_code":it.findtext("ItemCode") or "",
+                    "price":price,
+                    "unit_price":it.findtext("UnitOfMeasurePrice") or "",
+                    "unit":it.findtext("UnitOfMeasure") or it.findtext("UnitQty") or "",
+                    "is_weighted":(it.findtext("bIsWeighted") or "0")=="1",
+                    "qty":it.findtext("Quantity") or "",
+                })
                 cnt+=1
-                if cnt>=20: break
-        log(f"  סך שקילים: {sum(1 for it in items if (it.findtext('bIsWeighted') or '0')=='1')}")
-
-        # בדוק כמה מהמוצרים מכילים hint אבל גם noise
-        fresh_clean=0; fresh_noisy=0
-        for it in items:
-            name=(it.findtext("ItemName") or "").lower()
-            has_hint=any(h in name for h in FRESH_HINTS)
-            has_noise=any(n in name for n in NOISE)
-            if has_hint and not has_noise: fresh_clean+=1
-            elif has_hint and has_noise: fresh_noisy+=1
-        log(f"\n  hint & clean: {fresh_clean} | hint & noise: {fresh_noisy}")
+        log(f"  Total: {len(items)} | Categorized: {cnt}")
+        for c,lst in categorized.items():
+            if lst: log(f"      {c}: {len(lst)}")
+    except Exception as e:
+        log(f"  ERROR: {e}\n{traceback.format_exc()}")
+    finally:
         s.close()
+    return categorized,store_label
 
-run()
-import os
-os.makedirs("output",exist_ok=True)
-open("output/diagnose_output.txt","w",encoding="utf-8").write("\n".join(LOG))
+def main():
+    os.makedirs("output",exist_ok=True)
+    result={"updated":datetime.now().strftime("%d.%m.%Y %H:%M"),"note":"נתונים מסניף כרמיאל",
+            "stores":{"tivtaam":"010","keshet":"015"},"chains":{}}
+    try:
+        for key,cfg in CHAINS.items():
+            cats,store=process_chain(key,cfg)
+            result["chains"][key]={"name":cfg["name"],"store_id":store,"categories":cats}
+    finally:
+        with open("output/prices.json","w",encoding="utf-8") as f:
+            json.dump(result,f,ensure_ascii=False,indent=2)
+        with open("output/diagnose_output.txt","w",encoding="utf-8") as f:
+            f.write("\n".join(LOG))
+        print("✅ done")
+
+if __name__=="__main__": main()
