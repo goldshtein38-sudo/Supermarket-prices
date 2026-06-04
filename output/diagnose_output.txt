@@ -1,11 +1,13 @@
 
 ============================================================
 טיב טעם (TivTaam)
-    csrftoken: found (KKvo6jWO...)
+    csrftoken: found (Z1Kwop7m...)
     cookies after GET /login: ['cftpSID']
     login POST status: 200, final url: https://url.publishedprices.co.il/file
     cookies after login: ['cftpSID']
-    fresh token from /file: found (uncuwliZ...)
+    fresh token from /file: found (cGSX7PuL...)
+  Stores files: ['Stores7290873255550-000-20260602-050501.xml', 'Stores7290873255550-000-20260603-050502.xml', 'Stores7290873255550-000-20260604-050501.xml']
+    ★ CARMEL: StoreID=010 name=כרמיאל
     dir status: 200
     JSON keys: ['aaData', 'iTotalDisplayRecords', 'iTotalRecords', 'sEcho']
     error field: None
@@ -33,11 +35,13 @@
 
 ============================================================
 קשת טעמים (Keshet)
-    csrftoken: found (UAl9S609...)
+    csrftoken: found (A82LMhd8...)
     cookies after GET /login: ['cftpSID']
     login POST status: 200, final url: https://url.publishedprices.co.il/file
     cookies after login: ['cftpSID']
-    fresh token from /file: found (_BACYVwi...)
+    fresh token from /file: found (ipbDox_1...)
+  Stores files: ['Stores7290785400000-000-20260602-051000.xml', 'Stores7290785400000-000-20260603-051000.xml', 'Stores7290785400000-000-20260604-051000.xml']
+    ★ CARMEL: StoreID=015 name=כרמיאל
     dir status: 200
     JSON keys: ['aaData', 'iTotalDisplayRecords', 'iTotalRecords', 'sEcho']
     error field: None
