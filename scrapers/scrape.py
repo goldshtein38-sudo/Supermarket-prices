@@ -66,10 +66,11 @@ def login(session, user, password):
                               "Content-Type": "application/x-www-form-urlencoded"})
     log(f"    login POST status: {r.status_code}, final url: {r.url}")
     log(f"    cookies after login: {list(session.cookies.keys())}")
-    # בדיקת הצלחה: ננסה לגשת ל-/file ולראות אם זה לא דף login
+    # קח csrftoken טרי מדף /file (הטוקן מתחלף אחרי login)
     chk = session.get(f"{BASE}/file", timeout=30)
-    ok = "login" not in chk.url.lower() and len(chk.text) > 0
-    return token
+    fresh = find_token(chk.text)
+    log(f"    fresh token from /file: {'found ('+fresh[:8]+'...)' if fresh else 'NOT found'}")
+    return fresh or token
 
 def list_files(session, chain_id, token=None):
     """מקבל רשימת קבצים דרך file/json/dir"""
