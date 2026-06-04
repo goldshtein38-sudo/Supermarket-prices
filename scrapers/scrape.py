@@ -85,10 +85,21 @@ def list_files(session, chain_id, token=None):
     except Exception:
         log(f"    dir not JSON, head: {r.text[:200]}")
         return []
-    rows = data.get("aaData", data.get("data", []))
+    # אבחון מבנה
+    if isinstance(data, dict):
+        log(f"    JSON keys: {list(data.keys())}")
+    rows = data.get("aaData") or data.get("data") or data.get("files") or []
+    log(f"    rows count: {len(rows)}")
+    if rows:
+        log(f"    first row sample: {json.dumps(rows[0], ensure_ascii=False)[:300]}")
     names = []
     for row in rows:
-        fn = row.get("fname") or row.get("name") or ""
+        if isinstance(row, dict):
+            fn = row.get("fname") or row.get("name") or row.get("FileNm") or row.get("DT_RowId") or ""
+        elif isinstance(row, list) and row:
+            fn = str(row[0])
+        else:
+            fn = str(row)
         if fn: names.append(fn)
     log(f"    total files listed: {len(names)}")
     pf = [n for n in names if "PriceFull" in n and chain_id in n]
