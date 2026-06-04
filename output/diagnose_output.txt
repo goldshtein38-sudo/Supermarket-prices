@@ -1,14 +1,29 @@
-חיפוש רוסמן בפורטל publishedprices:
+=== רשתות מוכרות בפורטל publishedprices ===
+  TivTaam: ✓
+  Keshet: ✓
+  osherad: ✓
+  Yohananof: ✓
+  HaziHinam: ✓
+  Rami_levy: ✗
+  RamiLevy: ✗
+  SuperPharm: ✗
+  Maayan2000: ✗
+  freshmarket: ✓
+  Stop_Market: ✓
+  politzer: ✓
+  Paz_yellow: ✗
+  Quik: ✗
+  Bareket: ✗
+  yuda_ho: ✓
+  Rosman: ✗
+  ZolVeBegadol: ✗
 
-  Rosman: login=✗
-  rosman: login=✗
-  RoshMan: login=✗
-  Roshman: login=✗
-  ROSMAN: login=✗
-  RosmanShivuk: login=✗
-  rosmanshivuk: login=✗
-  Rosman1: login=✗
+קיימות: ['TivTaam', 'Keshet', 'osherad', 'Yohananof', 'HaziHinam', 'freshmarket', 'Stop_Market', 'politzer', 'yuda_ho']
 
-⚠ לא נמצאה התחברות בשמות שניסיתי.
-הרשתות הגדולות בפורטל הזה: TivTaam, Keshet, osherad, HaziHinam, Yohananof, ...
-רוסמן אולי מדווחת לפורטל אחר (cerberus/matrix) או תחת שם אחר.
+=== חיפוש רוסמן בפורטלים אחרים ===
+  https://prices.rosman.co.il [Rosman]: ✗ (no-connect: HTTPSConnectionPool(host='prices.rosma)
+  https://prices.rosman.co.il [rosman]: ✗ (no-connect: HTTPSConnectionPool(host='prices.rosma)
+  https://rosman.binaprojects.com [Rosman]: ✗ (no-connect: HTTPSConnectionPool(host='rosman.binap)
+  https://rosman.binaprojects.com [rosman]: ✗ (no-connect: HTTPSConnectionPool(host='rosman.binap)
+  https://url.retail.publishedprices.co.il [Rosman]: ✗ (https://url.retail.publishedprices.co.il/login?r=%)
+  https://url.retail.publishedprices.co.il [rosman]: ✗ (https://url.retail.publishedprices.co.il/login?r=%)
