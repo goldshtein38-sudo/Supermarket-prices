@@ -163,26 +163,6 @@ def process_chain(key,cfg):
         except: root=ET.fromstring(content.decode("utf-8-sig",errors="ignore"))
         sid=root.find(".//StoreID")
         if sid is not None and (sid.text or "").strip(): store_label=sid.text.strip()
-        # אימות שם הסניף מקובץ Stores
-        try:
-            sfiles=[f for f in files if f.startswith("Stores") and cfg["chain_id"] in f]
-            if sfiles:
-                sraw=s.get(f"{BASE}/file/d/{sorted(sfiles)[-1]}",timeout=60).content
-                try: sroot=ET.fromstring(gzip.decompress(sraw))
-                except: sroot=ET.fromstring(sraw)
-                for st in sroot.iter():
-                    if st.tag in ("Store","STORE","Branch"):
-                        sid2=nm2=ct2=""
-                        for c2 in st:
-                            if c2.tag in ("StoreID","StoreId"): sid2=(c2.text or "").strip()
-                            if c2.tag in ("StoreName","StoreNm"): nm2=(c2.text or "").strip()
-                            if c2.tag=="City": ct2=(c2.text or "").strip()
-                        if sid2.lstrip("0")==cfg["store"].lstrip("0"):
-                            store_label=f'{sid2} ({nm2} {ct2})'.strip()
-                            log(f"  >>> STORE NAME: {store_label}")
-        except Exception as e:
-            log(f"  store-name check failed: {e}")
-
         items=root.findall(".//Item")
         cnt=0
         for it in items:
