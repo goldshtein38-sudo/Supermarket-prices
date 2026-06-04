@@ -1,26 +1,20 @@
 
 ============================================================
 טיב טעם (TivTaam)
-    csrftoken: NOT found
-    login status: 200
+    csrftoken: found (vyUsNp1U...)
+    cookies after GET /login: ['cftpSID']
+    login POST status: 200, final url: https://url.publishedprices.co.il/file
+    cookies after login: ['cftpSID']
     dir status: 200
-    dir not JSON, head: <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.
+    total files listed: 0
   PriceFull files: 0
 
 ============================================================
 קשת טעמים (Keshet)
-    csrftoken: NOT found
-    login status: 200
+    csrftoken: found (wr0gB2wP...)
+    cookies after GET /login: ['cftpSID']
+    login POST status: 200, final url: https://url.publishedprices.co.il/file
+    cookies after login: ['cftpSID']
     dir status: 200
-    dir not JSON, head: <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.
+    total files listed: 0
   PriceFull files: 0
