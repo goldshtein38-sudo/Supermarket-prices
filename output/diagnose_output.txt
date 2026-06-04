@@ -1,29 +1,26 @@
-=== רשתות מוכרות בפורטל publishedprices ===
-  TivTaam: ✓
-  Keshet: ✓
-  osherad: ✓
-  Yohananof: ✓
-  HaziHinam: ✓
-  Rami_levy: ✗
-  RamiLevy: ✗
-  SuperPharm: ✗
-  Maayan2000: ✗
-  freshmarket: ✓
-  Stop_Market: ✓
-  politzer: ✓
-  Paz_yellow: ✗
-  Quik: ✗
-  Bareket: ✗
-  yuda_ho: ✓
-  Rosman: ✗
-  ZolVeBegadol: ✗
 
-קיימות: ['TivTaam', 'Keshet', 'osherad', 'Yohananof', 'HaziHinam', 'freshmarket', 'Stop_Market', 'politzer', 'yuda_ho']
+============================================================
+טיב טעם store=010
+  Using: PriceFull7290873255550-000-010-20260604-004004.gz
+  Total: 10517 | Categorized: 773
+      עוף: 24
+      הודו: 11
+      בקר: 43
+      בשר לבן: 2
+      פסטרמות: 59
+      נקניקים: 167
+      נקניקיות: 1
+      גבינות: 466
 
-=== חיפוש רוסמן בפורטלים אחרים ===
-  https://prices.rosman.co.il [Rosman]: ✗ (no-connect: HTTPSConnectionPool(host='prices.rosma)
-  https://prices.rosman.co.il [rosman]: ✗ (no-connect: HTTPSConnectionPool(host='prices.rosma)
-  https://rosman.binaprojects.com [Rosman]: ✗ (no-connect: HTTPSConnectionPool(host='rosman.binap)
-  https://rosman.binaprojects.com [rosman]: ✗ (no-connect: HTTPSConnectionPool(host='rosman.binap)
-  https://url.retail.publishedprices.co.il [Rosman]: ✗ (https://url.retail.publishedprices.co.il/login?r=%)
-  https://url.retail.publishedprices.co.il [rosman]: ✗ (https://url.retail.publishedprices.co.il/login?r=%)
+============================================================
+קשת טעמים store=015
+  Using: PriceFull7290785400000-015-202606040010.gz
+  Total: 12691 | Categorized: 1096
+      עוף: 29
+      הודו: 13
+      בקר: 69
+      בשר לבן: 5
+      פסטרמות: 72
+      נקניקים: 234
+      נקניקיות: 3
+      גבינות: 671
