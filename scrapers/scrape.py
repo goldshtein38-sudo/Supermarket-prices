@@ -109,6 +109,10 @@ def process_chain(key,cfg):
             try:
                 if float(price)<=0: continue
             except: continue
+            # רק מוצרים שקילים = מעדנייה/קצבייה (לא ארוז/מקפיא)
+            is_weighted = (it.findtext("bIsWeighted") or "0") == "1"
+            if not is_weighted:
+                continue
             cat=categorize(name)
             if cat:
                 categorized[cat].append({
@@ -118,7 +122,7 @@ def process_chain(key,cfg):
                     "price":price,
                     "unit_price":it.findtext("UnitOfMeasurePrice") or "",
                     "unit":it.findtext("UnitOfMeasure") or it.findtext("UnitQty") or "",
-                    "is_weighted":(it.findtext("bIsWeighted") or "0")=="1",
+                    "is_weighted": True,
                     "qty":it.findtext("Quantity") or "",
                 })
                 cnt+=1
