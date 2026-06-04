@@ -70,20 +70,16 @@ def price_per_kg(item):
     return (None, None)
 
 def format_price_display(item):
-    """תצוגת מחיר: מחיר מנורמל לק"ג + המחיר המקורי לאריזה"""
+    """תצוגת מחיר מנורמל לק"ג (כל המוצרים שקילים = מעדנייה/קצבייה)"""
     pk, basis = price_per_kg(item)
-    price = _to_float(item.get("price"))
-    parts = []
     if pk and basis == "kg":
-        parts.append(f"₪{pk:.1f}/ק\"ג")
-    elif pk and basis == "l":
-        parts.append(f"₪{pk:.1f}/ליטר")
-    # מחיר אריזה מקורי (אם שונה ממחיר לק"ג ולא שקיל)
-    if price and not item.get("is_weighted"):
-        parts.append(f"<small style='color:#888'>(₪{price:.2f} לאריזה)</small>")
-    elif price and item.get("is_weighted") and not pk:
-        parts.append(f"₪{price:.2f}")
-    return " ".join(parts) if parts else "—"
+        return f"₪{pk:.1f} לק\"ג"
+    if pk and basis == "l":
+        return f"₪{pk:.1f} לליטר"
+    price = _to_float(item.get("price"))
+    if price:
+        return f"₪{price:.2f}"
+    return "—"
 
 import re as _re
 
@@ -217,9 +213,9 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
             tiv_style = kes_style = ''
 
         if comparable and diff is not None:
-            diff_text = f"<small style='color:#1a6b3c;font-weight:700'>({diff:.0f}% הפרש)</small>"
+            diff_text = ""
         else:
-            diff_text = "<small style='color:#999'>(בסיס שונה — אין השוואה)</small>"
+            diff_text = "<small style='color:#999'>(בסיס שונה)</small>"
 
         rows += f"""
 <tr class="matched-row">
