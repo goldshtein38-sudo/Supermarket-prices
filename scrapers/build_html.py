@@ -26,27 +26,51 @@ def format_price(item):
 
 def format_price_display(item):
     """מחזיר מחיר מפורמט לתצוגה"""
-    if item.get("is_weighted") and item.get("unit_price"):
-        return f"₪{item['unit_price']}/100 גרם"
-    elif item.get("price"):
-        price = float(item["price"])
-        if item.get("unit") and "ק" in item.get("unit", ""):
-            return f"₪{price:.2f}/ק\"ג"
-        return f"₪{price:.2f}"
+    try:
+        if item.get("is_weighted") and item.get("unit_price"):
+            up = float(item["unit_price"])
+            return f"₪{up:.2f}/100 גרם"
+        elif item.get("price"):
+            price = float(item["price"])
+            unit = item.get("unit", "") or ""
+            if "ק" in unit and "ג" in unit:
+                return f"₪{price:.2f}/ק\"ג"
+            return f"₪{price:.2f}"
+    except (ValueError, TypeError):
+        pass
     return "—"
 
-def similarity(a, b):
-    """מחזיר דמיון בין שתי מחרוזות (0-1)"""
-    a_clean = a.lower().strip()
-    b_clean = b.lower().strip()
-    
-    # אם אחד מכיל את השני, זה התאמה חזקה
-    if a_clean in b_clean or b_clean in a_clean:
-        return 0.85
-    
-    return SequenceMatcher(None, a_clean, b_clean).ratio()
+import re as _re
 
-def fuzzy_match(tiv_items, kes_items, threshold=0.6):
+_STOP = {"במשקל","טרי","טרייה","ארוז","ארוזה","גרם","גר","קג","ק","מ","ל","יח","יחידה",
+         "לא","ידוע","עם","ללא","ב","של","אחוז","שומן"}
+
+def _normalize(s):
+    """מסיר מספרים, יחידות, מילות עצירה - משאיר מילות תוכן"""
+    s = s.lower()
+    s = _re.sub(r'[0-9]+', ' ', s)              # הסר מספרים
+    s = _re.sub(r'[^\u0590-\u05ff ]', ' ', s)   # רק עברית ורווחים
+    words = [w for w in s.split() if w and w not in _STOP and len(w) > 1]
+    return words
+
+def similarity(a, b):
+    """דמיון מבוסס מילות תוכן משותפות + רצף תווים"""
+    wa, wb = _normalize(a), _normalize(b)
+    if not wa or not wb:
+        return 0.0
+    sa, sb = set(wa), set(wb)
+    # Jaccard על מילים
+    inter = sa & sb
+    union = sa | sb
+    jaccard = len(inter) / len(union) if union else 0
+    # דרוש לפחות מילת תוכן אחת משותפת משמעותית
+    if not inter:
+        return 0.0
+    # שילוב: jaccard + דמיון רצף
+    seq = SequenceMatcher(None, " ".join(wa), " ".join(wb)).ratio()
+    return 0.6 * jaccard + 0.4 * seq
+
+def fuzzy_match(tiv_items, kes_items, threshold=0.5):
     """
     יוצר זוגות של מוצרים דומים בין שתי רשתות
     מחזיר: {matched_pairs: [(tiv, kes)], unmatched_tiv: [], unmatched_kes: []}
@@ -99,6 +123,12 @@ def compare_prices(tiv_price, kes_price):
         return ("tiv", diff_percent, tiv_price, kes_price)
     else:
         return ("kes", diff_percent, tiv_price, kes_price)
+
+def _brand(item):
+    m = (item.get("manufacturer") or "").strip()
+    if not m or m in ("לא ידוע", "לא  ידוע", "unknown", "UNKNOWN"):
+        return ""
+    return f'<div class="brand">{m}</div>'
 
 def build_matched_section(cat_key, cat_name, emoji, match_data):
     """בונה קטע השוואה ישירה של מוצרים תואמים"""
@@ -153,12 +183,12 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
 <tr class="matched-row">
     <td class="col-name">
         <div class="pname">{tiv['name']}</div>
-        {'<div class="brand">' + tiv.get('manufacturer', '') + '</div>' if tiv.get('manufacturer') else ''}
+        {_brand(tiv)}
     </td>
     <td class="col-price" {tiv_style}>{tiv_display}</td>
     <td class="col-name">
         <div class="pname">{kes['name']}</div>
-        {'<div class="brand">' + kes.get('manufacturer', '') + '</div>' if kes.get('manufacturer') else ''}
+        {_brand(kes)}
     </td>
     <td class="col-price" {kes_style}>{kes_display} {diff_text}</td>
 </tr>"""
@@ -172,7 +202,7 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
 <tr class="unmatched-row">
     <td class="col-name" style="background: #f0f0f0;">
         <div class="pname">{item['name']}</div>
-        {'<div class="brand">' + item.get('manufacturer', '') + '</div>' if item.get('manufacturer') else ''}
+        {_brand(item)}
     </td>
     <td class="col-price" style="background: #f0f0f0;">{format_price_display(item)}</td>
     <td colspan="2" style="text-align: center; color: #999; font-size: 0.85rem;">אין במקביל בקשת</td>
@@ -184,7 +214,7 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
     <td colspan="2" style="text-align: center; color: #999; font-size: 0.85rem;">אין במקביל בטיב טעם</td>
     <td class="col-name" style="background: #f0f0f0;">
         <div class="pname">{item['name']}</div>
-        {'<div class="brand">' + item.get('manufacturer', '') + '</div>' if item.get('manufacturer') else ''}
+        {_brand(item)}
     </td>
     <td class="col-price" style="background: #f0f0f0;">{format_price_display(item)}</td>
 </tr>"""
@@ -239,7 +269,7 @@ def build_html(data):
             continue
         
         # עשה fuzzy match
-        match_data = fuzzy_match(tiv_items, kes_items, threshold=0.55)
+        match_data = fuzzy_match(tiv_items, kes_items, threshold=0.5)
         
         section = build_matched_section(cat_key, cat_name, emoji, match_data)
         if section:
