@@ -164,6 +164,39 @@ def attributes_compatible(a, b):
     """
     return _attr_set(a) == _attr_set(b)
 
+# מילים ניטרליות בלבד - לא משפיעות על זהות המוצר או מחירו (אריזה/מצב/יחידה).
+# מילים כמו 'דק','פרימיום','איטלקי' אינן כאן - הן מבדילות מוצר ומחיר.
+_GENERIC = {
+    "טרי","טרייה","טריה","במשקל","ארוז","ארוזה","שקיל","מניה","מארז","חבילה",
+    "גוש","בלוק","חדש","חדשה","מפורק","נקי","יח","יחידה",
+}
+
+def core_words_match(a, b):
+    """
+    בודק שמילות הליבה (אחרי הסרת גנריות) זהות בעיקרן.
+    מונע 'לקס עגל'↔'לב עגל' (לקס≠לב) או 'נקניק ליברניה'↔'נקניק לבירה'.
+    דורש: אין לאף צד מילת-ליבה ייחודית משמעותית שהשני חסר.
+    """
+    ca = set(w for w in _normalize(a) if w not in _GENERIC)
+    cb = set(w for w in _normalize(b) if w not in _GENERIC)
+    if not ca or not cb:
+        return False
+    only_a = ca - cb
+    only_b = cb - ca
+    shared = ca & cb
+    # חייבת להיות לפחות מילת ליבה משותפת אחת
+    if not shared:
+        return False
+    # אסור שלאחד הצדדים תהיה מילת ליבה ייחודית (נתח/סוג שונה)
+    # מותר הבדל אם המילה הייחודית היא תת-מחרוזת של מילה משותפת (נטייה)
+    def is_substring_of_shared(words, sh):
+        return all(any(w in s or s in w for s in sh) for w in words)
+    if only_a and not is_substring_of_shared(only_a, shared):
+        return False
+    if only_b and not is_substring_of_shared(only_b, shared):
+        return False
+    return True
+
 def fuzzy_match(tiv_items, kes_items, threshold=0.5):
     """
     יוצר זוגות של מוצרים דומים בין שתי רשתות.
@@ -183,6 +216,9 @@ def fuzzy_match(tiv_items, kes_items, threshold=0.5):
                 continue
             # שער ראשון: מאפייני עיבוד חייבים להיות זהים
             if not attributes_compatible(tiv["name"], kes["name"]):
+                continue
+            # שער שני: מילות הליבה (נתח/סוג) חייבות להתאים
+            if not core_words_match(tiv["name"], kes["name"]):
                 continue
             score = similarity(tiv["name"], kes["name"])
             if score > best_score:
