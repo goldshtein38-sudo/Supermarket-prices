@@ -1,18 +1,11 @@
 """
-בדיקה: האם רוסמן מדווחת לפורטל ויש לה נתונים?
-מנסה כמה שמות משתמש אפשריים ובודק התחברות + קבצים
+בודק אילו רשתות קיימות בפורטל publishedprices + מנסה את רוסמן בפורטל matrix
 """
-import re, gzip, traceback
+import re
 import requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-import xml.etree.ElementTree as ET
 
 BASE = "https://url.publishedprices.co.il"
-
-# שמות משתמש אפשריים לרוסמן (הפורטל משתמש בשם הרשת באנגלית)
-CANDIDATES = ["Rosman", "rosman", "RoshMan", "Roshman", "ROSMAN",
-              "RosmanShivuk", "rosmanshivuk", "Rosman1"]
-
 LOG = []
 def log(s): LOG.append(str(s)); print(s)
 
@@ -23,59 +16,50 @@ def find_token(html):
         if m: return m.group(1)
     return None
 
-def try_login(user, pw=""):
-    s = requests.Session(); s.verify = False
-    s.headers.update({"User-Agent": "Mozilla/5.0"})
-    r = s.get(f"{BASE}/login", timeout=30)
-    t = find_token(r.text)
-    pl = {"username": user, "password": pw, "Submit": "Sign in"}
-    if t: pl["csrftoken"] = t
-    r = s.post(f"{BASE}/login/user", data=pl, timeout=30,
-               headers={"Referer": f"{BASE}/login"})
-    chk = s.get(f"{BASE}/file", timeout=30)
-    # אם ה-URL הסופי הוא /file (לא חזרה ל-login) => התחברות הצליחה
-    success = chk.url.rstrip("/").endswith("/file")
-    fresh = find_token(chk.text) or t
-    return s, success, fresh
-
-def list_files(s, t):
-    d = {"sEcho":"1","iColumns":"5","sColumns":",,,,","iDisplayStart":"0",
-         "iDisplayLength":"100000","mDataProp_0":"fname","sSearch":"","cd":"/"}
-    if t: d["csrftoken"] = t
-    r = s.post(f"{BASE}/file/json/dir", timeout=60, data=d,
-               headers={"Referer":f"{BASE}/file","X-CSRFToken":t or "",
-                        "X-Requested-With":"XMLHttpRequest"})
+def try_login(base, user, pw=""):
+    s = requests.Session(); s.verify=False
+    s.headers.update({"User-Agent":"Mozilla/5.0"})
     try:
-        data = r.json()
-    except Exception:
-        return [], "not-json"
-    return [row.get("fname","") for row in data.get("aaData", [])], data.get("error")
-
-log("חיפוש רוסמן בפורטל publishedprices:\n")
-found_user = None
-for user in CANDIDATES:
-    try:
-        s, ok, t = try_login(user)
-        log(f"  {user}: login={'✓' if ok else '✗'}")
-        if ok:
-            files, err = list_files(s, t)
-            log(f"      files: {len(files)}  error={err}")
-            # זהה chain_id מהקבצים
-            price_files = [f for f in files if "Price" in f]
-            if price_files:
-                log(f"      sample: {price_files[0]}")
-                # chain id = הספרות הארוכות בשם
-                m = re.search(r'(\d{13})', price_files[0])
-                if m: log(f"      chain_id: {m.group(1)}")
-                found_user = user
-        s.close()
+        r = s.get(f"{base}/login", timeout=20)
     except Exception as e:
-        log(f"  {user}: ERROR {e}")
+        return False, f"no-connect: {e}"
+    t = find_token(r.text)
+    pl = {"username":user,"password":pw,"Submit":"Sign in"}
+    if t: pl["csrftoken"]=t
+    try:
+        s.post(f"{base}/login/user", data=pl, timeout=20, headers={"Referer":f"{base}/login"})
+        chk = s.get(f"{base}/file", timeout=20)
+        return chk.url.rstrip("/").endswith("/file"), chk.url
+    except Exception as e:
+        return False, str(e)
+    finally:
+        s.close()
 
-if not found_user:
-    log("\n⚠ לא נמצאה התחברות בשמות שניסיתי.")
-    log("הרשתות הגדולות בפורטל הזה: TivTaam, Keshet, osherad, HaziHinam, Yohananof, ...")
-    log("רוסמן אולי מדווחת לפורטל אחר (cerberus/matrix) או תחת שם אחר.")
+# 1. אילו רשתות מוכרות קיימות בפורטל הזה?
+log("=== רשתות מוכרות בפורטל publishedprices ===")
+known = ["TivTaam","Keshet","osherad","Yohananof","HaziHinam","Rami_levy",
+         "RamiLevy","SuperPharm","Maayan2000","freshmarket","Stop_Market",
+         "politzer","Paz_yellow","Quik","Bareket","yuda_ho","Rosman","ZolVeBegadol"]
+exist = []
+for u in known:
+    ok, info = try_login(BASE, u)
+    mark = "✓" if ok else "✗"
+    log(f"  {u}: {mark}")
+    if ok: exist.append(u)
+log(f"\nקיימות: {exist}")
+
+# 2. נסה את רוסמן בפורטלים אחרים נפוצים
+log("\n=== חיפוש רוסמן בפורטלים אחרים ===")
+other_portals = [
+    "https://prices.rosman.co.il",
+    "https://rosman.binaprojects.com",
+    "https://url.retail.publishedprices.co.il",
+]
+for portal in other_portals:
+    for u in ["Rosman","rosman",""]:
+        ok, info = try_login(portal, u) if u else (None, "skip")
+        if u:
+            log(f"  {portal} [{u}]: {'✓' if ok else '✗'} ({str(info)[:50]})")
 
 import os
 os.makedirs("output",exist_ok=True)
