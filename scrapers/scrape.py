@@ -4,6 +4,8 @@ scrape.py — גישת HTTPS לפורטל publishedprices (Cerberus web client)
 """
 import os, json, gzip, io, re, traceback
 import requests
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
@@ -83,6 +85,7 @@ def process_chain(key, cfg):
     log(f"\n{'='*60}\n{cfg['name']} ({cfg['user']})")
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 (price-compare)"})
+    session.verify = False
     try:
         if not login(session, cfg["user"], cfg["password"]):
             log("    login failed"); return categorized, store_label
