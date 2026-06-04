@@ -111,39 +111,76 @@ def similarity(a, b):
     seq = SequenceMatcher(None, " ".join(wa), " ".join(wb)).ratio()
     return 0.6 * jaccard + 0.4 * seq
 
+# מאפיינים שחייבים להתאים בין שני מוצרים כדי שהם יהיו "אותה סחורה".
+# כל קבוצה = מאפיין בינארי. אם מוצר אחד מכיל מילה מהקבוצה והשני לא -> לא תואמים.
+ATTRIBUTE_GROUPS = [
+    ["מעושן", "מעושנת", "מעושנים", "מעושנות", "עישון"],   # עישון
+    ["מטוגן", "מטוגנת", "מטוגנים", "מטוגנות", "טיגון"],    # טיגון
+    ["מבושל", "מבושלת", "מבושלים", "בישול", "על האש", "בגריל", "צלוי", "צלויה", "אפוי", "אפויה"],  # בישול/צלייה
+    ["ממולא", "ממולאת", "ממולאים", "במילוי"],            # מילוי
+    ["טחון", "טחונה", "טחונים"],                          # טחון
+    ["פרוס", "פרוסה", "פרוסות", "פרוסים", "פרוס דק"],     # פרוס
+    ["שלם", "שלמה", "שלמים"],                             # שלם
+    ["עם בצל", "ברוטב", "ברנדי", "פיקנטי", "חריף", "מתובל", "בתיבול", "מתוק"],  # תוספות/תיבול
+    ["דל שומן", "ללא שומן", "לייט", "דיאט"],              # דל שומן
+]
+
+def _attr_set(name):
+    """מחזיר אילו מאפיינים (אינדקס קבוצה) קיימים בשם"""
+    s = set()
+    for i, grp in enumerate(ATTRIBUTE_GROUPS):
+        for kw in grp:
+            if kw in name:
+                s.add(i)
+                break
+    # מאפיין עצם: 'בלי עצם'/'ללא עצם' מול 'עם עצם' - הבדל מהותי
+    if "בלי עצם" in name or "ללא עצם" in name or "נקי" in name:
+        s.add("boneless")
+    elif "עם עצם" in name:
+        s.add("bone-in")
+    return s
+
+def attributes_compatible(a, b):
+    """
+    שני מוצרים תואמים רק אם יש להם בדיוק אותם מאפייני עיבוד/צורה.
+    אם לאחד יש 'מעושן' ולשני אין -> לא תואם (סחורה שונה).
+    """
+    return _attr_set(a) == _attr_set(b)
+
 def fuzzy_match(tiv_items, kes_items, threshold=0.5):
     """
-    יוצר זוגות של מוצרים דומים בין שתי רשתות
-    מחזיר: {matched_pairs: [(tiv, kes)], unmatched_tiv: [], unmatched_kes: []}
+    יוצר זוגות של מוצרים דומים בין שתי רשתות.
+    מתאים רק מוצרים עם אותם מאפייני עיבוד (טרי/מעושן/מטוגן/פרוס/שלם וכו').
     """
     matched_pairs = []
     used_kes_indices = set()
     unmatched_tiv = []
-    
+
     for tiv in tiv_items:
         best_match = None
         best_score = threshold
         best_idx = -1
-        
+
         for idx, kes in enumerate(kes_items):
             if idx in used_kes_indices:
                 continue
-            
+            # שער ראשון: מאפייני עיבוד חייבים להיות זהים
+            if not attributes_compatible(tiv["name"], kes["name"]):
+                continue
             score = similarity(tiv["name"], kes["name"])
-            
             if score > best_score:
                 best_score = score
                 best_match = kes
                 best_idx = idx
-        
+
         if best_match:
             matched_pairs.append((tiv, best_match))
             used_kes_indices.add(best_idx)
         else:
             unmatched_tiv.append(tiv)
-    
+
     unmatched_kes = [kes for idx, kes in enumerate(kes_items) if idx not in used_kes_indices]
-    
+
     return {
         "matched_pairs": matched_pairs,
         "unmatched_tiv": unmatched_tiv,
