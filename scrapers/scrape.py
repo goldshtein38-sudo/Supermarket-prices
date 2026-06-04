@@ -1,16 +1,18 @@
 """
-scrape.py — חיבור FTPS passive mode לשרת publishedprices
-מנסה כמה שיטות חיבור עד שאחת עובדת
+scrape.py — גישת HTTPS לפורטל publishedprices (Cerberus web client)
+זו השיטה האמינה: login → file/json/dir → download
 """
-import os, json, gzip, io, ftplib, ssl, traceback
+import os, json, gzip, io, re, traceback
+import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
+BASE = "https://url.publishedprices.co.il"
+
 CHAINS = {
-    "tivtaam": {"name": "טיב טעם", "ftp_user": "TivTaam", "ftp_pass": "", "chain_id": "7290873255550"},
-    "keshet":  {"name": "קשת טעמים", "ftp_user": "Keshet", "ftp_pass": "", "chain_id": "7290785400000"},
+    "tivtaam": {"name": "טיב טעם", "user": "TivTaam", "password": "", "chain_id": "7290873255550"},
+    "keshet":  {"name": "קשת טעמים", "user": "Keshet", "password": "", "chain_id": "7290785400000"},
 }
-HOST = "url.retail.publishedprices.co.il"
 CATEGORIES = {
     "עוף": ["עוף", "פרגית", "שניצל", "כרעיים", "שוקיים", "כנפיים", "כבד עוף", "לב עוף"],
     "הודו": ["הודו"],
@@ -31,78 +33,71 @@ def categorize(name):
             if kw.lower() in n: return cat
     return None
 
-def make_connection(user, pw):
-    """מנסה כמה שיטות: FTPS passive, FTP passive"""
-    # שיטה 1: FTPS (explicit TLS) passive
-    try:
-        log("    trying FTPS (explicit TLS) passive...")
-        ftps = ftplib.FTP_TLS(HOST, timeout=60)
-        ftps.login(user, pw)
-        ftps.prot_p()
-        ftps.set_pasv(True)
-        # בדיקה שעובד
-        ftps.voidcmd("TYPE I")
-        log("    FTPS passive OK")
-        return ftps
-    except Exception as e:
-        log(f"    FTPS failed: {e}")
-    # שיטה 2: FTP רגיל passive
-    try:
-        log("    trying plain FTP passive...")
-        ftp = ftplib.FTP(HOST, timeout=60)
-        ftp.login(user, pw)
-        ftp.set_pasv(True)
-        ftp.voidcmd("TYPE I")
-        log("    FTP passive OK")
-        return ftp
-    except Exception as e:
-        log(f"    FTP passive failed: {e}")
-    return None
+def login(session, user, password):
+    """התחברות לפורטל. מושך csrftoken מדף הlogin"""
+    r = session.get(f"{BASE}/login", timeout=30)
+    # חפש csrftoken
+    token = None
+    m = re.search(r'name="csrftoken"\s+value="([^"]+)"', r.text)
+    if m: token = m.group(1)
+    else:
+        m = re.search(r'csrftoken["\']?\s*[:=]\s*["\']([^"\']+)', r.text)
+        if m: token = m.group(1)
+    log(f"    csrftoken: {'found' if token else 'NOT found'}")
+    payload = {"username": user, "password": password}
+    if token: payload["csrftoken"] = token
+    r = session.post(f"{BASE}/login/user", data=payload, timeout=30,
+                     headers={"Referer": f"{BASE}/login"})
+    log(f"    login status: {r.status_code}")
+    return r.status_code == 200
 
-def list_files(conn):
-    """מנסה NLST ואז MLSD"""
-    names = []
+def list_files(session, chain_id):
+    """מקבל רשימת קבצים דרך file/json/dir"""
+    r = session.post(f"{BASE}/file/json/dir", timeout=30,
+                     data={"sd": "/", "DT_RowId": "", "iDisplayLength": "100000"},
+                     headers={"Referer": f"{BASE}/file"})
+    log(f"    dir status: {r.status_code}")
     try:
-        names = conn.nlst()
-        log(f"    NLST returned {len(names)} entries")
-    except Exception as e:
-        log(f"    NLST failed: {e}")
-    return names
+        data = r.json()
+    except Exception:
+        log(f"    dir not JSON, head: {r.text[:200]}")
+        return []
+    rows = data.get("aaData", data.get("data", []))
+    names = []
+    for row in rows:
+        fn = row.get("fname") or row.get("name") or ""
+        if fn: names.append(fn)
+    log(f"    total files listed: {len(names)}")
+    pf = [n for n in names if "PriceFull" in n and chain_id in n]
+    if not pf:
+        pf = [n for n in names if "PriceFull" in n]
+    return pf
+
+def download(session, filename):
+    r = session.get(f"{BASE}/file/d/{filename}", timeout=120)
+    return r.content
 
 def process_chain(key, cfg):
     categorized = {c: [] for c in CATEGORIES}
     store_label = None
-    log(f"\n{'='*60}\n{cfg['name']} ({cfg['ftp_user']})")
-    conn = make_connection(cfg["ftp_user"], cfg["ftp_pass"])
-    if not conn:
-        log("  could not connect with any method")
-        return categorized, store_label
+    log(f"\n{'='*60}\n{cfg['name']} ({cfg['user']})")
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (price-compare)"})
     try:
-        try: conn.cwd("/")
-        except Exception: pass
-        names = list_files(conn)
-        pf = [n.split("/")[-1] for n in names if "PriceFull" in n and cfg["chain_id"] in n]
-        if not pf:
-            pf = [n.split("/")[-1] for n in names if "PriceFull" in n]
-            log(f"    (fallback) any PriceFull: {len(pf)}")
+        if not login(session, cfg["user"], cfg["password"]):
+            log("    login failed"); return categorized, store_label
+        pf = list_files(session, cfg["chain_id"])
         log(f"  PriceFull files: {len(pf)}")
         for f in pf[:8]: log(f"    {f}")
-        if not pf:
-            log(f"  sample of all entries: {names[:10]}")
-            conn.quit(); return categorized, store_label
-
+        if not pf: return categorized, store_label
         target = pf[0]
         log(f"  Using: {target}")
-        buf = io.BytesIO(); conn.retrbinary(f"RETR {target}", buf.write)
-        try: conn.quit()
-        except Exception: pass
-        raw = buf.getvalue()
+        raw = download(session, target)
         log(f"  bytes: {len(raw)}")
         try: content = gzip.decompress(raw); log("  gunzip OK")
         except Exception: content = raw; log("  not gzip")
         try: root = ET.fromstring(content)
-        except Exception:
-            root = ET.fromstring(content.decode("utf-8-sig", errors="ignore"))
+        except Exception: root = ET.fromstring(content.decode("utf-8-sig", errors="ignore"))
         log(f"  Root: {root.tag}")
         for ch in list(root):
             if ch.tag.lower().startswith("store") and (ch.text or "").strip():
