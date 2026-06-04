@@ -1,5 +1,5 @@
 {
-  "updated": "04.06.2026 20:21",
+  "updated": "04.06.2026 20:37",
   "note": "נתונים מסניף כרמיאל",
   "stores": {
     "tivtaam": "010",
@@ -214,16 +214,6 @@
             "qty": "1.00"
           },
           {
-            "name": "סינטה לבן טרי מפורק",
-            "manufacturer": "לא ידוע",
-            "item_code": "6187260",
-            "price": "83.90",
-            "unit_price": "83.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "אסאדו על האש במשקל מניה",
             "manufacturer": "לא ידוע",
             "item_code": "6217783",
@@ -244,16 +234,6 @@
             "qty": "1.00"
           },
           {
-            "name": "טחון בקר+לבן",
-            "manufacturer": "לא ידוע",
-            "item_code": "6517241",
-            "price": "74.90",
-            "unit_price": "74.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "שניצל עגל טרי",
             "manufacturer": "לא ידוע",
             "item_code": "6831828",
@@ -269,16 +249,6 @@
             "item_code": "6833198",
             "price": "149.90",
             "unit_price": "149.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סינטה לבנה מעושנת-להב",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290001101414",
-            "price": "129.00",
-            "unit_price": "129.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -329,16 +299,6 @@
             "item_code": "7290005571596",
             "price": "129.90",
             "unit_price": "129.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פרושוטו בקר במשקל",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290006217776",
-            "price": "179.00",
-            "unit_price": "179.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -419,16 +379,6 @@
             "item_code": "7290113461734",
             "price": "64.90",
             "unit_price": "64.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בק בייקון חצי (סינטה לבן) - זילבר",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290115111385",
-            "price": "149.00",
-            "unit_price": "149.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1670,6 +1620,16 @@
             "qty": "1.00"
           },
           {
+            "name": "סינטה לבנה מעושנת-להב",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290001101414",
+            "price": "129.00",
+            "unit_price": "129.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פריזר דוקטורסקיה להב",
             "manufacturer": "לא ידוע",
             "item_code": "7290003018161",
@@ -1830,6 +1790,16 @@
             "qty": "1.00"
           },
           {
+            "name": "בק בייקון חצי (סינטה לבן) - זילבר",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290115111385",
+            "price": "149.00",
+            "unit_price": "149.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "נקניק מוצרלה במשקל",
             "manufacturer": "לא ידוע",
             "item_code": "8379113",
@@ -1922,6 +1892,16 @@
             "qty": "1.00"
           },
           {
+            "name": "סינטה לבן טרי מפורק",
+            "manufacturer": "לא ידוע",
+            "item_code": "6187260",
+            "price": "83.90",
+            "unit_price": "83.90",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "סטייק צוואר לבן טרי",
             "manufacturer": "לא ידוע",
             "item_code": "6187451",
@@ -1952,6 +1932,16 @@
             "qty": "1.00"
           },
           {
+            "name": "טחון בקר+לבן",
+            "manufacturer": "לא ידוע",
+            "item_code": "6517241",
+            "price": "74.90",
+            "unit_price": "74.90",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פולקה איטלקי להב",
             "manufacturer": "לא ידוע",
             "item_code": "7290001101865",
@@ -1972,6 +1962,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פרושוטו בקר במשקל",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290006217776",
+            "price": "179.00",
+            "unit_price": "179.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שפק אוקראיני סלה אווקראינסקייה במשקל",
             "manufacturer": "לא ידוע",
             "item_code": "7290006218087",
@@ -1987,16 +1987,6 @@
             "item_code": "7290006219428",
             "price": "209.00",
             "unit_price": "209.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "אולד אמסטרדם RESERV במשקל",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290008940146",
-            "price": "145.00",
-            "unit_price": "145.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -2027,16 +2017,6 @@
             "item_code": "8440868",
             "price": "66.90",
             "unit_price": "66.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "אולד אמסטרדם גלגל שקיל",
-            "manufacturer": "לא ידוע",
-            "item_code": "9871489308100",
-            "price": "152.00",
-            "unit_price": "152.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -3246,6 +3226,16 @@
             "qty": "1.00"
           },
           {
+            "name": "אולד אמסטרדם RESERV במשקל",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290008940146",
+            "price": "145.00",
+            "unit_price": "145.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גאודה עיזים סיימן במ",
             "manufacturer": "לא ידוע",
             "item_code": "7290102301539",
@@ -3584,6 +3574,16 @@
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
+          },
+          {
+            "name": "אולד אמסטרדם גלגל שקיל",
+            "manufacturer": "לא ידוע",
+            "item_code": "9871489308100",
+            "price": "152.00",
+            "unit_price": "152.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
           }
         ]
       }
@@ -3846,16 +3846,6 @@
         ],
         "בקר": [
           {
-            "name": "לשון בקר בגל תאומים",
-            "manufacturer": "",
-            "item_code": "7290000001053",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "צלעות עגל עם עצם טרי",
             "manufacturer": "",
             "item_code": "17255",
@@ -3936,26 +3926,6 @@
             "qty": "1.00"
           },
           {
-            "name": "לשון בקר מבושל",
-            "manufacturer": "",
-            "item_code": "7290000000478",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "רגל עגל פרוס",
-            "manufacturer": "",
-            "item_code": "19009",
-            "price": "24.90",
-            "unit_price": "24.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "זנב בקר פרוס במגש",
             "manufacturer": "",
             "item_code": "19041",
@@ -4011,26 +3981,6 @@
             "item_code": "17227",
             "price": "109.90",
             "unit_price": "109.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סרדלקה עגל",
-            "manufacturer": "",
-            "item_code": "363",
-            "price": "45.00",
-            "unit_price": "45.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פרושוטו בקר",
-            "manufacturer": "",
-            "item_code": "7290000000508",
-            "price": "159.00",
-            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4116,31 +4066,11 @@
             "qty": "1.00"
           },
           {
-            "name": "טבעות עגל",
-            "manufacturer": "",
-            "item_code": "7290000927518",
-            "price": "59.90",
-            "unit_price": "59.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "כתף בקר בשום",
             "manufacturer": "",
             "item_code": "1178",
             "price": "95.00",
             "unit_price": "95.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סרדלקי עגל בוואקום",
-            "manufacturer": "",
-            "item_code": "1364",
-            "price": "45.00",
-            "unit_price": "45.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4458,6 +4388,16 @@
         ],
         "פסטרמות": [
           {
+            "name": "לשון בקר בגל תאומים",
+            "manufacturer": "",
+            "item_code": "7290000001053",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שינקה לקס",
             "manufacturer": "",
             "item_code": "1607",
@@ -4668,6 +4608,16 @@
             "qty": "1.00"
           },
           {
+            "name": "לשון בקר מבושל",
+            "manufacturer": "",
+            "item_code": "7290000000478",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "בוזנינה הודו",
             "manufacturer": "",
             "item_code": "7290000000609",
@@ -4793,16 +4743,6 @@
             "item_code": "7290000003024",
             "price": "105.00",
             "unit_price": "105.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בק בייקון",
-            "manufacturer": "",
-            "item_code": "322",
-            "price": "139.00",
-            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5942,6 +5882,16 @@
             "qty": "1.00"
           },
           {
+            "name": "בק בייקון",
+            "manufacturer": "",
+            "item_code": "322",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "נקניק סרוולט",
             "manufacturer": "",
             "item_code": "7290000000424",
@@ -6317,6 +6267,16 @@
             "item_code": "7290000001401",
             "price": "129.00",
             "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "אמסטרדם חי שלם",
+            "manufacturer": "",
+            "item_code": "1618",
+            "price": "159.00",
+            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6804,6 +6764,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פרושוטו בקר",
+            "manufacturer": "",
+            "item_code": "7290000000508",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "קרקובסקייה שלם",
             "manufacturer": "",
             "item_code": "1654",
@@ -6829,16 +6799,6 @@
             "item_code": "17355",
             "price": "67.90",
             "unit_price": "67.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "אמסטרדם חי שלם",
-            "manufacturer": "",
-            "item_code": "1618",
-            "price": "159.00",
-            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
