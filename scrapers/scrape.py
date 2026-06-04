@@ -73,10 +73,13 @@ def login(session, user, password):
 
 def list_files(session, chain_id, token=None):
     """מקבל רשימת קבצים דרך file/json/dir"""
-    data = {"sd": "/", "DT_RowId": "", "iDisplayLength": "100000",
-            "sEcho": "1", "iColumns": "5", "sColumns": ",,,,"}
+    data = {"sEcho": "1", "iColumns": "5", "sColumns": ",,,,",
+            "iDisplayStart": "0", "iDisplayLength": "100000",
+            "mDataProp_0": "fname", "mDataProp_1": "typeLabel",
+            "mDataProp_2": "size", "mDataProp_3": "ftime", "mDataProp_4": "",
+            "sSearch": "", "cd": "/"}
     if token: data["csrftoken"] = token
-    r = session.post(f"{BASE}/file/json/dir", timeout=30, data=data,
+    r = session.post(f"{BASE}/file/json/dir", timeout=60, data=data,
                      headers={"Referer": f"{BASE}/file", "X-CSRFToken": token or "",
                               "X-Requested-With": "XMLHttpRequest"})
     log(f"    dir status: {r.status_code}")
@@ -88,6 +91,8 @@ def list_files(session, chain_id, token=None):
     # אבחון מבנה
     if isinstance(data, dict):
         log(f"    JSON keys: {list(data.keys())}")
+        log(f"    error field: {repr(data.get('error'))}")
+        log(f"    iTotalRecords: {data.get('iTotalRecords')}")
     rows = data.get("aaData") or data.get("data") or data.get("files") or []
     log(f"    rows count: {len(rows)}")
     if rows:
