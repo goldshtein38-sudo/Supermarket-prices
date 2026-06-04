@@ -117,6 +117,38 @@ def download(session, filename):
     r = session.get(f"{BASE}/file/d/{filename}", timeout=120)
     return r.content
 
+
+def find_stores(session, chain_id, token):
+    """מוצא את קובץ Stores ומדפיס מיפוי StoreID -> שם"""
+    data = {"sEcho":"1","iColumns":"5","sColumns":",,,,","iDisplayStart":"0",
+            "iDisplayLength":"100000","mDataProp_0":"fname","sSearch":"","cd":"/"}
+    if token: data["csrftoken"] = token
+    r = session.post(f"{BASE}/file/json/dir", timeout=60, data=data,
+                     headers={"Referer": f"{BASE}/file","X-CSRFToken":token or "",
+                              "X-Requested-With":"XMLHttpRequest"})
+    rows = r.json().get("aaData", [])
+    stores_files = [row.get("fname","") for row in rows if row.get("fname","").startswith("Stores")]
+    log(f"  Stores files: {stores_files[:5]}")
+    if not stores_files: return
+    sf = stores_files[0]
+    raw = session.get(f"{BASE}/file/d/{sf}", timeout=60).content
+    try: content = gzip.decompress(raw)
+    except Exception: content = raw
+    try: root = ET.fromstring(content)
+    except Exception: root = ET.fromstring(content.decode("utf-8-sig", errors="ignore"))
+    # חפש סניפים עם "כרמיאל"
+    for store in root.iter():
+        if store.tag in ("Store","STORE","Branch"):
+            sid = ""; sname = ""
+            for c in store:
+                if c.tag in ("StoreID","StoreId","STOREID"): sid = (c.text or "").strip()
+                if c.tag in ("StoreName","StoreNm","STORENAME","City","Address"):
+                    val = (c.text or "").strip()
+                    if "כרמיאל" in val or "קרמיאל" in val:
+                        sname = val
+            if sname:
+                log(f"    ★ CARMEL: StoreID={sid} name={sname}")
+
 def process_chain(key, cfg):
     categorized = {c: [] for c in CATEGORIES}
     store_label = None
@@ -126,6 +158,7 @@ def process_chain(key, cfg):
     session.verify = False
     try:
         token = login(session, cfg["user"], cfg["password"])
+        find_stores(session, cfg["chain_id"], token)
         pf = list_files(session, cfg["chain_id"], token)
         log(f"  PriceFull files: {len(pf)}")
         for f in pf[:8]: log(f"    {f}")
