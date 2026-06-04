@@ -1,68 +1,25 @@
 
 ============================================================
-טיב טעם (TivTaam)
-    csrftoken: found (Z1Kwop7m...)
-    cookies after GET /login: ['cftpSID']
-    login POST status: 200, final url: https://url.publishedprices.co.il/file
-    cookies after login: ['cftpSID']
-    fresh token from /file: found (cGSX7PuL...)
-  Stores files: ['Stores7290873255550-000-20260602-050501.xml', 'Stores7290873255550-000-20260603-050502.xml', 'Stores7290873255550-000-20260604-050501.xml']
-    ★ CARMEL: StoreID=010 name=כרמיאל
-    dir status: 200
-    JSON keys: ['aaData', 'iTotalDisplayRecords', 'iTotalRecords', 'sEcho']
-    error field: None
-    iTotalRecords: 109
-    rows count: 109
-    first row sample: {"DT_RowId": "PriceFull7290873255550-000-002-20260604-004004.gz", "fname": "PriceFull7290873255550-000-002-20260604-004004.gz", "ftime": "06/04/2026 00:47", "icon": "compress.png", "name": "PriceFull7290873255550-000-002-20260604-004004.gz", "size": 1055440, "time": "2026-06-03T21:47:59Z", "type": "
-    total files listed: 109
-  PriceFull files: 53
-    PriceFull7290873255550-000-002-20260604-004004.gz
-    PriceFull7290873255550-000-003-20260604-004004.gz
-    PriceFull7290873255550-000-006-20260604-004004.gz
-    PriceFull7290873255550-000-007-20260604-004004.gz
-    PriceFull7290873255550-000-010-20260604-004004.gz
-    PriceFull7290873255550-000-012-20260604-004004.gz
-    PriceFull7290873255550-000-014-20260604-004004.gz
-    PriceFull7290873255550-000-015-20260604-004004.gz
-  Using: PriceFull7290873255550-000-002-20260604-004004.gz
-  bytes: 1055440
-  gunzip OK
-  Root: Root
-    <StoreID> = 002
-  Item fields: ['PriceUpdateTime', 'ItemCode', 'LastSaleDateTime', 'ItemType', 'ItemName', 'ManufactureName', 'ManufactureCountry', 'ManufactureItemDescription', 'UnitQty', 'Quantity', 'UnitOfMeasure', 'bIsWeighted', 'QtyInPackage', 'ItemPrice', 'UnitOfMeasurePrice', 'AllowDiscount', 'ItemStatus']
-  Total Items: 21444
-  Categorized: 1829
+טיב טעם (TivTaam) store=010
+  Using: PriceFull7290873255550-000-010-20260604-004004.gz
+  Total Items: 10517 | Categorized: 1126
+      עוף: 153
+      הודו: 36
+      בקר: 125
+      בשר לבן: 1
+      פסטרמות: 54
+      נקניקים: 158
+      גבינות: 599
 
 ============================================================
-קשת טעמים (Keshet)
-    csrftoken: found (A82LMhd8...)
-    cookies after GET /login: ['cftpSID']
-    login POST status: 200, final url: https://url.publishedprices.co.il/file
-    cookies after login: ['cftpSID']
-    fresh token from /file: found (ipbDox_1...)
-  Stores files: ['Stores7290785400000-000-20260602-051000.xml', 'Stores7290785400000-000-20260603-051000.xml', 'Stores7290785400000-000-20260604-051000.xml']
-    ★ CARMEL: StoreID=015 name=כרמיאל
-    dir status: 200
-    JSON keys: ['aaData', 'iTotalDisplayRecords', 'iTotalRecords', 'sEcho']
-    error field: None
-    iTotalRecords: 157
-    rows count: 157
-    first row sample: {"DT_RowId": "Price0000000000000-7999-202206130915.gz", "fname": "Price0000000000000-7999-202206130915.gz", "ftime": "05/12/2026 15:27", "icon": "compress.png", "name": "Price0000000000000-7999-202206130915.gz", "size": 195, "time": "2026-05-12T12:27:40Z", "type": "file", "typeLabel": "file", "value
-    total files listed: 157
-  PriceFull files: 30
-    PriceFull7290785400000-001-014-20260604-001008.gz
-    PriceFull7290785400000-001-021-20260604-001003.gz
-    PriceFull7290785400000-002-202606040010.gz
-    PriceFull7290785400000-003-202606040010.gz
-    PriceFull7290785400000-004-202606040010.gz
-    PriceFull7290785400000-005-202606040010.gz
-    PriceFull7290785400000-008-202606040010.gz
-    PriceFull7290785400000-010-202606040010.gz
-  Using: PriceFull7290785400000-001-014-20260604-001008.gz
-  bytes: 1291381
-  gunzip OK
-  Root: Root
-    <StoreID> = 014
-  Item fields: ['PriceUpdateTime', 'ItemCode', 'LastSaleDateTime', 'ItemType', 'ItemName', 'ManufactureName', 'ManufactureCountry', 'ManufactureItemDescription', 'UnitQty', 'Quantity', 'UnitOfMeasure', 'bIsWeighted', 'QtyInPackage', 'ItemPrice', 'UnitOfMeasurePrice', 'AllowDiscount', 'ItemStatus']
-  Total Items: 18217
-  Categorized: 1934
+קשת טעמים (Keshet) store=015
+  Using: PriceFull7290785400000-015-202606040010.gz
+  Total Items: 12691 | Categorized: 1459
+      עוף: 200
+      הודו: 59
+      בקר: 164
+      בשר לבן: 5
+      פסטרמות: 47
+      נקניקים: 213
+      נקניקיות: 2
+      גבינות: 769
