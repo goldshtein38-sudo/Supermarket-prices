@@ -1,5 +1,5 @@
 {
-  "updated": "04.06.2026 19:39",
+  "updated": "04.06.2026 19:59",
   "note": "נתונים מסניף כרמיאל",
   "stores": {
     "tivtaam": "010",
@@ -32,29 +32,9 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו עם אווז",
-            "manufacturer": "לא ידוע",
-            "item_code": "4051204",
-            "price": "159.00",
-            "unit_price": "159.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "חזה הודו מעושן בגריל במשקל",
             "manufacturer": "לא ידוע",
             "item_code": "4052188",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה חזה הודו מקסיקני",
-            "manufacturer": "לא ידוע",
-            "item_code": "4053710",
             "price": "99.00",
             "unit_price": "99.00",
             "unit": "1קילוגרם",
@@ -77,26 +57,6 @@
             "item_code": "6188717",
             "price": "103.00",
             "unit_price": "103.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו מעושנתטירת צבי",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290000365909",
-            "price": "100.00",
-            "unit_price": "100.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו גחלים מופחת קלוריות זילבר",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290002438113",
-            "price": "90.00",
-            "unit_price": "90.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -197,66 +157,6 @@
             "item_code": "7290100339602",
             "price": "9.90",
             "unit_price": "9.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר על האש מזרע",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439213",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר מעושן מזרע",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439527",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו על האש",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439541",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר רומני מזרע",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439572",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר בשום",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439589",
-            "price": "99.00",
-            "unit_price": "99.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פלפל מזרע",
-            "manufacturer": "לא ידוע",
-            "item_code": "8439756",
-            "price": "99.00",
-            "unit_price": "99.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -766,6 +666,16 @@
             "qty": "1.00"
           },
           {
+            "name": "בוזנינה  פסטיבל ביתי",
+            "manufacturer": "לא ידוע",
+            "item_code": "1421109",
+            "price": "159.00",
+            "unit_price": "159.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה סטליצנייה",
             "manufacturer": "לא ידוע",
             "item_code": "1440469",
@@ -806,6 +716,26 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו עם אווז",
+            "manufacturer": "לא ידוע",
+            "item_code": "4051204",
+            "price": "159.00",
+            "unit_price": "159.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה כפרית במשקל",
+            "manufacturer": "לא ידוע",
+            "item_code": "4051495",
+            "price": "185.00",
+            "unit_price": "185.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "רו בייקון במשקל",
             "manufacturer": "לא ידוע",
             "item_code": "4052652",
@@ -836,6 +766,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה חזה הודו מקסיקני",
+            "manufacturer": "לא ידוע",
+            "item_code": "4053710",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שינקן מעושן במשקל",
             "manufacturer": "לא ידוע",
             "item_code": "4054014",
@@ -861,6 +801,16 @@
             "item_code": "4054038",
             "price": "139.00",
             "unit_price": "139.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה רגילה מניה",
+            "manufacturer": "לא ידוע",
+            "item_code": "6217257",
+            "price": "150.00",
+            "unit_price": "150.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -926,6 +876,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו מעושנתטירת צבי",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290000365909",
+            "price": "100.00",
+            "unit_price": "100.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה צוואר מעושן להב",
             "manufacturer": "לא ידוע",
             "item_code": "7290001499689",
@@ -941,6 +901,16 @@
             "item_code": "7290002371571",
             "price": "100.00",
             "unit_price": "100.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו גחלים מופחת קלוריות זילבר",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290002438113",
+            "price": "90.00",
+            "unit_price": "90.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1026,11 +996,71 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו פרפר על האש מזרע",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439213",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה לבנה מעודנת רומנית מזרע",
             "manufacturer": "לא ידוע",
             "item_code": "8439428",
             "price": "149.00",
             "unit_price": "149.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר מעושן מזרע",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439527",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו על האש",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439541",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר רומני מזרע",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439572",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר בשום",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439589",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פלפל מזרע",
+            "manufacturer": "לא ידוע",
+            "item_code": "8439756",
+            "price": "99.00",
+            "unit_price": "99.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1932,31 +1962,11 @@
             "qty": "1.00"
           },
           {
-            "name": "בוזנינה  פסטיבל ביתי",
-            "manufacturer": "לא ידוע",
-            "item_code": "1421109",
-            "price": "159.00",
-            "unit_price": "159.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פרושוטו",
             "manufacturer": "לא ידוע",
             "item_code": "4050597",
             "price": "365.00",
             "unit_price": "365.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה כפרית במשקל",
-            "manufacturer": "לא ידוע",
-            "item_code": "4051495",
-            "price": "185.00",
-            "unit_price": "185.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1987,16 +1997,6 @@
             "item_code": "6190062",
             "price": "109.90",
             "unit_price": "109.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה רגילה מניה",
-            "manufacturer": "לא ידוע",
-            "item_code": "6217257",
-            "price": "150.00",
-            "unit_price": "150.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -3594,51 +3594,11 @@
       "categories": {
         "הודו": [
           {
-            "name": "פסטרמה הודו מעושנת",
-            "manufacturer": "",
-            "item_code": "7290000001072",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו מקסיקנית",
-            "manufacturer": "",
-            "item_code": "7290000001073",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו עם אווז",
-            "manufacturer": "",
-            "item_code": "1218",
-            "price": "149.00",
-            "unit_price": "149.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "טחון הודו",
             "manufacturer": "",
             "item_code": "17110",
             "price": "42.90",
             "unit_price": "42.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו ברביקיו",
-            "manufacturer": "",
-            "item_code": "7290000001071",
-            "price": "59.00",
-            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -3664,36 +3624,6 @@
             "qty": "1.00"
           },
           {
-            "name": "בוזנינה הודו חצי",
-            "manufacturer": "",
-            "item_code": "312",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר מעו",
-            "manufacturer": "",
-            "item_code": "381",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר שום",
-            "manufacturer": "",
-            "item_code": "7290000000395",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "חזה הודו מעושן",
             "manufacturer": "",
             "item_code": "7290000000614",
@@ -3704,29 +3634,9 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו פרפר שחו",
-            "manufacturer": "",
-            "item_code": "7290000000633",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "חזה הודו ברביקיו",
             "manufacturer": "",
             "item_code": "7290000000816",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה הודו ביתית",
-            "manufacturer": "",
-            "item_code": "7290000000409",
             "price": "79.00",
             "unit_price": "79.0000",
             "unit": "ק\"ג",
@@ -3749,16 +3659,6 @@
             "item_code": "7290000017115",
             "price": "59.90",
             "unit_price": "59.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה הודו",
-            "manufacturer": "",
-            "item_code": "7290000000609",
-            "price": "89.00",
-            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -3824,46 +3724,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו ברביקיו",
-            "manufacturer": "",
-            "item_code": "7290000000578",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו איטלקי ר",
-            "manufacturer": "",
-            "item_code": "733",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו ברבקיו",
-            "manufacturer": "",
-            "item_code": "375",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר מעו",
-            "manufacturer": "",
-            "item_code": "7290000000640",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "טחון עוף והודו",
             "manufacturer": "",
             "item_code": "17025",
@@ -3904,16 +3764,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו גחלים",
-            "manufacturer": "",
-            "item_code": "1172",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "חזה הודו מובחר",
             "manufacturer": "",
             "item_code": "7290000017101",
@@ -3934,31 +3784,11 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו פלפל",
-            "manufacturer": "",
-            "item_code": "1173",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "זנבות הודו",
             "manufacturer": "",
             "item_code": "7290000017112",
             "price": "9.90",
             "unit_price": "9.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו גחלים טי",
-            "manufacturer": "",
-            "item_code": "7290000000820",
-            "price": "79.00",
-            "unit_price": "79.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -3999,66 +3829,6 @@
             "item_code": "7290000017117",
             "price": "64.90",
             "unit_price": "64.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר שום",
-            "manufacturer": "",
-            "item_code": "7290000000615",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרס ברבי",
-            "manufacturer": "",
-            "item_code": "7290000000689",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר ברב",
-            "manufacturer": "",
-            "item_code": "971",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו פרפר שום",
-            "manufacturer": "",
-            "item_code": "972",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו מעושנת",
-            "manufacturer": "",
-            "item_code": "975",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו  פרפר בר",
-            "manufacturer": "",
-            "item_code": "1376",
-            "price": "75.00",
-            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4828,11 +4598,61 @@
             "qty": "1.00"
           },
           {
+            "name": "בוזנינה עגול",
+            "manufacturer": "",
+            "item_code": "7290000001648",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו מעושנת",
+            "manufacturer": "",
+            "item_code": "7290000001072",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו מקסיקנית",
+            "manufacturer": "",
+            "item_code": "7290000001073",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו עם אווז",
+            "manufacturer": "",
+            "item_code": "1218",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה דליקטסניה לבנ",
             "manufacturer": "",
             "item_code": "7290000001518",
             "price": "139.00",
             "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו ברביקיו",
+            "manufacturer": "",
+            "item_code": "7290000001071",
+            "price": "59.00",
+            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4848,6 +4668,36 @@
             "qty": "1.00"
           },
           {
+            "name": "בוזנינה הודו חצי",
+            "manufacturer": "",
+            "item_code": "312",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר מעו",
+            "manufacturer": "",
+            "item_code": "381",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר שום",
+            "manufacturer": "",
+            "item_code": "7290000000395",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "קוסטיצה",
             "manufacturer": "",
             "item_code": "7290000000406",
@@ -4858,11 +4708,61 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו פרפר שחו",
+            "manufacturer": "",
+            "item_code": "7290000000633",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה סטוליצניה",
             "manufacturer": "",
             "item_code": "1394",
             "price": "159.00",
             "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה לבן גוש",
+            "manufacturer": "",
+            "item_code": "1920",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה הודו ביתית",
+            "manufacturer": "",
+            "item_code": "7290000000409",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה הודו",
+            "manufacturer": "",
+            "item_code": "7290000000609",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה כפרית",
+            "manufacturer": "",
+            "item_code": "7290000000445",
+            "price": "139.00",
+            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4888,11 +4788,61 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו ברביקיו",
+            "manufacturer": "",
+            "item_code": "7290000000578",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו איטלקי ר",
+            "manufacturer": "",
+            "item_code": "733",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו ברבקיו",
+            "manufacturer": "",
+            "item_code": "375",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה חזיר ביתית",
+            "manufacturer": "",
+            "item_code": "7290000000437",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה רומנית מעושנת",
             "manufacturer": "",
             "item_code": "7290000000548",
             "price": "139.00",
             "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר מעו",
+            "manufacturer": "",
+            "item_code": "7290000000640",
+            "price": "89.00",
+            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4938,6 +4888,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו גחלים",
+            "manufacturer": "",
+            "item_code": "1172",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה הונגרית",
             "manufacturer": "",
             "item_code": "7290000000524",
@@ -4973,6 +4933,26 @@
             "item_code": "7290000003124",
             "price": "109.00",
             "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה",
+            "manufacturer": "",
+            "item_code": "920",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פלפל",
+            "manufacturer": "",
+            "item_code": "1173",
+            "price": "59.00",
+            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5048,6 +5028,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו גחלים טי",
+            "manufacturer": "",
+            "item_code": "7290000000820",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שינקן וירגיניה מעושן",
             "manufacturer": "",
             "item_code": "346",
@@ -5068,6 +5058,16 @@
             "qty": "1.00"
           },
           {
+            "name": "בוזנינה עוף",
+            "manufacturer": "",
+            "item_code": "7290000000499",
+            "price": "75.00",
+            "unit_price": "75.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה רומנית שום",
             "manufacturer": "",
             "item_code": "7290000000523",
@@ -5078,11 +5078,31 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו פרפר שום",
+            "manufacturer": "",
+            "item_code": "7290000000615",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה צאך",
             "manufacturer": "",
             "item_code": "7290000000647",
             "price": "139.00",
             "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרס ברבי",
+            "manufacturer": "",
+            "item_code": "7290000000689",
+            "price": "89.00",
+            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5118,11 +5138,51 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה הודו פרפר ברב",
+            "manufacturer": "",
+            "item_code": "971",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו פרפר שום",
+            "manufacturer": "",
+            "item_code": "972",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו מעושנת",
+            "manufacturer": "",
+            "item_code": "975",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פסטרמה על האש בואקום",
             "manufacturer": "",
             "item_code": "1912",
             "price": "109.00",
             "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו  פרפר בר",
+            "manufacturer": "",
+            "item_code": "1376",
+            "price": "75.00",
+            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5153,6 +5213,16 @@
             "item_code": "7290000001433",
             "price": "75.00",
             "unit_price": "75.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה פסטיבל ביתי",
+            "manufacturer": "",
+            "item_code": "7290000001437",
+            "price": "139.00",
+            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6684,16 +6754,6 @@
         ],
         "בשר לבן": [
           {
-            "name": "בוזנינה עגול",
-            "manufacturer": "",
-            "item_code": "7290000001648",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פולקה שלם עם עצם",
             "manufacturer": "",
             "item_code": "17313",
@@ -6764,16 +6824,6 @@
             "qty": "1.00"
           },
           {
-            "name": "בוזנינה לבן גוש",
-            "manufacturer": "",
-            "item_code": "1920",
-            "price": "139.00",
-            "unit_price": "139.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פרושוטו טורינו חדש",
             "manufacturer": "",
             "item_code": "7290000000528",
@@ -6799,16 +6849,6 @@
             "item_code": "1911",
             "price": "109.00",
             "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה כפרית",
-            "manufacturer": "",
-            "item_code": "7290000000445",
-            "price": "139.00",
-            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6844,16 +6884,6 @@
             "qty": "1.00"
           },
           {
-            "name": "בוזנינה חזיר ביתית",
-            "manufacturer": "",
-            "item_code": "7290000000437",
-            "price": "139.00",
-            "unit_price": "139.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "קרקובסקייה שלם",
             "manufacturer": "",
             "item_code": "1654",
@@ -6869,16 +6899,6 @@
             "item_code": "17311",
             "price": "24.90",
             "unit_price": "24.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה",
-            "manufacturer": "",
-            "item_code": "920",
-            "price": "139.00",
-            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6939,16 +6959,6 @@
             "item_code": "7290000001257",
             "price": "135.00",
             "unit_price": "135.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה פסטיבל ביתי",
-            "manufacturer": "",
-            "item_code": "7290000001437",
-            "price": "139.00",
-            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7231,16 +7241,6 @@
             "item_code": "17030",
             "price": "59.90",
             "unit_price": "59.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה עוף",
-            "manufacturer": "",
-            "item_code": "7290000000499",
-            "price": "75.00",
-            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
