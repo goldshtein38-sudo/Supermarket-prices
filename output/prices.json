@@ -1,5 +1,5 @@
 {
-  "updated": "04.06.2026 11:44",
+  "updated": "04.06.2026 11:52",
   "note": "נתונים מסניף כרמיאל",
   "stores": {
     "tivtaam": "010",
@@ -2124,66 +2124,6 @@
             "qty": "1.00"
           },
           {
-            "name": "חזה עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951224",
-            "price": "64.90",
-            "unit_price": "64.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גרון עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951408",
-            "price": "16.90",
-            "unit_price": "16.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גב עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951422",
-            "price": "14.90",
-            "unit_price": "14.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "עוף לולו שלם טרי",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951446",
-            "price": "46.90",
-            "unit_price": "46.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "קורקבן עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951774",
-            "price": "18.90",
-            "unit_price": "18.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "כבד עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "1951781",
-            "price": "44.90",
-            "unit_price": "44.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פילה עוף טרי",
             "manufacturer": "לא ידוע",
             "item_code": "3800513",
@@ -2299,36 +2239,6 @@
             "item_code": "7290001581094",
             "price": "19.90",
             "unit_price": "19.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "שניצל דק עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290001951248",
-            "price": "69.90",
-            "unit_price": "69.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "קוקטייל עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290001951347",
-            "price": "55.90",
-            "unit_price": "55.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "כנפיים עוף לולו",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290001951385",
-            "price": "24.90",
-            "unit_price": "24.90",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
