@@ -4,17 +4,19 @@
 - Fuzzy matching בין מוצרים של שתי רשתות
 - חישוב % הפרש מחיר
 - דירוג לפי הזול ביותר
-- כרטיס עדכון והערות
+- גרף היסטוריה מחירים
 """
 
 import json
 import os
+import glob
 from datetime import datetime
 from difflib import SequenceMatcher
 
 def load_data():
     with open("output/prices.json", encoding="utf-8") as f:
         return json.load(f)
+
 
 def _to_float(v):
     try:
@@ -68,6 +70,29 @@ def price_per_kg(item):
     if up and up > 0 and kind == "100g":
         return (up * 10, "kg")
     return (None, None)
+
+def load_history():
+    """טוען את כל snapshots ההיסטוריה ובונה מילון: {chain: {name: [(date, price_kg)]}}"""
+    history = {}
+    snapshots = sorted(glob.glob("output/history/prices_*.json"))
+    for path in snapshots:
+        try:
+            date = os.path.basename(path).replace("prices_","").replace(".json","")
+            data = json.load(open(path, encoding="utf-8"))
+            for chain_key, chain in data.get("chains", {}).items():
+                if chain_key not in history:
+                    history[chain_key] = {}
+                for cat, items in chain.get("categories", {}).items():
+                    for it in items:
+                        p = price_per_kg(it)[0]
+                        if p and p > 0:
+                            nm = it["name"]
+                            if nm not in history[chain_key]:
+                                history[chain_key][nm] = []
+                            history[chain_key][nm].append((date, round(p,2)))
+        except Exception as e:
+            pass
+    return history
 
 def format_price_display(item):
     """תצוגת מחיר מנורמל לק"ג (כל המוצרים שקילים = מעדנייה/קצבייה)"""
@@ -291,7 +316,7 @@ def _brand(item):
         return ""
     return f'<div class="brand">{m}</div>'
 
-def build_matched_section(cat_key, cat_name, emoji, match_data):
+def build_matched_section(cat_key, cat_name, emoji, match_data, history=None):
     """בונה קטע השוואה ישירה של מוצרים תואמים"""
     matched = match_data["matched_pairs"]
     unmatched_tiv = match_data["unmatched_tiv"]
@@ -338,10 +363,23 @@ def build_matched_section(cat_key, cat_name, emoji, match_data):
         else:
             diff_text = "<small style='color:#999'>(בסיס שונה)</small>"
 
+        # בנה נתוני היסטוריה לגרף
+        hist_tiv = []
+        hist_kes = []
+        if history:
+            hist_tiv = history.get("tivtaam", {}).get(tiv["name"], [])
+            hist_kes = history.get("keshet", {}).get(kes["name"], [])
+
+        has_hist = len(hist_tiv) > 1 or len(hist_kes) > 1
+        hist_json = json.dumps({"tiv": tiv["name"], "kes": kes["name"],
+                                 "tiv_h": hist_tiv, "kes_h": hist_kes}, ensure_ascii=False)
+        row_onclick = f'onclick="showChart(this)" data-hist=\'{hist_json}\'' if has_hist else ''
+        chart_hint = '<span style="color:#aaa;font-size:.7rem;margin-right:4px">📈</span>' if has_hist else ''
+
         rows += f"""
-<tr class="matched-row">
+<tr class="matched-row" {row_onclick} style="{'cursor:pointer' if has_hist else ''}">
     <td class="col-name">
-        <div class="pname">{tiv['name']}</div>
+        <div class="pname">{chart_hint}{tiv['name']}</div>
         {_brand(tiv)}
     </td>
     <td class="col-price" {tiv_style}>{tiv_display}</td>
@@ -420,6 +458,7 @@ def build_html(data):
     }
     
     tables_html = ""
+    history = load_history()
     for cat_key, (emoji, cat_name) in cat_labels.items():
         tiv_items = tiv_cats.get(cat_key, [])
         kes_items = kes_cats.get(cat_key, [])
@@ -430,7 +469,7 @@ def build_html(data):
         # עשה fuzzy match (עם התאמות ידניות לקטגוריה אם יש)
         match_data = fuzzy_match(tiv_items, kes_items, threshold=0.5, cat=cat_key)
         
-        section = build_matched_section(cat_key, cat_name, emoji, match_data)
+        section = build_matched_section(cat_key, cat_name, emoji, match_data, history=history)
         if section:
             tables_html += section
     
@@ -624,12 +663,23 @@ def build_html(data):
 
 <main>{tables_html}</main>
 
+<!-- Modal גרף היסטוריה -->
+<div id="chartModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:999;align-items:center;justify-content:center" onclick="closeChart(event)">
+  <div style="background:#fff;border-radius:12px;padding:24px;max-width:560px;width:92%;position:relative;direction:rtl">
+    <button onclick="closeChart()" style="position:absolute;top:10px;left:12px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888">✕</button>
+    <h3 id="chartTitle" style="font-size:1rem;margin-bottom:16px;color:#1a1a1a"></h3>
+    <canvas id="priceChart" height="200"></canvas>
+    <p id="chartNote" style="font-size:.75rem;color:#999;margin-top:10px;text-align:center"></p>
+  </div>
+</div>
+
 <footer>
     📍 השוואה בין <b>סניף טיב טעם כרמיאל</b> ל<b>סניף קשת טעמים כרמיאל</b><br>
     📊 נתונים מקבצי PriceFull רשמיים (חוק המזון 2014) • עודכן: {updated}<br>
-    💡 המוצרים המוצגים זוהו אוטומטית לפי דמיון שם • אם חסרה התאמה, נא לדווח
+    💡 שורות עם 📈 ניתנות ללחיצה לצפייה בגרף מחירים היסטורי
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script>
 let activeCat = null;
 
@@ -664,6 +714,58 @@ function setCat(cat, btn) {{
     document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     filter();
+}}
+
+let activeChart = null;
+function showChart(row) {{
+    const raw = row.getAttribute('data-hist');
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    if (!d.tiv_h.length && !d.kes_h.length) return;
+
+    document.getElementById('chartModal').style.display = 'flex';
+    document.getElementById('chartTitle').textContent = d.tiv + ' ↔ ' + d.kes;
+
+    // מיזוג תאריכים
+    const allDates = [...new Set([...d.tiv_h.map(x=>x[0]), ...d.kes_h.map(x=>x[0])])].sort();
+    const tivMap = Object.fromEntries(d.tiv_h.map(x=>[x[0],x[1]]));
+    const kesMap = Object.fromEntries(d.kes_h.map(x=>[x[0],x[1]]));
+    const fmt = dt => dt.slice(5).split('-').reverse().join('/'); // MM-DD -> DD/MM
+
+    const datasets = [];
+    if (d.tiv_h.length) datasets.push({{
+        label: 'טיב טעם', data: allDates.map(dt=>tivMap[dt]||null),
+        borderColor:'#1a6b3c', backgroundColor:'rgba(26,107,60,.1)',
+        tension:.3, spanGaps:true, pointRadius:4
+    }});
+    if (d.kes_h.length) datasets.push({{
+        label: 'קשת', data: allDates.map(dt=>kesMap[dt]||null),
+        borderColor:'#1a5fa8', backgroundColor:'rgba(26,95,168,.1)',
+        tension:.3, spanGaps:true, pointRadius:4
+    }});
+
+    const ctx = document.getElementById('priceChart');
+    if (activeChart) activeChart.destroy();
+    activeChart = new Chart(ctx, {{
+        type: 'line',
+        data: {{ labels: allDates.map(fmt), datasets }},
+        options: {{
+            responsive:true, interaction:{{mode:'index',intersect:false}},
+            plugins:{{ legend:{{position:'top',rtl:true}} }},
+            scales:{{
+                y:{{ title:{{display:true,text:'₪ לק״ג'}}, beginAtZero:false }},
+                x:{{ ticks:{{maxRotation:30}} }}
+            }}
+        }}
+    }});
+    const n = allDates.length;
+    const note = n < 3 ? ('מציג ' + n + ' נקודות נתונים \u2014 הגרף יתמלא עם כל עדכון שבועי') : (n + ' שבועות של נתונים');
+    document.getElementById('chartNote').textContent = note;
+}}
+function closeChart(e) {{
+    if (e && e.target !== document.getElementById('chartModal')) return;
+    document.getElementById('chartModal').style.display = 'none';
+    if (activeChart) {{ activeChart.destroy(); activeChart = null; }}
 }}
 </script>
 
