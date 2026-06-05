@@ -7,7 +7,7 @@ from datetime import datetime
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-THRESHOLD = 5.0  # % שינוי מינימלי להתראה
+THRESHOLD = 3.0  # % שינוי מינימלי להתראה
 
 def price_kg(it):
     try:
