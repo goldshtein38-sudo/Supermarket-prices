@@ -125,16 +125,16 @@ def main():
     msg = f"🔔 <b>שינויי מחירים השבוע — כרמיאל</b>\n📅 {datetime.now().strftime('%d.%m.%Y')}\n"
 
     if up:
-        msg += f"\n📈 <b>עלו ({len(up)} מוצרים):</b>\n"
+        msg += f"\n⬆️ <b>עלו ({len(up)} מוצרים):</b>\n"
         for c in up[:8]:
-            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}→{c['cur']:.1f} <b>+{c['pct']:.1f}%</b>\n"
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2192{c['cur']:.1f} <b>+{c['pct']:.1f}%</b>\n"
         if len(up) > 8:
             msg += f"  ...ועוד {len(up)-8}\n"
 
     if down:
-        msg += f"\n📉 <b>ירדו ({len(down)} מוצרים):</b>\n"
+        msg += f"\n⬇️ <b>ירדו ({len(down)} מוצרים):</b>\n"
         for c in down[:8]:
-            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}→{c['cur']:.1f} <b>{c['pct']:.1f}%</b>\n"
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2192{c['cur']:.1f} <b>{c['pct']:.1f}%</b>\n"
         if len(down) > 8:
             msg += f"  ...ועוד {len(down)-8}\n"
 
