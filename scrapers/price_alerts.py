@@ -1,28 +1,145 @@
-import os, json, urllib.request, urllib.parse
+"""
+price_alerts.py — שמירת היסטוריה + שליחת התראות טלגרם על שינויי מחירים
+מופעל אחרי scrape.py ו-build_html.py בכל הרצה שבועית
+"""
+import json, os, glob
+from datetime import datetime
 
-TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
-CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+THRESHOLD = 3.0  # % שינוי מינימלי להתראה
 
-msg = (
-    "\U0001f514 <b>שינויי מחירים השבוע \u2014 כרמיאל</b>\n"
-    "\U0001f4c5 09.06.2026\n\n"
-    "\u2b06\ufe0f <b>עלו (3 מוצרים):</b>\n"
-    "  \u2022 לשון בקר מעושן (קשת) 89.0\u219294.0 <b>+5.6%</b>\n"
-    "  \u2022 גבינת גאודה 45% (טיב טעם) 62.0\u219265.0 <b>+4.8%</b>\n"
-    "  \u2022 חזה הודו מעושן (קשת) 78.0\u219280.0 <b>+2.6%</b>\n\n"
-    "\u2b07\ufe0f <b>ירדו (2 מוצרים):</b>\n"
-    "  \u2022 שוקיים עוף טרי (טיב טעם) 28.0\u219225.9 <b>-7.5%</b>\n"
-    "  \u2022 פסטרמה סינטה ברשת (קשת) 110.0\u2192105.0 <b>-4.5%</b>\n\n"
-    "\U0001f310 supermarket-prices.pages.dev"
-)
+def price_kg(it):
+    try:
+        if it.get("is_weighted") and it.get("unit_price"):
+            up = float(it["unit_price"])
+            unit = it.get("unit", "") or ""
+            if "100" in unit and "גר" in unit:
+                return round(up * 10, 2)
+            return round(up, 2)
+        p = float(it["price"]); q = float(it.get("qty") or 0); unit = it.get("unit", "") or ""
+        if q > 0 and "גר" in unit: return round(p / q * 1000, 2)
+        if q > 0 and "ק" in unit and "ג" in unit: return round(p / q, 2)
+        return round(p, 2)
+    except: return None
 
-url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-data = urllib.parse.urlencode({"chat_id": CHAT_ID, "text": msg, "parse_mode": "HTML"}).encode()
-with urllib.request.urlopen(urllib.request.Request(url, data=data, method="POST"), timeout=30) as r:
-    print("ok:", json.loads(r.read()).get("ok"))
+def send_telegram(msg):
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("⚠️ No Telegram credentials"); return
+    import urllib.request, urllib.parse
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    data = urllib.parse.urlencode({
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": msg,
+        "parse_mode": "HTML"
+    }).encode()
+    try:
+        req = urllib.request.Request(url, data=data, method="POST")
+        with urllib.request.urlopen(req, timeout=30) as r:
+            resp = json.loads(r.read())
+            print("Telegram:", resp.get("ok"))
+    except Exception as e:
+        print(f"Telegram error: {e}")
 
-os.makedirs("output", exist_ok=True)
-open("output/prices.json", "w").write(
-    '{"updated":"demo","chains":{"tivtaam":{"name":"\u05d8\u05d9\u05d1","store_id":"010","categories":{}},'
-    '"keshet":{"name":"\u05e7\u05e9\u05ea","store_id":"015","categories":{}}}}'
-)
+def load_prices(filepath):
+    """טוען prices.json ומחזיר dict: {chain: {name: price_kg}}"""
+    try:
+        data = json.load(open(filepath, encoding="utf-8"))
+        result = {}
+        for chain_key, chain in data.get("chains", {}).items():
+            result[chain_key] = {}
+            for cat, items in chain.get("categories", {}).items():
+                for it in items:
+                    p = price_kg(it)
+                    if p and p > 0:
+                        result[chain_key][it["name"]] = {"price": p, "cat": cat}
+        return result, data.get("updated", "")
+    except Exception as e:
+        print(f"Load error: {e}"); return {}, ""
+
+def main():
+    os.makedirs("output/history", exist_ok=True)
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    # 1. שמור snapshot היום
+    current_path = "output/prices.json"
+    if not os.path.exists(current_path):
+        print("No prices.json found"); return
+    snapshot_path = f"output/history/prices_{today}.json"
+    import shutil
+    shutil.copy(current_path, snapshot_path)
+    print(f"✅ Saved snapshot: {snapshot_path}")
+
+    # 2. מצא snapshot קודם להשוואה
+    history = sorted(glob.glob("output/history/prices_*.json"))
+    if len(history) < 2:
+        print("⏳ First run — no previous data to compare")
+        send_telegram(
+            f"✅ <b>בוט מחירי סופר תענוג הופעל!</b>\n\n"
+            f"📍 מעקב מחירים — סניפי כרמיאל\n"
+            f"🔔 מכאן ואילך תקבל התראות על שינויים מעל {THRESHOLD}%\n"
+            f"📅 עודכן: {datetime.now().strftime('%d.%m.%Y %H:%M')}"
+        )
+        return
+
+    prev_path = history[-2]
+    print(f"📊 Comparing {prev_path} → {snapshot_path}")
+    current_prices, cur_date = load_prices(current_path)
+    prev_prices, prev_date = load_prices(prev_path)
+
+    # 3. מצא שינויים משמעותיים
+    changes = []
+    chain_names = {"tivtaam": "טיב טעם", "keshet": "קשת"}
+
+    for chain_key, chain_name in chain_names.items():
+        cur = current_prices.get(chain_key, {})
+        prv = prev_prices.get(chain_key, {})
+        for name, cur_data in cur.items():
+            if name not in prv: continue
+            p_cur = cur_data["price"]; p_prv = prv[name]["price"]
+            if p_prv <= 0: continue
+            pct = (p_cur - p_prv) / p_prv * 100
+            if abs(pct) >= THRESHOLD:
+                changes.append({
+                    "chain": chain_name, "name": name,
+                    "cat": cur_data["cat"],
+                    "prev": p_prv, "cur": p_cur, "pct": pct
+                })
+
+    # 4. שלח התראה
+    if not changes:
+        print("✅ No significant price changes this week")
+        send_telegram(
+            f"📊 <b>עדכון שבועי — מחירי כרמיאל</b>\n\n"
+            f"✅ אין שינויי מחירים משמעותיים השבוע\n"
+            f"📅 {datetime.now().strftime('%d.%m.%Y')}"
+        )
+        return
+
+    # מיין: הגדולים ביותר קודם
+    changes.sort(key=lambda x: abs(x["pct"]), reverse=True)
+
+    up = [c for c in changes if c["pct"] > 0]
+    down = [c for c in changes if c["pct"] < 0]
+
+    msg = f"🔔 <b>שינויי מחירים השבוע — כרמיאל</b>\n📅 {datetime.now().strftime('%d.%m.%Y')}\n"
+
+    if up:
+        msg += f"\n⬆️ <b>עלו ({len(up)} מוצרים):</b>\n"
+        for c in up[:8]:
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2192{c['cur']:.1f} <b>+{c['pct']:.1f}%</b>\n"
+        if len(up) > 8:
+            msg += f"  ...ועוד {len(up)-8}\n"
+
+    if down:
+        msg += f"\n⬇️ <b>ירדו ({len(down)} מוצרים):</b>\n"
+        for c in down[:8]:
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2192{c['cur']:.1f} <b>{c['pct']:.1f}%</b>\n"
+        if len(down) > 8:
+            msg += f"  ...ועוד {len(down)-8}\n"
+
+    print(f"📨 Sending alert: {len(changes)} changes")
+    send_telegram(msg)
+
+if __name__ == "__main__":
+    main()
