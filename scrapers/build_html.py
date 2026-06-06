@@ -395,10 +395,15 @@ def build_matched_section(cat_key, cat_name, emoji, match_data, history=None):
         rows += '<tr class="separator-row"><td colspan="4"><strong>מוצרים ללא התאמה</strong></td></tr>'
         
         for item in unmatched_tiv:
+            h = history.get("tivtaam", {}).get(item["name"], []) if history else []
+            has_h = len(h) > 1
+            hist_json = json.dumps({"tiv": item["name"], "kes": "", "tiv_h": h, "kes_h": []}, ensure_ascii=False)
+            row_onclick = f'onclick="showChart(this)" data-hist=\'{hist_json}\'' if has_h else ''
+            chart_hint = '<span style="color:#aaa;font-size:.7rem;margin-right:4px">📈</span>' if has_h else ''
             rows += f"""
-<tr class="unmatched-row">
+<tr class="unmatched-row" {row_onclick} style="{'cursor:pointer' if has_h else ''}">
     <td class="col-name" style="background: #f0f0f0;">
-        <div class="pname">{item['name']}</div>
+        <div class="pname">{chart_hint}{item['name']}</div>
         {_brand(item)}
     </td>
     <td class="col-price" style="background: #f0f0f0;">{format_price_display(item)}</td>
@@ -406,11 +411,16 @@ def build_matched_section(cat_key, cat_name, emoji, match_data, history=None):
 </tr>"""
         
         for item in unmatched_kes:
+            h = history.get("keshet", {}).get(item["name"], []) if history else []
+            has_h = len(h) > 1
+            hist_json = json.dumps({"tiv": "", "kes": item["name"], "tiv_h": [], "kes_h": h}, ensure_ascii=False)
+            row_onclick = f'onclick="showChart(this)" data-hist=\'{hist_json}\'' if has_h else ''
+            chart_hint = '<span style="color:#aaa;font-size:.7rem;margin-right:4px">📈</span>' if has_h else ''
             rows += f"""
-<tr class="unmatched-row">
+<tr class="unmatched-row" {row_onclick} style="{'cursor:pointer' if has_h else ''}">
     <td colspan="2" style="text-align: center; color: #999; font-size: 0.85rem;">אין במקביל בטיב טעם</td>
     <td class="col-name" style="background: #f0f0f0;">
-        <div class="pname">{item['name']}</div>
+        <div class="pname">{chart_hint}{item['name']}</div>
         {_brand(item)}
     </td>
     <td class="col-price" style="background: #f0f0f0;">{format_price_display(item)}</td>
