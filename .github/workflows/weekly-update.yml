@@ -19,10 +19,7 @@ jobs:
         run: pip install requests
       - name: Run scraper
         run: python scrapers/scrape.py
-      - name: Price alerts & history
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Price alerts & history (prepare)
         run: python scrapers/price_alerts.py
       - name: Build HTML
         run: python scrapers/build_html.py
@@ -34,3 +31,9 @@ jobs:
           git diff --staged --quiet || git commit -m "Update prices $(date +'%d.%m.%Y')"
           git pull --rebase origin main
           git push
+      - name: Send price alert (after successful commit)
+        if: success()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scrapers/price_alerts.py --send-pending
