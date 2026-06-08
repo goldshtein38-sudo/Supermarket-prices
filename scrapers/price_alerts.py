@@ -2,12 +2,13 @@
 price_alerts.py — שמירת היסטוריה + שליחת התראות טלגרם על שינויי מחירים
 מופעל אחרי scrape.py ו-build_html.py בכל הרצה שבועית
 """
-import json, os, glob
+import json, os, glob, sys
 from datetime import datetime
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 THRESHOLD = 3.0  # % שינוי מינימלי להתראה
+PENDING_PATH = "/tmp/price_alert_pending.txt"
 
 def price_kg(it):
     try:
@@ -40,6 +41,23 @@ def send_telegram(msg):
             print("Telegram:", resp.get("ok"))
     except Exception as e:
         print(f"Telegram error: {e}")
+
+def queue_alert(msg):
+    """שומר הודעה לשליחה מאוחרת — רק אחרי שה-commit מצליח, כדי למנוע התראות-רפאים על נתונים שלא נשמרו בפועל"""
+    with open(PENDING_PATH, "w", encoding="utf-8") as f:
+        f.write(msg)
+    print(f"📝 Alert queued for sending after commit: {PENDING_PATH}")
+
+def send_pending():
+    """שולח הודעה שהמתינה לשליחה — נקרא רק אחרי commit מוצלח בוורקפלואו"""
+    if not os.path.exists(PENDING_PATH):
+        print("No pending alert to send")
+        return
+    with open(PENDING_PATH, encoding="utf-8") as f:
+        msg = f.read()
+    send_telegram(msg)
+    os.remove(PENDING_PATH)
+    print("✅ Pending alert sent and file cleared")
 
 def load_prices(filepath):
     """טוען prices.json ומחזיר dict: {chain: {name: price_kg}}"""
@@ -74,7 +92,7 @@ def main():
     history = sorted(glob.glob("output/history/prices_*.json"))
     if len(history) < 2:
         print("⏳ First run — no previous data to compare")
-        send_telegram(
+        queue_alert(
             f"✅ <b>בוט מחירי סופר תענוג הופעל!</b>\n\n"
             f"📍 מעקב מחירים — סניפי כרמיאל\n"
             f"🔔 מכאן ואילך תקבל התראות על שינויים מעל {THRESHOLD}%\n"
@@ -109,7 +127,7 @@ def main():
     # 4. שלח התראה
     if not changes:
         print("✅ No significant price changes this week")
-        send_telegram(
+        queue_alert(
             f"📊 <b>עדכון שבועי — מחירי כרמיאל</b>\n\n"
             f"✅ אין שינויי מחירים משמעותיים השבוע\n"
             f"📅 {datetime.now().strftime('%d.%m.%Y')}"
@@ -127,19 +145,22 @@ def main():
     if up:
         msg += f"\n📈 <b>עלו ({len(up)} מוצרים):</b>\n"
         for c in up[:8]:
-            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2190{c['cur']:.1f} <b>+{c['pct']:.1f}%</b>\n"
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}←{c['cur']:.1f} <b>+{c['pct']:.1f}%</b>\n"
         if len(up) > 8:
             msg += f"  ...ועוד {len(up)-8}\n"
 
     if down:
         msg += f"\n📉 <b>ירדו ({len(down)} מוצרים):</b>\n"
         for c in down[:8]:
-            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}\u2190{c['cur']:.1f} <b>{c['pct']:.1f}%</b>\n"
+            msg += f"  • {c['name'][:28]} ({c['chain']}) {c['prev']:.1f}←{c['cur']:.1f} <b>{c['pct']:.1f}%</b>\n"
         if len(down) > 8:
             msg += f"  ...ועוד {len(down)-8}\n"
 
-    print(f"📨 Sending alert: {len(changes)} changes")
-    send_telegram(msg)
+    print(f"📨 Queuing alert: {len(changes)} changes")
+    queue_alert(msg)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == "--send-pending":
+        send_pending()
+    else:
+        main()
