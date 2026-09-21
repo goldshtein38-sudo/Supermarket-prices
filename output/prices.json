@@ -1,5 +1,5 @@
 {
-  "updated": "14.09.2026 10:14",
+  "updated": "21.09.2026 10:20",
   "note": "נתונים מסניף כרמיאל",
   "stores": {
     "tivtaam": "010",
@@ -57,6 +57,16 @@
             "item_code": "6188663",
             "price": "105.00",
             "unit_price": "105.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נתח חזה הודו בגריל",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290008771832",
+            "price": "119.00",
+            "unit_price": "119.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -429,6 +439,16 @@
             "item_code": "8433853",
             "price": "149.00",
             "unit_price": "149.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "סינטה בקר",
+            "manufacturer": "לא ידוע",
+            "item_code": "8438032",
+            "price": "149.90",
+            "unit_price": "149.90",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -968,6 +988,16 @@
         ],
         "נקניקיות": [
           {
+            "name": "נקניקיות שפיקצקי במשקל להב ארוז",
+            "manufacturer": "לא ידוע",
+            "item_code": "1499733",
+            "price": "79.00",
+            "unit_price": "79.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "נקניקיות שפיקצקי במשקל להב",
             "manufacturer": "לא ידוע",
             "item_code": "1499757",
@@ -1033,6 +1063,16 @@
             "item_code": "4052751",
             "price": "129.90",
             "unit_price": "129.90",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניקיות 100 פרנקפורטר",
+            "manufacturer": "לא ידוע",
+            "item_code": "4052775",
+            "price": "77.00",
+            "unit_price": "77.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1620,16 +1660,6 @@
             "qty": "1.00"
           },
           {
-            "name": "מורטדלה בסגנון איטלקי עם זיתים בקג",
-            "manufacturer": "לא ידוע",
-            "item_code": "7290000364032",
-            "price": "89.00",
-            "unit_price": "89.00",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "נקניק לוביטלסקיה במשקל להב",
             "manufacturer": "לא ידוע",
             "item_code": "7290001101407",
@@ -1675,6 +1705,16 @@
             "item_code": "7290003018345",
             "price": "90.00",
             "unit_price": "90.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק מוסקובסקיה במשקל דימוב",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290003018451",
+            "price": "149.00",
+            "unit_price": "149.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -1750,6 +1790,16 @@
             "qty": "1.00"
           },
           {
+            "name": "צאנק מורטדלה",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290008771849",
+            "price": "99.00",
+            "unit_price": "99.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פריזר דוקטורסקיה אוריגינל מזרע",
             "manufacturer": "לא ידוע",
             "item_code": "7290069701151",
@@ -1765,6 +1815,16 @@
             "item_code": "7290115110630",
             "price": "85.00",
             "unit_price": "85.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "סלמי ברוקלין",
+            "manufacturer": "לא ידוע",
+            "item_code": "7290115110722",
+            "price": "119.00",
+            "unit_price": "119.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -2010,6 +2070,16 @@
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
+          },
+          {
+            "name": "גאודה בצל אמסטרדם KESBEKE בסירון",
+            "manufacturer": "VELDHUYZEN + MAAZ",
+            "item_code": "9871489312349",
+            "price": "199.00",
+            "unit_price": "199.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
           }
         ],
         "עוף": [
@@ -2039,16 +2109,6 @@
             "item_code": "1509135",
             "price": "69.90",
             "unit_price": "69.90",
-            "unit": "1קילוגרם",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "שווארמה עוף פרימיום טרי במגש",
-            "manufacturer": "לא ידוע",
-            "item_code": "1896518",
-            "price": "79.90",
-            "unit_price": "79.90",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -2361,6 +2421,16 @@
             "item_code": "2133117",
             "price": "60.00",
             "unit_price": "60.00",
+            "unit": "1קילוגרם",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת מנצגו כבשים דותן במשקל",
+            "manufacturer": "לא ידוע",
+            "item_code": "2208150",
+            "price": "150.00",
+            "unit_price": "150.00",
             "unit": "1קילוגרם",
             "is_weighted": true,
             "qty": "1.00"
@@ -3904,6 +3974,16 @@
             "qty": "1.00"
           },
           {
+            "name": "חתיכות הודו",
+            "manufacturer": "",
+            "item_code": "7290000017108",
+            "price": "26.90",
+            "unit_price": "26.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "חזה הודו מובחר",
             "manufacturer": "",
             "item_code": "7290000017101",
@@ -3939,6 +4019,16 @@
             "item_code": "7290000017112",
             "price": "9.90",
             "unit_price": "9.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "כנף הודו נקבה",
+            "manufacturer": "",
+            "item_code": "17126",
+            "price": "15.90",
+            "unit_price": "15.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -3982,15 +4072,25 @@
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
+          },
+          {
+            "name": "טחול הודו טרי תפז",
+            "manufacturer": "",
+            "item_code": "17712",
+            "price": "54.90",
+            "unit_price": "54.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
           }
         ],
         "בקר": [
           {
-            "name": "בקר בנוסח סצואן",
+            "name": "סטייק אנטריקוט פרגוו",
             "manufacturer": "",
-            "item_code": "16080",
-            "price": "109.00",
-            "unit_price": "109.0000",
+            "item_code": "7290000053683",
+            "price": "99.90",
+            "unit_price": "99.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4076,6 +4176,16 @@
             "qty": "1.00"
           },
           {
+            "name": "עגל עם עצם",
+            "manufacturer": "",
+            "item_code": "17236",
+            "price": "64.90",
+            "unit_price": "64.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "זנב בקר פרוס במגש",
             "manufacturer": "",
             "item_code": "19041",
@@ -4096,21 +4206,21 @@
             "qty": "1.00"
           },
           {
-            "name": "סטייק אנטריקוט טרי",
+            "name": "בולגרית בקר",
             "manufacturer": "",
-            "item_code": "7290000017265",
-            "price": "149.90",
-            "unit_price": "149.9000",
+            "item_code": "6227",
+            "price": "75.00",
+            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
           },
           {
-            "name": "אנטריקוט עגלה עם עצם",
+            "name": "בקר בנוסח סצואן",
             "manufacturer": "",
-            "item_code": "17252",
-            "price": "119.90",
-            "unit_price": "119.9000",
+            "item_code": "16080",
+            "price": "109.00",
+            "unit_price": "109.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4166,6 +4276,26 @@
             "qty": "1.00"
           },
           {
+            "name": "סטייק אנטריקוט טרי",
+            "manufacturer": "",
+            "item_code": "7290000017265",
+            "price": "149.90",
+            "unit_price": "149.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "אנטריקוט עגלה עם עצם",
+            "manufacturer": "",
+            "item_code": "17252",
+            "price": "119.90",
+            "unit_price": "119.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "אסאדו עגל",
             "manufacturer": "",
             "item_code": "16127",
@@ -4186,11 +4316,11 @@
             "qty": "1.00"
           },
           {
-            "name": "חזה בקר פלפל",
+            "name": "אסאדו מעושן",
             "manufacturer": "",
-            "item_code": "1179",
-            "price": "89.00",
-            "unit_price": "89.0000",
+            "item_code": "650",
+            "price": "155.00",
+            "unit_price": "155.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4211,16 +4341,6 @@
             "item_code": "17256",
             "price": "69.90",
             "unit_price": "69.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "אסאדו מעושן",
-            "manufacturer": "",
-            "item_code": "650",
-            "price": "155.00",
-            "unit_price": "155.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4296,6 +4416,16 @@
             "qty": "1.00"
           },
           {
+            "name": "לשון בקר מעושן",
+            "manufacturer": "",
+            "item_code": "1458",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "כתף בקר בשום",
             "manufacturer": "",
             "item_code": "1178",
@@ -4331,6 +4461,26 @@
             "item_code": "1371",
             "price": "119.00",
             "unit_price": "119.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "אסאדו עגלה טרי",
+            "manufacturer": "",
+            "item_code": "17284",
+            "price": "69.90",
+            "unit_price": "69.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "לשון עגל עם פטריות ש",
+            "manufacturer": "",
+            "item_code": "15992",
+            "price": "109.00",
+            "unit_price": "109.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4386,6 +4536,26 @@
             "qty": "1.00"
           },
           {
+            "name": "וטצינה בקר",
+            "manufacturer": "",
+            "item_code": "503",
+            "price": "109.00",
+            "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "צלי בקר ביין",
+            "manufacturer": "",
+            "item_code": "15974",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "אסאדו בקר",
             "manufacturer": "",
             "item_code": "7290000000514",
@@ -4396,31 +4566,11 @@
             "qty": "1.00"
           },
           {
-            "name": "לשון בקר מעושן",
-            "manufacturer": "",
-            "item_code": "1458",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "בשר מס 6 פילה מדומה",
             "manufacturer": "",
             "item_code": "7290000927051",
             "price": "59.90",
             "unit_price": "59.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גולש בקר הונגרי",
-            "manufacturer": "",
-            "item_code": "16032",
-            "price": "99.00",
-            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4486,56 +4636,6 @@
             "qty": "1.00"
           },
           {
-            "name": "אסאדו עגלה טרי",
-            "manufacturer": "",
-            "item_code": "17284",
-            "price": "69.90",
-            "unit_price": "69.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "לשון עגל עם פטריות ש",
-            "manufacturer": "",
-            "item_code": "15992",
-            "price": "109.00",
-            "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "וטצינה בקר",
-            "manufacturer": "",
-            "item_code": "503",
-            "price": "109.00",
-            "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "צלי בקר ביין",
-            "manufacturer": "",
-            "item_code": "15974",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פיקניה בלאק אנגוס של",
-            "manufacturer": "",
-            "item_code": "17607",
-            "price": "149.90",
-            "unit_price": "149.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "לשון עגל עם פטריות א",
             "manufacturer": "",
             "item_code": "16696",
@@ -4576,41 +4676,11 @@
             "qty": "1.00"
           },
           {
-            "name": "סטייק אנטריקוט פרגוו",
+            "name": "פיקניה בלאק אנגוס של",
             "manufacturer": "",
-            "item_code": "7290000053683",
-            "price": "99.90",
-            "unit_price": "99.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "מכסה אנטריקוט בקר כש",
-            "manufacturer": "",
-            "item_code": "7290000308974",
-            "price": "69.90",
-            "unit_price": "69.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פיקניה ויקטוריה פרגו",
-            "manufacturer": "",
-            "item_code": "7290000484166",
-            "price": "119.90",
-            "unit_price": "119.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בולגרית בקר",
-            "manufacturer": "",
-            "item_code": "6227",
-            "price": "75.00",
-            "unit_price": "75.0000",
+            "item_code": "17607",
+            "price": "149.90",
+            "unit_price": "149.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4618,9 +4688,9 @@
         ],
         "פסטרמות": [
           {
-            "name": "פסטרמה על האש בואקום",
+            "name": "פסטרמה לבנה מעושנת ב",
             "manufacturer": "",
-            "item_code": "1912",
+            "item_code": "1913",
             "price": "109.00",
             "unit_price": "109.0000",
             "unit": "ק\"ג",
@@ -4633,16 +4703,6 @@
             "item_code": "7290000001053",
             "price": "99.00",
             "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה הודו  פרפר בר",
-            "manufacturer": "",
-            "item_code": "1376",
-            "price": "75.00",
-            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4788,16 +4848,6 @@
             "qty": "1.00"
           },
           {
-            "name": "בסטורמה",
-            "manufacturer": "",
-            "item_code": "758",
-            "price": "259.00",
-            "unit_price": "259.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "בסטורמה ארמנית",
             "manufacturer": "",
             "item_code": "7290000000268",
@@ -4858,16 +4908,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו פרפר עם",
-            "manufacturer": "",
-            "item_code": "7290000000622",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "בוזנינה כפרית",
             "manufacturer": "",
             "item_code": "7290000000445",
@@ -4898,11 +4938,31 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו ברביקיו",
+            "name": "פסטרמה על האש בואקום",
             "manufacturer": "",
-            "item_code": "7290000000578",
-            "price": "89.00",
-            "unit_price": "89.0000",
+            "item_code": "1912",
+            "price": "109.00",
+            "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה דליקטסניה",
+            "manufacturer": "",
+            "item_code": "7290000000575",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו  פרפר בר",
+            "manufacturer": "",
+            "item_code": "1376",
+            "price": "75.00",
+            "unit_price": "75.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4913,6 +4973,16 @@
             "item_code": "7290000001564",
             "price": "149.00",
             "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה הודו איטלקי ר",
+            "manufacturer": "",
+            "item_code": "733",
+            "price": "89.00",
+            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -4941,6 +5011,16 @@
             "name": "בוזנינה פסטיבל ביתי",
             "manufacturer": "",
             "item_code": "7290000001437",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה חזיר צאך ברבק",
+            "manufacturer": "",
+            "item_code": "7290000001445",
             "price": "149.00",
             "unit_price": "149.0000",
             "unit": "ק\"ג",
@@ -4978,26 +5058,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה הודו איטלקי ר",
-            "manufacturer": "",
-            "item_code": "733",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה חזה בקר פרוס",
-            "manufacturer": "",
-            "item_code": "7290000001630",
-            "price": "109.00",
-            "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פסטרמה הודו ברבקיו",
             "manufacturer": "",
             "item_code": "375",
@@ -5028,36 +5088,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה פילה",
-            "manufacturer": "",
-            "item_code": "7290000001803",
-            "price": "179.00",
-            "unit_price": "179.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בוזנינה עגול",
-            "manufacturer": "",
-            "item_code": "7290000001648",
-            "price": "155.00",
-            "unit_price": "155.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "שינקן פולני",
-            "manufacturer": "",
-            "item_code": "7290000000586",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פסטרמה הודו פרפר מעו",
             "manufacturer": "",
             "item_code": "7290000000640",
@@ -5078,21 +5108,31 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה סטוליצניה",
+            "name": "פסטרמה חזה בקר פרוס",
             "manufacturer": "",
-            "item_code": "1394",
-            "price": "169.00",
-            "unit_price": "169.0000",
+            "item_code": "7290000001630",
+            "price": "109.00",
+            "unit_price": "109.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
           },
           {
-            "name": "בוזנינה רגילה",
+            "name": "פסטרמה פילה",
             "manufacturer": "",
-            "item_code": "7290000000830",
-            "price": "149.00",
-            "unit_price": "149.0000",
+            "item_code": "7290000001803",
+            "price": "179.00",
+            "unit_price": "179.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בוזנינה עגול",
+            "manufacturer": "",
+            "item_code": "7290000001648",
+            "price": "155.00",
+            "unit_price": "155.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5118,11 +5158,61 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה סטוליצניה",
+            "manufacturer": "",
+            "item_code": "1394",
+            "price": "169.00",
+            "unit_price": "169.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שינקן מעושן",
             "manufacturer": "",
             "item_code": "7290000000583",
             "price": "139.00",
             "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה כף מעושן",
+            "manufacturer": "",
+            "item_code": "7290000000671",
+            "price": "155.00",
+            "unit_price": "155.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה עננים פרוס בו",
+            "manufacturer": "",
+            "item_code": "7290000003125",
+            "price": "105.00",
+            "unit_price": "105.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פסטרמה שוורצואלד פרו",
+            "manufacturer": "",
+            "item_code": "7290000003124",
+            "price": "109.00",
+            "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "שינקן וירגיניה מעושן",
+            "manufacturer": "",
+            "item_code": "346",
+            "price": "159.00",
+            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5158,21 +5248,11 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה עננים פרוס בו",
+            "name": "שינקן פולני",
             "manufacturer": "",
-            "item_code": "7290000003125",
-            "price": "105.00",
-            "unit_price": "105.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה שוורצואלד פרו",
-            "manufacturer": "",
-            "item_code": "7290000003124",
-            "price": "109.00",
-            "unit_price": "109.0000",
+            "item_code": "1346",
+            "price": "159.00",
+            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5228,6 +5308,16 @@
             "qty": "1.00"
           },
           {
+            "name": "פסטרמה כפרית",
+            "manufacturer": "",
+            "item_code": "1915",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "קוטלט שינקן",
             "manufacturer": "",
             "item_code": "7290000000434",
@@ -5258,16 +5348,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה כף פלפל",
-            "manufacturer": "",
-            "item_code": "658",
-            "price": "155.00",
-            "unit_price": "155.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "קוסטיצה חצי וואקום",
             "manufacturer": "",
             "item_code": "7290000000692",
@@ -5278,11 +5358,11 @@
             "qty": "1.00"
           },
           {
-            "name": "שינקן וירגיניה מעושן",
+            "name": "פסטרמה הודו גחלים טי",
             "manufacturer": "",
-            "item_code": "346",
-            "price": "159.00",
-            "unit_price": "159.0000",
+            "item_code": "7290000000820",
+            "price": "79.00",
+            "unit_price": "79.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5328,16 +5408,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פסטרמה כף שום",
-            "manufacturer": "",
-            "item_code": "7290000000657",
-            "price": "155.00",
-            "unit_price": "155.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פסטרמה הודו פרס ברבי",
             "manufacturer": "",
             "item_code": "7290000000689",
@@ -5348,31 +5418,11 @@
             "qty": "1.00"
           },
           {
-            "name": "שינקן פולני",
+            "name": "פסטרמה הודו פפריקה",
             "manufacturer": "",
-            "item_code": "1346",
-            "price": "159.00",
-            "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה כפרית",
-            "manufacturer": "",
-            "item_code": "1915",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פסטרמה לבנה מעושנת ב",
-            "manufacturer": "",
-            "item_code": "1913",
-            "price": "109.00",
-            "unit_price": "109.0000",
+            "item_code": "738",
+            "price": "99.00",
+            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5399,6 +5449,16 @@
           }
         ],
         "נקניקיות": [
+          {
+            "name": "נקניקיות שמנת אישי ב",
+            "manufacturer": "",
+            "item_code": "1840",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
           {
             "name": "נקניקיות פרגית",
             "manufacturer": "",
@@ -5460,21 +5520,21 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניקיות פרנקפורט בק",
+            "name": "נקניקיות שוויצרסקיה",
             "manufacturer": "",
-            "item_code": "7290000001128",
-            "price": "55.00",
-            "unit_price": "55.0000",
+            "item_code": "1842",
+            "price": "99.00",
+            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
           },
           {
-            "name": "קבנוס",
+            "name": "נקניקיות טליאצי",
             "manufacturer": "",
-            "item_code": "7290000001562",
-            "price": "89.00",
-            "unit_price": "89.0000",
+            "item_code": "7290000000465",
+            "price": "69.00",
+            "unit_price": "69.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5500,6 +5560,36 @@
             "qty": "1.00"
           },
           {
+            "name": "נקניקיות פרנקפורט בק",
+            "manufacturer": "",
+            "item_code": "7290000001128",
+            "price": "55.00",
+            "unit_price": "55.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "קבנוס",
+            "manufacturer": "",
+            "item_code": "7290000001562",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניקיות בראטוורסט ל",
+            "manufacturer": "",
+            "item_code": "734",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "נקניקיות סליבוצניה",
             "manufacturer": "",
             "item_code": "7290000000272",
@@ -5513,6 +5603,16 @@
             "name": "וינר חדש",
             "manufacturer": "",
             "item_code": "7290000000518",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניקיות וינר בווארי",
+            "manufacturer": "",
+            "item_code": "7290000000643",
             "price": "79.00",
             "unit_price": "79.0000",
             "unit": "ק\"ג",
@@ -5535,26 +5635,6 @@
             "item_code": "7290000001649",
             "price": "89.00",
             "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניקיות וינר בווארי",
-            "manufacturer": "",
-            "item_code": "7290000000643",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניקיות וינר חדש",
-            "manufacturer": "",
-            "item_code": "7290000000481",
-            "price": "85.00",
-            "unit_price": "85.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5620,11 +5700,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניקיות ילדים",
+            "name": "נקניקיות בוואריה",
             "manufacturer": "",
-            "item_code": "7290000001532",
-            "price": "39.00",
-            "unit_price": "39.0000",
+            "item_code": "1592",
+            "price": "45.00",
+            "unit_price": "45.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5660,41 +5740,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניקיות קנקרס טבעי",
-            "manufacturer": "",
-            "item_code": "722",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "נקניקיות שפיקצקי",
             "manufacturer": "",
             "item_code": "7290000000901",
             "price": "79.00",
             "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניקיות בוואריה",
-            "manufacturer": "",
-            "item_code": "1592",
-            "price": "45.00",
-            "unit_price": "45.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניקיות שמנת אישי ב",
-            "manufacturer": "",
-            "item_code": "1840",
-            "price": "89.00",
-            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5718,19 +5768,39 @@
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
+          }
+        ],
+        "נקניקים": [
+          {
+            "name": "נקניק אודסקיה אישי ב",
+            "manufacturer": "",
+            "item_code": "1943",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
           },
           {
-            "name": "נקניקיות שוויצרסקיה",
+            "name": "פריזר סליבוצניה מיני",
             "manufacturer": "",
-            "item_code": "1842",
+            "item_code": "7290000001611",
             "price": "99.00",
             "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
-          }
-        ],
-        "נקניקים": [
+          },
+          {
+            "name": "פריזר צהוב גדול",
+            "manufacturer": "",
+            "item_code": "7290000001032",
+            "price": "39.00",
+            "unit_price": "39.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
           {
             "name": "שאריות נקניקים",
             "manufacturer": "",
@@ -5747,6 +5817,16 @@
             "item_code": "1252",
             "price": "186.00",
             "unit_price": "186.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פפרוני עגל שלם",
+            "manufacturer": "",
+            "item_code": "1255",
+            "price": "206.00",
+            "unit_price": "206.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5777,16 +5857,6 @@
             "item_code": "7290000000203",
             "price": "189.00",
             "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק פריזר קלאסיק",
-            "manufacturer": "",
-            "item_code": "7290000001526",
-            "price": "59.00",
-            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5877,6 +5947,16 @@
             "item_code": "698",
             "price": "189.00",
             "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "סלמי בטעם חמוציות חצ",
+            "manufacturer": "",
+            "item_code": "7290000217363",
+            "price": "169.00",
+            "unit_price": "169.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -5982,56 +6062,6 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק מוסקובסקיה חצי",
-            "manufacturer": "",
-            "item_code": "7290000001602",
-            "price": "106.00",
-            "unit_price": "106.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק חי סרוולט בלגי",
-            "manufacturer": "",
-            "item_code": "1868",
-            "price": "186.00",
-            "unit_price": "186.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פריזר צהוב קטן",
-            "manufacturer": "",
-            "item_code": "7290000001132",
-            "price": "39.00",
-            "unit_price": "39.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פריזר מעושן פרימיום",
-            "manufacturer": "",
-            "item_code": "1372",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק חי איטלקי דימו",
-            "manufacturer": "",
-            "item_code": "1873",
-            "price": "176.00",
-            "unit_price": "176.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "נקניק פפרוני",
             "manufacturer": "",
             "item_code": "811",
@@ -6102,11 +6132,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק בוקובינסקיה",
+            "name": "נקניק חי סרוולט בלגי",
             "manufacturer": "",
-            "item_code": "7290000003036",
-            "price": "89.00",
-            "unit_price": "89.0000",
+            "item_code": "1868",
+            "price": "186.00",
+            "unit_price": "186.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6122,11 +6152,41 @@
             "qty": "1.00"
           },
           {
-            "name": "פריזר לארוחת בוקר",
+            "name": "פריזר צהוב קטן",
             "manufacturer": "",
-            "item_code": "7290000001455",
-            "price": "99.00",
-            "unit_price": "99.0000",
+            "item_code": "7290000001132",
+            "price": "39.00",
+            "unit_price": "39.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פריזר מעושן פרימיום",
+            "manufacturer": "",
+            "item_code": "1372",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק חי איטלקי דימו",
+            "manufacturer": "",
+            "item_code": "1873",
+            "price": "176.00",
+            "unit_price": "176.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק בוקובינסקיה",
+            "manufacturer": "",
+            "item_code": "7290000003036",
+            "price": "89.00",
+            "unit_price": "89.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6137,6 +6197,16 @@
             "item_code": "7290000001918",
             "price": "96.00",
             "unit_price": "96.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פריזר לארוחת בוקר",
+            "manufacturer": "",
+            "item_code": "7290000001455",
+            "price": "99.00",
+            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6157,26 +6227,6 @@
             "item_code": "7290000000857",
             "price": "119.00",
             "unit_price": "119.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סלמי בקר גרנאדה",
-            "manufacturer": "",
-            "item_code": "7290000000247",
-            "price": "109.00",
-            "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק קיץ שלם",
-            "manufacturer": "",
-            "item_code": "7290000001632",
-            "price": "66.00",
-            "unit_price": "66.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6232,21 +6282,11 @@
             "qty": "1.00"
           },
           {
-            "name": "סלמי פרח שלם",
+            "name": "נקניק קיץ שלם",
             "manufacturer": "",
-            "item_code": "1731",
-            "price": "146.00",
-            "unit_price": "146.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פריזר צאיניה מיני",
-            "manufacturer": "",
-            "item_code": "1612",
-            "price": "99.00",
-            "unit_price": "99.0000",
+            "item_code": "7290000001632",
+            "price": "66.00",
+            "unit_price": "66.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6302,6 +6342,16 @@
             "qty": "1.00"
           },
           {
+            "name": "סלמי פרח שלם",
+            "manufacturer": "",
+            "item_code": "1731",
+            "price": "146.00",
+            "unit_price": "146.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "נקניק קרוביאנקה",
             "manufacturer": "",
             "item_code": "7290000000221",
@@ -6322,21 +6372,21 @@
             "qty": "1.00"
           },
           {
-            "name": "סנטור פריזר מעושן",
+            "name": "פריזר צאיניה מיני",
             "manufacturer": "",
-            "item_code": "7290000000482",
-            "price": "95.00",
-            "unit_price": "95.0000",
+            "item_code": "1612",
+            "price": "99.00",
+            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
           },
           {
-            "name": "נקניק חי כפרי",
+            "name": "סנטור פריזר מעושן",
             "manufacturer": "",
-            "item_code": "7290000000554",
-            "price": "189.00",
-            "unit_price": "189.0000",
+            "item_code": "7290000000482",
+            "price": "95.00",
+            "unit_price": "95.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6357,6 +6407,26 @@
             "item_code": "7290000000685",
             "price": "189.00",
             "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק לבובסקיה בוואק",
+            "manufacturer": "",
+            "item_code": "3111",
+            "price": "95.00",
+            "unit_price": "95.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק רוסטובסקיה בוו",
+            "manufacturer": "",
+            "item_code": "3112",
+            "price": "95.00",
+            "unit_price": "95.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6422,6 +6492,16 @@
             "qty": "1.00"
           },
           {
+            "name": "נקניק קרוביאנקה",
+            "manufacturer": "",
+            "item_code": "352",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "סלמי טורו",
             "manufacturer": "",
             "item_code": "252",
@@ -6452,31 +6532,31 @@
             "qty": "1.00"
           },
           {
+            "name": "נקניק צרקסקיה",
+            "manufacturer": "",
+            "item_code": "392",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק צרקסקיה שלם",
+            "manufacturer": "",
+            "item_code": "1392",
+            "price": "146.00",
+            "unit_price": "146.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פריזר דוקטורסקייה מי",
             "manufacturer": "",
             "item_code": "7290000000460",
             "price": "85.00",
             "unit_price": "85.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק לבובסקיה בוואק",
-            "manufacturer": "",
-            "item_code": "3111",
-            "price": "95.00",
-            "unit_price": "95.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק רוסטובסקיה בוו",
-            "manufacturer": "",
-            "item_code": "3112",
-            "price": "95.00",
-            "unit_price": "95.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6497,6 +6577,66 @@
             "item_code": "7290000000684",
             "price": "109.00",
             "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק וארשבסקיה של ד",
+            "manufacturer": "",
+            "item_code": "7290000001853",
+            "price": "116.00",
+            "unit_price": "116.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק דוקטורסקיה דימ",
+            "manufacturer": "",
+            "item_code": "1846",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק מולוצניה דימוב",
+            "manufacturer": "",
+            "item_code": "1847",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק הרץ בעישון קר",
+            "manufacturer": "",
+            "item_code": "952",
+            "price": "199.00",
+            "unit_price": "199.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "סלמי פיקולו",
+            "manufacturer": "",
+            "item_code": "951",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "נקניק הרץ בעישון קר",
+            "manufacturer": "",
+            "item_code": "1952",
+            "price": "196.00",
+            "unit_price": "196.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6542,11 +6682,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק מורטדלה חדשה",
+            "name": "סלמי רוונה שלם",
             "manufacturer": "",
-            "item_code": "7290000001529",
-            "price": "75.00",
-            "unit_price": "75.0000",
+            "item_code": "1600",
+            "price": "116.00",
+            "unit_price": "116.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6627,6 +6767,16 @@
             "item_code": "716",
             "price": "89.00",
             "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פלמידה מעושן גדול פר",
+            "manufacturer": "",
+            "item_code": "6494",
+            "price": "129.00",
+            "unit_price": "129.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6752,36 +6902,6 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק בוט",
-            "manufacturer": "",
-            "item_code": "7290000000552",
-            "price": "55.00",
-            "unit_price": "55.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק בראושווייגסקיה",
-            "manufacturer": "",
-            "item_code": "610",
-            "price": "135.00",
-            "unit_price": "135.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק קרוביאנקה",
-            "manufacturer": "",
-            "item_code": "352",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "נקניק אגוזית",
             "manufacturer": "",
             "item_code": "7290000000799",
@@ -6812,111 +6932,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק צרקסקיה",
-            "manufacturer": "",
-            "item_code": "392",
-            "price": "149.00",
-            "unit_price": "149.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק צרקסקיה שלם",
-            "manufacturer": "",
-            "item_code": "1392",
-            "price": "146.00",
-            "unit_price": "146.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק דוקטורסקיה דימ",
-            "manufacturer": "",
-            "item_code": "1846",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק מולוצניה דימוב",
-            "manufacturer": "",
-            "item_code": "1847",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק הרץ בעישון קר",
-            "manufacturer": "",
-            "item_code": "952",
-            "price": "199.00",
-            "unit_price": "199.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סלמי פיקולו",
-            "manufacturer": "",
-            "item_code": "951",
-            "price": "189.00",
-            "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק הרץ בעישון קר",
-            "manufacturer": "",
-            "item_code": "1952",
-            "price": "196.00",
-            "unit_price": "196.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פלמידה מעושן גדול פר",
-            "manufacturer": "",
-            "item_code": "6494",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק ליפצקיה",
-            "manufacturer": "",
-            "item_code": "695",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "פלמידה בעישון קר גדו",
             "manufacturer": "",
             "item_code": "7403",
             "price": "109.00",
             "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סלמי צרפתי שלם",
-            "manufacturer": "",
-            "item_code": "1347",
-            "price": "119.00",
-            "unit_price": "119.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6952,31 +6972,11 @@
             "qty": "1.00"
           },
           {
-            "name": "נקניק אודסקיה אישי ב",
+            "name": "נקניק ליפצקיה",
             "manufacturer": "",
-            "item_code": "1943",
+            "item_code": "695",
             "price": "89.00",
             "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פריזר סליבוצניה מיני",
-            "manufacturer": "",
-            "item_code": "7290000001611",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "סלמי בטעם חמוציות חצ",
-            "manufacturer": "",
-            "item_code": "7290000217363",
-            "price": "169.00",
-            "unit_price": "169.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -6999,6 +6999,16 @@
             "item_code": "17316",
             "price": "74.90",
             "unit_price": "74.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "שומן לבן",
+            "manufacturer": "",
+            "item_code": "17320",
+            "price": "109.90",
+            "unit_price": "109.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7039,6 +7049,16 @@
             "item_code": "319",
             "price": "225.00",
             "unit_price": "225.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פרושוטו טורינו חדש",
+            "manufacturer": "",
+            "item_code": "7290000000528",
+            "price": "199.00",
+            "unit_price": "199.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7104,6 +7124,16 @@
             "qty": "1.00"
           },
           {
+            "name": "שפק מעושן חצי",
+            "manufacturer": "",
+            "item_code": "961",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פרושוטו בקר",
             "manufacturer": "",
             "item_code": "7290000000508",
@@ -7144,6 +7174,16 @@
             "qty": "1.00"
           },
           {
+            "name": "קסלר סינטה",
+            "manufacturer": "",
+            "item_code": "7290000000828",
+            "price": "169.00",
+            "unit_price": "169.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "שפק מעושן גוש בואקום",
             "manufacturer": "",
             "item_code": "1961",
@@ -7165,16 +7205,6 @@
           }
         ],
         "עוף": [
-          {
-            "name": "רגל קרושה עוף",
-            "manufacturer": "",
-            "item_code": "16081",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
           {
             "name": "שניצל עוף",
             "manufacturer": "",
@@ -7226,6 +7256,16 @@
             "qty": "1.00"
           },
           {
+            "name": "עוף בגריל",
+            "manufacturer": "",
+            "item_code": "16447",
+            "price": "49.00",
+            "unit_price": "49.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "עוף מעושן",
             "manufacturer": "",
             "item_code": "7290000000403",
@@ -7246,6 +7286,26 @@
             "qty": "1.00"
           },
           {
+            "name": "כבד עוף קצוץ",
+            "manufacturer": "",
+            "item_code": "16053",
+            "price": "69.00",
+            "unit_price": "69.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גב עוף",
+            "manufacturer": "",
+            "item_code": "17006",
+            "price": "7.90",
+            "unit_price": "7.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פרגיות עוף עם עור",
             "manufacturer": "",
             "item_code": "17020",
@@ -7261,6 +7321,16 @@
             "item_code": "17053",
             "price": "21.90",
             "unit_price": "21.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "רגל קרושה עוף",
+            "manufacturer": "",
+            "item_code": "16081",
+            "price": "59.00",
+            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7331,6 +7401,16 @@
             "item_code": "17032",
             "price": "21.90",
             "unit_price": "21.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גרון עוף",
+            "manufacturer": "",
+            "item_code": "17034",
+            "price": "9.90",
+            "unit_price": "9.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7436,6 +7516,46 @@
             "qty": "1.00"
           },
           {
+            "name": "כבד עוף עם בצל מטוגן",
+            "manufacturer": "",
+            "item_code": "16391",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "שוקיים עוף טרי ארוז",
+            "manufacturer": "",
+            "item_code": "17504",
+            "price": "27.90",
+            "unit_price": "27.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "לבבות עוף טרי ארוז",
+            "manufacturer": "",
+            "item_code": "17508",
+            "price": "36.90",
+            "unit_price": "36.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "כנפיים עוף טרי ארוז",
+            "manufacturer": "",
+            "item_code": "17505",
+            "price": "19.90",
+            "unit_price": "19.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "כרעיים עוף",
             "manufacturer": "",
             "item_code": "17001",
@@ -7466,46 +7586,6 @@
             "qty": "1.00"
           },
           {
-            "name": "פרגיות עוף בלי עור ט",
-            "manufacturer": "",
-            "item_code": "17030",
-            "price": "59.90",
-            "unit_price": "59.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "כבד עוף עם בצל מטוגן",
-            "manufacturer": "",
-            "item_code": "16391",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "כבד עוף טרי ארוז",
-            "manufacturer": "",
-            "item_code": "17507",
-            "price": "19.90",
-            "unit_price": "19.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "לבבות עוף טרי ארוז",
-            "manufacturer": "",
-            "item_code": "17508",
-            "price": "36.90",
-            "unit_price": "36.9000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "סטייק פרגית",
             "manufacturer": "",
             "item_code": "16483",
@@ -7521,16 +7601,6 @@
             "item_code": "16694",
             "price": "85.00",
             "unit_price": "85.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "שיפודי פרגית",
-            "manufacturer": "",
-            "item_code": "7290000776141",
-            "price": "59.90",
-            "unit_price": "59.9000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7556,16 +7626,6 @@
             "qty": "1.00"
           },
           {
-            "name": "עוף בגריל",
-            "manufacturer": "",
-            "item_code": "16447",
-            "price": "49.00",
-            "unit_price": "49.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "שניצלוני עוף מטוגנים",
             "manufacturer": "",
             "item_code": "16932",
@@ -7574,15 +7634,35 @@
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
+          },
+          {
+            "name": "שיפודי פרגית",
+            "manufacturer": "",
+            "item_code": "7290000776141",
+            "price": "59.90",
+            "unit_price": "59.9000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
           }
         ],
         "גבינות": [
           {
-            "name": "גבינת טבורוג 0.5%",
+            "name": "בולגרית כבשים",
             "manufacturer": "",
-            "item_code": "2099",
-            "price": "34.00",
-            "unit_price": "34.0000",
+            "item_code": "6218",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פטה עיזים",
+            "manufacturer": "",
+            "item_code": "6219",
+            "price": "99.00",
+            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7593,6 +7673,16 @@
             "item_code": "16029",
             "price": "89.00",
             "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת כרמן מנצגו כמה",
+            "manufacturer": "",
+            "item_code": "7290000002003",
+            "price": "229.00",
+            "unit_price": "229.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7653,6 +7743,16 @@
             "item_code": "2239",
             "price": "189.00",
             "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה קרמן איבריקו",
+            "manufacturer": "",
+            "item_code": "7290000002014",
+            "price": "139.00",
+            "unit_price": "139.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7778,6 +7878,16 @@
             "qty": "1.00"
           },
           {
+            "name": "קולאז פרמזן חריץ",
+            "manufacturer": "",
+            "item_code": "2515",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גאודה מעושנת",
             "manufacturer": "",
             "item_code": "7290000002524",
@@ -7828,11 +7938,21 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה אמסטרדם אגוזים",
+            "name": "גבינת כבשים כמהין",
             "manufacturer": "",
-            "item_code": "7290000007416",
-            "price": "169.00",
-            "unit_price": "169.0000",
+            "item_code": "2334",
+            "price": "219.00",
+            "unit_price": "219.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת כבשים 90 יום",
+            "manufacturer": "",
+            "item_code": "2338",
+            "price": "159.00",
+            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7873,6 +7993,16 @@
             "item_code": "7290000002982",
             "price": "85.00",
             "unit_price": "85.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה גרוייר מילד מר",
+            "manufacturer": "",
+            "item_code": "2276",
+            "price": "189.00",
+            "unit_price": "189.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -7988,9 +8118,119 @@
             "qty": "1.00"
           },
           {
-            "name": "גאודה בקר הולנדית",
+            "name": "גאודה עיזים הולנדית",
             "manufacturer": "",
-            "item_code": "7290000411402",
+            "item_code": "7290000411426",
+            "price": "149.00",
+            "unit_price": "149.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה פול אפי",
+            "manufacturer": "",
+            "item_code": "7290000002825",
+            "price": "219.00",
+            "unit_price": "219.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה צדר אנגלי",
+            "manufacturer": "",
+            "item_code": "7290000002831",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה ברי לרוסטיק",
+            "manufacturer": "",
+            "item_code": "7290000002832",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה ברס בלו",
+            "manufacturer": "",
+            "item_code": "7290000002833",
+            "price": "209.00",
+            "unit_price": "209.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת סנט מור",
+            "manufacturer": "",
+            "item_code": "7290000002839",
+            "price": "209.00",
+            "unit_price": "209.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה גאודה איטלקית",
+            "manufacturer": "",
+            "item_code": "6177",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת ברי בקר עם אגו",
+            "manufacturer": "",
+            "item_code": "6226",
+            "price": "139.00",
+            "unit_price": "139.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה בולגרית 16% מס",
+            "manufacturer": "",
+            "item_code": "7290000002033",
+            "price": "55.00",
+            "unit_price": "55.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה מוצרלה",
+            "manufacturer": "",
+            "item_code": "7290000002041",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אלמנטלר",
+            "manufacturer": "",
+            "item_code": "5330",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "פטה אווז בלוק",
+            "manufacturer": "",
+            "item_code": "7290000001288",
             "price": "79.00",
             "unit_price": "79.0000",
             "unit": "ק\"ג",
@@ -7998,11 +8238,11 @@
             "qty": "1.00"
           },
           {
-            "name": "גאודה עיזים הולנדית",
+            "name": "גבינת טבורוג 0.5%",
             "manufacturer": "",
-            "item_code": "7290000411426",
-            "price": "149.00",
-            "unit_price": "149.0000",
+            "item_code": "2099",
+            "price": "34.00",
+            "unit_price": "34.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -8108,11 +8348,21 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה רולדה לבנה מחל",
+            "name": "גבינה קשה איבריקו מח",
             "manufacturer": "",
-            "item_code": "2126",
-            "price": "149.00",
-            "unit_price": "149.0000",
+            "item_code": "2124",
+            "price": "119.00",
+            "unit_price": "119.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה לבנה אבו גוש",
+            "manufacturer": "",
+            "item_code": "7290000002141",
+            "price": "55.00",
+            "unit_price": "55.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -8123,26 +8373,6 @@
             "item_code": "7290000002851",
             "price": "199.00",
             "unit_price": "199.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה אלמנטלר",
-            "manufacturer": "",
-            "item_code": "5330",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פטה אווז בלוק",
-            "manufacturer": "",
-            "item_code": "7290000001288",
-            "price": "79.00",
-            "unit_price": "79.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -8248,16 +8478,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינת שמנת 30%",
-            "manufacturer": "",
-            "item_code": "2213",
-            "price": "39.00",
-            "unit_price": "39.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "גבינת עיזים פריסלנד",
             "manufacturer": "",
             "item_code": "7290000002218",
@@ -8288,16 +8508,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה גאודה כמון",
-            "manufacturer": "",
-            "item_code": "7290000002231",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "גבינת גאודה פריסלנד",
             "manufacturer": "",
             "item_code": "7290000002232",
@@ -8311,26 +8521,6 @@
             "name": "גבינת עיזים גאודה",
             "manufacturer": "",
             "item_code": "7290000002306",
-            "price": "119.00",
-            "unit_price": "119.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת כבשים עם פטריו",
-            "manufacturer": "",
-            "item_code": "2401",
-            "price": "199.00",
-            "unit_price": "199.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה רסטה ציז חצי ר",
-            "manufacturer": "",
-            "item_code": "7290000002460",
             "price": "119.00",
             "unit_price": "119.0000",
             "unit": "ק\"ג",
@@ -8468,6 +8658,76 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינה נעם 15%",
+            "manufacturer": "",
+            "item_code": "2648",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בולגרית מעודנת מחלב",
+            "manufacturer": "",
+            "item_code": "2136",
+            "price": "54.00",
+            "unit_price": "54.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "טבורוג דרבנסקי 9%",
+            "manufacturer": "",
+            "item_code": "2259",
+            "price": "38.00",
+            "unit_price": "38.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה צדר טריפל",
+            "manufacturer": "",
+            "item_code": "2900",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת שמנת ירקות",
+            "manufacturer": "",
+            "item_code": "7290000006365",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בסגנון גאודה",
+            "manufacturer": "",
+            "item_code": "2083",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה רדמר גולד",
+            "manufacturer": "",
+            "item_code": "2075",
+            "price": "95.00",
+            "unit_price": "95.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "פיקוליני גבינה",
             "manufacturer": "",
             "item_code": "1860",
@@ -8508,6 +8768,16 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינה צדר עם חמוציות",
+            "manufacturer": "",
+            "item_code": "2171",
+            "price": "169.00",
+            "unit_price": "169.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גבינה אדם כדור",
             "manufacturer": "",
             "item_code": "7290000002206",
@@ -8543,16 +8813,6 @@
             "item_code": "2260",
             "price": "99.00",
             "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת שמנת נפוליאון",
-            "manufacturer": "",
-            "item_code": "7290000002502",
-            "price": "55.00",
-            "unit_price": "55.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -8618,356 +8878,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה נעם 15%",
-            "manufacturer": "",
-            "item_code": "2648",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גאודה מיושנת ג",
-            "manufacturer": "",
-            "item_code": "2199",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת פרומאג דפינואה",
-            "manufacturer": "",
-            "item_code": "2290",
-            "price": "259.00",
-            "unit_price": "259.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת קשקבל גלגל",
-            "manufacturer": "",
-            "item_code": "6437",
-            "price": "159.00",
-            "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה פרומאג דפינואה",
-            "manufacturer": "",
-            "item_code": "2298",
-            "price": "199.00",
-            "unit_price": "199.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בולגרית מעודנת מחלב",
-            "manufacturer": "",
-            "item_code": "2136",
-            "price": "54.00",
-            "unit_price": "54.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה קרולבסקי",
-            "manufacturer": "",
-            "item_code": "7290000002021",
-            "price": "85.00",
-            "unit_price": "85.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה אורדה",
-            "manufacturer": "",
-            "item_code": "7290000002161",
-            "price": "46.00",
-            "unit_price": "46.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה ברי צרפתי",
-            "manufacturer": "",
-            "item_code": "7290000002222",
-            "price": "119.00",
-            "unit_price": "119.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גאודה עיזים בל",
-            "manufacturer": "",
-            "item_code": "7290000002249",
-            "price": "179.00",
-            "unit_price": "179.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גאודה חלפניו",
-            "manufacturer": "",
-            "item_code": "2253",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת מאסדם אמנטל",
-            "manufacturer": "",
-            "item_code": "7290000002313",
-            "price": "79.00",
-            "unit_price": "79.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "חתיכות גבינה",
-            "manufacturer": "",
-            "item_code": "2846",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה מונטניולו גרמנ",
-            "manufacturer": "",
-            "item_code": "7290000002867",
-            "price": "189.00",
-            "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה מעושנת טבעי",
-            "manufacturer": "",
-            "item_code": "7290000002895",
-            "price": "109.00",
-            "unit_price": "109.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה צדר עם ויסקי",
-            "manufacturer": "",
-            "item_code": "7290000002952",
-            "price": "169.00",
-            "unit_price": "169.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בולגרית מעודנת 5%",
-            "manufacturer": "",
-            "item_code": "6344",
-            "price": "69.00",
-            "unit_price": "69.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פטה עיזים מסורתית",
-            "manufacturer": "",
-            "item_code": "7290000006345",
-            "price": "149.00",
-            "unit_price": "149.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "טבורוג דרבנסקי 9%",
-            "manufacturer": "",
-            "item_code": "2259",
-            "price": "38.00",
-            "unit_price": "38.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה צדר טריפל",
-            "manufacturer": "",
-            "item_code": "2900",
-            "price": "159.00",
-            "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בסגנון אמנטלר",
-            "manufacturer": "",
-            "item_code": "7290000002008",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה בולגרית 24%",
-            "manufacturer": "",
-            "item_code": "2520",
-            "price": "69.00",
-            "unit_price": "69.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה צהובה נעם 22%",
-            "manufacturer": "",
-            "item_code": "7290000002620",
-            "price": "50.24",
-            "unit_price": "50.2400",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גורגונזולה דולצה",
-            "manufacturer": "",
-            "item_code": "7290000002888",
-            "price": "159.00",
-            "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "ברינזה צאן",
-            "manufacturer": "",
-            "item_code": "7290000002929",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גאודה עשבי תיב",
-            "manufacturer": "",
-            "item_code": "2943",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת שמנת ירקות",
-            "manufacturer": "",
-            "item_code": "7290000006365",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה קממבר",
-            "manufacturer": "",
-            "item_code": "7290000437288",
-            "price": "145.00",
-            "unit_price": "145.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה קממבר כמהין",
-            "manufacturer": "",
-            "item_code": "7290000437462",
-            "price": "145.00",
-            "unit_price": "145.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניק שוויץ עם גבינה",
-            "manufacturer": "",
-            "item_code": "7290000000542",
-            "price": "75.00",
-            "unit_price": "75.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת טבורוג בטעם דו",
-            "manufacturer": "",
-            "item_code": "6221",
-            "price": "52.00",
-            "unit_price": "52.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "נקניקיות גבינה",
-            "manufacturer": "",
-            "item_code": "7290000000679",
-            "price": "59.00",
-            "unit_price": "59.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בסגנון גאודה",
-            "manufacturer": "",
-            "item_code": "2083",
-            "price": "89.00",
-            "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה רדמר גולד",
-            "manufacturer": "",
-            "item_code": "2075",
-            "price": "95.00",
-            "unit_price": "95.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה צדר עם חמוציות",
-            "manufacturer": "",
-            "item_code": "2171",
-            "price": "169.00",
-            "unit_price": "169.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "גבינת פקורינו",
             "manufacturer": "",
             "item_code": "2986",
@@ -8993,16 +8903,6 @@
             "item_code": "2262",
             "price": "129.00",
             "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה דליס דה בורגון",
-            "manufacturer": "",
-            "item_code": "2730",
-            "price": "209.00",
-            "unit_price": "209.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9098,16 +8998,6 @@
             "qty": "1.00"
           },
           {
-            "name": "גאודה עזים לנדנה עם",
-            "manufacturer": "",
-            "item_code": "6197",
-            "price": "219.00",
-            "unit_price": "219.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "גבינת תום",
             "manufacturer": "",
             "item_code": "2989",
@@ -9163,16 +9053,6 @@
             "item_code": "2188",
             "price": "125.00",
             "unit_price": "125.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גרוייר שוויצרי",
-            "manufacturer": "",
-            "item_code": "2186",
-            "price": "229.00",
-            "unit_price": "229.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9328,19 +9208,9 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינת טבורוג משמש",
+            "name": "גבינת טבורוג ריבת חל",
             "manufacturer": "",
-            "item_code": "6413",
-            "price": "55.00",
-            "unit_price": "55.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת טבורוג אוכמניו",
-            "manufacturer": "",
-            "item_code": "6411",
+            "item_code": "6412",
             "price": "55.00",
             "unit_price": "55.0000",
             "unit": "ק\"ג",
@@ -9388,11 +9258,141 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינה גאודה מיושנת ג",
+            "manufacturer": "",
+            "item_code": "2199",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת קשקבל גלגל",
+            "manufacturer": "",
+            "item_code": "6437",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גבינת טבורוג 9%",
             "manufacturer": "",
             "item_code": "6553",
             "price": "42.00",
             "unit_price": "42.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה פרומאג דפינואה",
+            "manufacturer": "",
+            "item_code": "2298",
+            "price": "199.00",
+            "unit_price": "199.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה אורדה",
+            "manufacturer": "",
+            "item_code": "7290000002161",
+            "price": "46.00",
+            "unit_price": "46.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה ברי צרפתי",
+            "manufacturer": "",
+            "item_code": "7290000002222",
+            "price": "119.00",
+            "unit_price": "119.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת כבשים מנצגו",
+            "manufacturer": "",
+            "item_code": "7290000002224",
+            "price": "169.00",
+            "unit_price": "169.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה גאודה עיזים בל",
+            "manufacturer": "",
+            "item_code": "7290000002249",
+            "price": "179.00",
+            "unit_price": "179.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה גאודה חלפניו",
+            "manufacturer": "",
+            "item_code": "2253",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינת מאסדם אמנטל",
+            "manufacturer": "",
+            "item_code": "7290000002313",
+            "price": "79.00",
+            "unit_price": "79.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "חתיכות גבינה",
+            "manufacturer": "",
+            "item_code": "2846",
+            "price": "59.00",
+            "unit_price": "59.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה מונטניולו גרמנ",
+            "manufacturer": "",
+            "item_code": "7290000002867",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה מעושנת טבעי",
+            "manufacturer": "",
+            "item_code": "7290000002895",
+            "price": "109.00",
+            "unit_price": "109.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה צדר עם ויסקי",
+            "manufacturer": "",
+            "item_code": "7290000002952",
+            "price": "169.00",
+            "unit_price": "169.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9448,11 +9448,11 @@
             "qty": "1.00"
           },
           {
-            "name": "רולדה גבינה עיזים עם",
+            "name": "פטה עיזים מסורתית",
             "manufacturer": "",
-            "item_code": "4154",
-            "price": "159.00",
-            "unit_price": "159.0000",
+            "item_code": "7290000006345",
+            "price": "149.00",
+            "unit_price": "149.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9488,6 +9488,76 @@
             "qty": "1.00"
           },
           {
+            "name": "גבינת עיזים סרווילטה",
+            "manufacturer": "",
+            "item_code": "7290000002006",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "בסגנון אמנטלר",
+            "manufacturer": "",
+            "item_code": "7290000002008",
+            "price": "89.00",
+            "unit_price": "89.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה בולגרית 24%",
+            "manufacturer": "",
+            "item_code": "2520",
+            "price": "69.00",
+            "unit_price": "69.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה צהובה נעם 22%",
+            "manufacturer": "",
+            "item_code": "7290000002620",
+            "price": "50.24",
+            "unit_price": "50.2400",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גורגונזולה דולצה",
+            "manufacturer": "",
+            "item_code": "7290000002888",
+            "price": "159.00",
+            "unit_price": "159.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "ברינזה צאן",
+            "manufacturer": "",
+            "item_code": "7290000002929",
+            "price": "99.00",
+            "unit_price": "99.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גבינה גאודה עשבי תיב",
+            "manufacturer": "",
+            "item_code": "2943",
+            "price": "129.00",
+            "unit_price": "129.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
             "name": "גבינה וינו עזים ביין",
             "manufacturer": "",
             "item_code": "7290000002273",
@@ -9518,21 +9588,21 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה אדם כדור",
+            "name": "גבינת טבורוג בטעם דו",
             "manufacturer": "",
-            "item_code": "6589",
-            "price": "89.00",
-            "unit_price": "89.0000",
+            "item_code": "6221",
+            "price": "52.00",
+            "unit_price": "52.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
           },
           {
-            "name": "גבינת טבורוג דומשני",
+            "name": "נקניקיות גבינה",
             "manufacturer": "",
-            "item_code": "6599",
-            "price": "49.00",
-            "unit_price": "49.0000",
+            "item_code": "7290000000679",
+            "price": "59.00",
+            "unit_price": "59.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9618,9 +9688,19 @@
             "qty": "1.00"
           },
           {
-            "name": "גאודה כבשים לנדנה",
+            "name": "גבינה גאודה עיזים דב",
             "manufacturer": "",
-            "item_code": "6200",
+            "item_code": "7450",
+            "price": "189.00",
+            "unit_price": "189.0000",
+            "unit": "ק\"ג",
+            "is_weighted": true,
+            "qty": "1.00"
+          },
+          {
+            "name": "גאודה עזים לנדנה עם",
+            "manufacturer": "",
+            "item_code": "6197",
             "price": "219.00",
             "unit_price": "219.0000",
             "unit": "ק\"ג",
@@ -9628,31 +9708,11 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינת ספרד לה קווה",
+            "name": "רולדה גבינה עיזים עם",
             "manufacturer": "",
-            "item_code": "7290000002327",
-            "price": "219.00",
-            "unit_price": "219.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "בולגרית כבשים",
-            "manufacturer": "",
-            "item_code": "6218",
-            "price": "99.00",
-            "unit_price": "99.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "פטה עיזים",
-            "manufacturer": "",
-            "item_code": "6219",
-            "price": "99.00",
-            "unit_price": "99.0000",
+            "item_code": "4154",
+            "price": "159.00",
+            "unit_price": "159.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9668,51 +9728,11 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינת כבשים 90 יום",
+            "name": "גבינה רולדה עזים עם",
             "manufacturer": "",
-            "item_code": "2338",
+            "item_code": "5327",
             "price": "159.00",
             "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת כבשים 10 חודשי",
-            "manufacturer": "",
-            "item_code": "2339",
-            "price": "179.00",
-            "unit_price": "179.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גאודה בימסטר מדיום ג",
-            "manufacturer": "",
-            "item_code": "2343",
-            "price": "129.00",
-            "unit_price": "129.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גאודה בימסטר קלאסיק",
-            "manufacturer": "",
-            "item_code": "2344",
-            "price": "139.00",
-            "unit_price": "139.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גרוייר מילד מר",
-            "manufacturer": "",
-            "item_code": "2276",
-            "price": "189.00",
-            "unit_price": "189.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
@@ -9728,111 +9748,11 @@
             "qty": "1.00"
           },
           {
-            "name": "גבינה גאודה טריקולור",
-            "manufacturer": "",
-            "item_code": "6194",
-            "price": "199.00",
-            "unit_price": "199.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה פול אפי",
-            "manufacturer": "",
-            "item_code": "7290000002825",
-            "price": "219.00",
-            "unit_price": "219.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה צדר אנגלי",
-            "manufacturer": "",
-            "item_code": "7290000002831",
-            "price": "159.00",
-            "unit_price": "159.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה ברי לרוסטיק",
-            "manufacturer": "",
-            "item_code": "7290000002832",
-            "price": "189.00",
-            "unit_price": "189.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
             "name": "גבינה שוויצרית",
             "manufacturer": "",
             "item_code": "5329",
             "price": "89.00",
             "unit_price": "89.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה ברס בלו",
-            "manufacturer": "",
-            "item_code": "7290000002833",
-            "price": "209.00",
-            "unit_price": "209.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת סנט מור",
-            "manufacturer": "",
-            "item_code": "7290000002839",
-            "price": "209.00",
-            "unit_price": "209.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה גאודה איטלקית",
-            "manufacturer": "",
-            "item_code": "6177",
-            "price": "139.00",
-            "unit_price": "139.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינת ברי בקר עם אגו",
-            "manufacturer": "",
-            "item_code": "6226",
-            "price": "139.00",
-            "unit_price": "139.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה בולגרית 16% מס",
-            "manufacturer": "",
-            "item_code": "7290000002033",
-            "price": "55.00",
-            "unit_price": "55.0000",
-            "unit": "ק\"ג",
-            "is_weighted": true,
-            "qty": "1.00"
-          },
-          {
-            "name": "גבינה מוצרלה",
-            "manufacturer": "",
-            "item_code": "7290000002041",
-            "price": "99.00",
-            "unit_price": "99.0000",
             "unit": "ק\"ג",
             "is_weighted": true,
             "qty": "1.00"
